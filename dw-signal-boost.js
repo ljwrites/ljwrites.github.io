@@ -126,17 +126,21 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
      // second, parse out links for user names  
 
      if (siteName == "archiveofourown.org") {
-         if (folderURL=='users' && subFolderURL.length > 0) { //if on user page
+         if (Boolean(folderURL) && folderURL=='users' && Boolean(subFolderURL)) { //if on user page
             return subFolderURL;
          } else { //if on story page
-             var authorURL = document.querySelector('a[rel="author"]').getAttribute('href');
+             try {
+                 var authorURL = document.querySelector('a[rel="author"]').getAttribute('href');
+             } catch(err) {
+                 return;
+             }
              var authorURLSplit = authorURL.substr(1).split('/');
              if(authorURLSplit[0] == "users" && authorURLSplit[1].length >= 1) {
                  return authorURLSplit[1];
              }
          }
      } else if (siteName=="fanfiction.net") {
-         if (folderURL == 'u' && subSubFolderURL.length > 0) { // user page
+         if (Boolean(folderURL) && folderURL == 'u' && Boolean(subSubFolderURL)) { // user page
              return subSubFolderURL;
          } else {
              try {
@@ -151,42 +155,48 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
              }
          }
      } else if (siteName=="medium.com") {
-         if(folderURL.charAt(0)=='@') { // user page, or article under user URL
+         if(Boolean(folderURL) && folderURL.charAt(0)=='@') { // user page, or article under user URL
              return folderURL.substr(1);
          } else { // parse author link
-             var authorURL = document.querySelector('a[href~="medium.com/@"]').getAttribute('href');
-             if (authorURL.length > 0) {
-                 return authorURL.substr(authorURL.indexOf('@')+1);
+             try {
+                 var authorURL = document.querySelector('a[href~="medium.com/@"]').getAttribute('href');
+             } catch(err) {
+                 return;
              }
+             return authorURL.substr(authorURL.indexOf('@')+1);
          }
-     } else if (siteName.includes("pinterest.co")) { //within individual pins
-         if (folderURL == "pin") {
-             var authorURLChild = document.querySelector('a[rel]' + ' ' + 'div[data-test-id="creator-profile-name"]');
-             var authorURL = authorURLChild.parentNode.getAttribute('href');
-             if (authorURL.length > 0) {
-                 return authorURL.substr(1,authorURL.length-2);
+     } else if (siteName.includes("pinterest.co")) {
+         if (Bolean(folderURL) && folderURL == "pin") { // within individual pins
+             try {
+                 var authorURLChild = document.querySelector('a[rel]' + ' ' + 'div[data-test-id="creator-profile-name"]');
+             } catch(err) {
+                 return;
              }
-         } else if (folderURL.length > 0) { //user page
+             var authorURL = authorURLChild.parentNode.getAttribute('href');
+             return authorURL.substr(1,authorURL.length-2);
+         } else if (Boolean(folderURL)) { //user page
              return folderURL;
          }
      } else if (siteName=="ravelry.com") {
-         if (folderURL == 'designers') { // user page
+         if (Boolean(folderURL) && folderURL == 'designers') { // user page
              return subFolderURL;
          }
          else { // try to parse designer page link
-             var authorURL = document.querySelector('a[href~=www.ravelry.com/designers/]').getAttribute('href');
-             if (authorURL.length >=1) {
-                 var authorURLSplit = authorURL.split('/');
-                 return authorURLSplit[authorURLSplit.length - 1]; //last part of author url
+             try {
+                 var authorURL = document.querySelector('a[href~=www.ravelry.com/designers/]').getAttribute('href');
+             } catch(err) {
+                 return;
              }
+             var authorURLSplit = authorURL.split('/');
+             return authorURLSplit[authorURLSplit.length - 1]; //last part of author url
          }
-     }
+     }// this should probably be another function too...
      
      // another simple case, where the first folder name is the username
      var i = 0;
      var knownSites = folderUserNames;
      while (i<knownSites.length) {
-         if (siteName == knownSites[i] && folderURL.length > 0) {
+         if (siteName == knownSites[i] && Boolean(folderURL)) {
              return folderURL;
          }
          i++;
@@ -196,20 +206,18 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
     // AO3, FFN, Ravelry.com are treated as branches of the link usernames above
     
     if (siteName=="journalfen.com") {
-        if (folderURL=='users' && subFolderURL.length > 0) {
+        if (Boolean(folderURL) && folderURL=='users' && Boolean(subFolderURL)) {
             return subFolderURL;
         }
     }
     if (siteName=="last.fm") {
-        if(folderURL=='user' && subFolderURL.length > 0) {
+        if(Boolean(folderURL) && folderURL=='user' && Boolean(subFolderURL)) {
             return subFolderURL;
         }
     }
-    if (subDomain=="lj" && siteName=="rossia.org") {
+    if (subDomain=="lj" && siteName=="rossia.org" && Boolean (folderURL) && Boolean(subFolderURL)) {
         if(folderURL=='community' || folderURL=='users') {
-            if(subFolderURL.length>0) {
-                return subFolderURL;
-            }
+            return subFolderURL;
         }
     }
     
