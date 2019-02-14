@@ -129,7 +129,7 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
          if (folderURL=='users' && subFolderURL.length > 0) { //if on user page
             return subFolderURL;
          } else { //if on story page
-             var authorURL = document.querySelector('a[rel=author]').getAttribute('href');
+             var authorURL = document.querySelector('a[rel="author"]').getAttribute('href');
              var authorURLSplit = authorURL.substr(1).split('/');
              if(authorURLSplit[0] == "users" && authorURLSplit[1].length >= 1) {
                  return authorURLSplit[1];
@@ -139,7 +139,7 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
          if (folderURL == 'u' && subSubFolderURL.length > 0) { // user page
              return subSubFolderURL;
          } else {
-             var authorURL = document.querySelector('a[href~=/u/]').getAttribute('href');
+             var authorURL = document.querySelector('a[href~="/u/"]').getAttribute('href');
              var authorURLSplit = authorURL.substr(1).split('/');
              if(authorURLSplit[0] == "u" && authorURLSplit[2].length > 0) {
                  return authorURLSplit[2];
