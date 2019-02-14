@@ -269,18 +269,12 @@ function boost() {
     var linkText = ""; 
      
     var userName = getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL);
-    
-    //debug
-    try {
-        alert(userName);
-    } catch(err) {
-        alert("no user name!");
-    }
-     
+   
 
-    if(!userName)
-        {linkText = linkText + 'From <strong><a href="http://' + subDomain + (subDomain=='')?'':'.' + siteName + '">' + subDomain + (subDomain=='')?'':'.' + siteName + '</a>:</strong> ';}
-    else {
+    //if(!userName)
+        //{linkText = linkText + 'From <strong><a href="http://' + subDomain + (subDomain=='')?'':'.' + siteName + '">' + subDomain + (subDomain=='')?'':'.' + siteName + '</a>:</strong> ';}
+
+    if (userName.length > 0) {
         // clean up some sites' usernames
          if (userName.charAt(0) == '@') { // for Medium usernames; redundant
              var userName = userName.substr(1);
