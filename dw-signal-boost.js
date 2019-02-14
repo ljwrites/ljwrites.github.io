@@ -149,14 +149,14 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
          if(folderURL.charAt(0)=='@') { // user page, or article under user URL
              return folderURL.substr(1);
          } else { // parse author link
-             var authorURL = document.querySelector("a[href~=medium.com/@]").getAttribute('href');
+             var authorURL = document.querySelector('a[href~="medium.com/@"]').getAttribute('href');
              if (authorURL.length > 0) {
                  return authorURL.substr(authorURL.indexOf('@')+1);
              }
          }
      } else if (siteName.includes("pinterest.co")) { //within individual pins
          if (folderURL == "pin") {
-             var authorURLChild = document.querySelector(a[rel] div[data-test-id=creator-profile-name]);
+             var authorURLChild = document.querySelector('a[rel]' + ' ' + 'div[data-test-id="creator-profile-name"]');
              var authorURL = authorURLChild.parentNode.getAttribute('href');
              if (authorURL.length > 0) {
                  return authorURL.substr(1,authorURL.length-2);
