@@ -222,7 +222,7 @@ function boost() {
     var strippedURL = curURL.substr(curURL.indexOf('/')+2);
     
     // debug
-    alert(strippedURL);
+    //alert(strippedURL);
     
     // split the stripped URL string by slashes
     // first part is server and domain name  
@@ -232,7 +232,7 @@ function boost() {
     var subSubFolderURL = strippedURL.split('/')[3];
     
     //split the server and domain name parts by periods
-    var serverDomainParts = serverDomain.split['.'];
+    var serverDomainParts = serverDomain.split('.');
     
     //if array serverDomainParts has only one element, it's not a valid URL and the script should be aborted
     if (serverDomainParts.length <= 1)
