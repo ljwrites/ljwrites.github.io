@@ -139,15 +139,15 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
          if (folderURL == 'u' && subSubFolderURL.length > 0) { // user page
              return subSubFolderURL;
          } else {
-             var authorURL = document.querySelector('a[href~=/u/]').getAttribute('href');
-             if (authorURL) {
-                 var authorURLSplit = authorURL.substr(1).split('/');
-                 if(authorURLSplit[0] == "u" && authorURLSplit[2].length > 0) {
-                     return authorURLSplit[2];
-                 }
+             try {
+                 var authorURL = document.querySelector('a[href~=/u/]').getAttribute('href');
              }
-             else {
+             catch(err) {
                  return;
+             }
+             var authorURLSplit = authorURL.substr(1).split('/');
+             if(authorURLSplit[0] == "u" && authorURLSplit[2].length > 0) {
+                 return authorURLSplit[2];
              }
          }
      } else if (siteName=="medium.com") {
