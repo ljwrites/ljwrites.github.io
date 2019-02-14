@@ -258,8 +258,8 @@ function boost() {
         var siteName = serverDomainParts[1] + '.' + serverDomainParts[2];
     }
     //debug
-    alert("subdomain");
-    alert("siteName");  
+    alert(subDomain);
+    alert(siteName);  
   
     // title of current post
     var curTitle = document.title;
