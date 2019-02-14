@@ -140,7 +140,7 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
              return subSubFolderURL;
          } else {
              try {
-                 var authorURL = document.querySelector('a[href~=/u/]').getAttribute('href');
+                 var authorURL = document.querySelector('a[href~="/u/"]').getAttribute('href');
              }
              catch(err) {
                  return;
