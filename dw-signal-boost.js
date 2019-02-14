@@ -270,11 +270,11 @@ function boost() {
      
     var userName = getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL);
    
-
+    // commented out alternate 'From' text in case of no username
     //if(!userName)
         //{linkText = linkText + 'From <strong><a href="http://' + subDomain + (subDomain=='')?'':'.' + siteName + '">' + subDomain + (subDomain=='')?'':'.' + siteName + '</a>:</strong> ';}
 
-    if (userName.length > 0) {
+    if (userName) {
         // clean up some sites' usernames
          if (userName.charAt(0) == '@') { // for Medium usernames; redundant
              var userName = userName.substr(1);
@@ -297,8 +297,6 @@ function boost() {
         var linkText = linkText + '<user name="' + userName + '" site=' + userTagSiteAttribute + '> posted: ';
     }
      
-    // if can't get a recognizable username, go to "from" link text
-    
     //builds rest of boost
     linkText = linkText + '<strong><a href="' + curURL + '">' + curTitle + '</a></strong>';
     linkText = linkText ;
