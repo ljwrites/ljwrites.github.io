@@ -63,15 +63,22 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
     var linkUserNames = [
         "archiveofourown.org", //<a rel="author" href="/users/username/pseuds/pseudonym">
         "fanfiction.net", //<a class='xcontrast_txt' href='/u/[numstring]/User-Name'>User Name</a>
-        "medium.com" //<a class="ds-link ds-link--styleSubtle ui-captionStrong u-inlineBlock link link--darken link--darker" href="https://medium.com/@username" data-action="show-user-card" data-action-value="4f7002092ec" data-action-type="hover" data-user-id="4f7002092ec" dir="auto">
+        "medium.com", //<a class="ds-link ds-link--styleSubtle ui-captionStrong u-inlineBlock link link--darken link--darker" href="https://medium.com/@username" data-action="show-user-card" data-action-value="4f7002092ec" data-action-type="hover" data-user-id="4f7002092ec" dir="auto">
+        "pinterest.com", //pinterest.* SPECIAL CASE FOR COUNTRY-SPECIFIC TLDs <a href="/username/"><div data-test-id="creator-profile-name">
+        "ravelry.com" //<a href="https://www.ravelry.com/designers/user-name"> 
         ];
 
     // sites where user names are in folders
     var folderUserNames = [
         "deviantart.com", //www.deviantart.com/username/
+        "facebook.com", //www.facebook.com/username/
+        "github.com", //gist.github.com/username
+        "instagram.com", //www.instagram.com/username
         "medium.com", //https://medium.com/@username/title
         "pinboard.in", //https://pinboard.in/u:username/b:boardid
-        "plurk.com" //https://www.plurk.com/username
+        "pinterest.com", //https://www.pinterest.com/username (if folder is not 'pin')
+        "plurk.com", //https://www.plurk.com/username
+        "twitter.com" //www.twitter.com/username/etc
         ];
     
     // sites where user names are in subfolders
@@ -80,18 +87,10 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
         "fanfiction.net", // https://www.fanfiction.net/u/userid/username
         "journalfen.com", //journalfen.com/users/username
         "last.fm", //https://www.last.fm/user/username/etc/etc/
-        "lj.rossia.org" //http://lj.rossia.org/community/comm/ , http://lj.rossia.org/users/username/
+        "lj.rossia.org", //http://lj.rossia.org/community/comm/ , http://lj.rossia.org/users/username/
+        "ravelry.com" //https://www.ravelry.com/designers/username
         ];
      
-     // sites recognized by dw but where script is unusable
-        //"facebook.com", //www.facebook.com/username/
-        //"github.com", //gist.github.com/username
-        //"instagram.com", //www.instagram.com/username
-        //"pinterest.com", //pinterest.* SPECIAL CASE FOR COUNTRY-SPECIFIC TLDs <a href="/username/"><div data-test-id="creator-profile-name">
-        //"pinterest.com", //https://www.pinterest.com/username (if folder is not 'pin')
-        //"ravelry.com" //<a href="https://www.ravelry.com/designers/user-name"> 
-        //"ravelry.com", //https://www.ravelry.com/designers/username
-        //"twitter.com", //www.twitter.com/username/etc
     // username cannot be retrieved
         //"youtube.com" //no easy way to retrieve username, actually not sure what username is...
      
@@ -166,7 +165,32 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
              }
              return authorURL.substr(authorURL.indexOf('@')+1);
          }
-     }
+     } else if (siteName.includes("pinterest.co")) {
+         if (Bolean(folderURL) && folderURL == "pin") { // within individual pins
+             try {
+                 var authorURLChild = document.querySelector('a[rel]' + ' ' + 'div[data-test-id="creator-profile-name"]');
+             } catch(err) {
+                 return;
+             }
+             var authorURL = authorURLChild.parentNode.getAttribute('href');
+             return authorURL.substr(1,authorURL.length-2);
+         } else if (Boolean(folderURL)) { //user page
+             return folderURL;
+         }
+     } else if (siteName=="ravelry.com") {
+         if (Boolean(folderURL) && folderURL == 'designers') { // user page
+             return subFolderURL;
+         }
+         else { // try to parse designer page link
+             try {
+                 var authorURL = document.querySelector('a[href~=www.ravelry.com/designers/]').getAttribute('href');
+             } catch(err) {
+                 return;
+             }
+             var authorURLSplit = authorURL.split('/');
+             return authorURLSplit[authorURLSplit.length - 1]; //last part of author url
+         }
+     }// this should probably be another function too...
     
      // another simple case, where the first folder name is the username
      var i = 0;
