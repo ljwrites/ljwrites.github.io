@@ -50,51 +50,31 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
     // arrays of sites known to DW for the user tag
     // sites where subdomains are user names, dw style
     var subDomainUserNames = [
-        "dreamwidth.org", //user.dreamwidth.org
+        "blogger.com", //user.blogspot.* SPECIAL CASE FOR COUNTRY-SPECIFIC TLDs
         "deadjournal.com", //user.deadjournal.com
+        "dreamwidth.org", //user.dreamwidth.org
         "insanejournal.com", //user.insanejournal.com
         "livejournal.com", //user.livejournal.com
         "tumblr.com", //user.tumblr.com
-        "wordpress.com", //user.wordpress.com
-        "blogger.com" //user.blogspot.* SPECIAL CASE FOR COUNTRY-SPECIFIC TLDs
-        ];
-
-    // sites where user names are extracted from on-page links (may overlap with folderUserNames, depending on page type)
-    var linkUserNames = [
-        "archiveofourown.org", //<a rel="author" href="/users/username/pseuds/pseudonym">
-        "fanfiction.net", //<a class='xcontrast_txt' href='/u/[numstring]/User-Name'>User Name</a>
-        "medium.com", //<a class="ds-link ds-link--styleSubtle ui-captionStrong u-inlineBlock link link--darken link--darker" href="https://medium.com/@username" data-action="show-user-card" data-action-value="4f7002092ec" data-action-type="hover" data-user-id="4f7002092ec" dir="auto">
-        "pinterest.com", //pinterest.* SPECIAL CASE FOR COUNTRY-SPECIFIC TLDs <a href="/username/"><div data-test-id="creator-profile-name">
-        "ravelry.com" //<a href="https://www.ravelry.com/designers/user-name"> 
+        "wordpress.com" //user.wordpress.com
         ];
 
     // sites where user names are in folders
     var folderUserNames = [
         "deviantart.com", //www.deviantart.com/username/
         "facebook.com", //www.facebook.com/username/
-        "github.com", //gist.github.com/username
         "instagram.com", //www.instagram.com/username
         "medium.com", //https://medium.com/@username/title
         "pinboard.in", //https://pinboard.in/u:username/b:boardid
-        "pinterest.com", //https://www.pinterest.com/username (if folder is not 'pin')
-        "plurk.com", //https://www.plurk.com/username
-        "twitter.com" //www.twitter.com/username/etc
+        "plurk.com" //https://www.plurk.com/username
         ];
     
-    // sites where user names are in subfolders
-    var subFolderUserNames = [    
-        "archiveofourown.org", // https://archiveofourown.org/users/username/etc/etc
-        "fanfiction.net", // https://www.fanfiction.net/u/userid/username
-        "journalfen.com", //journalfen.com/users/username
-        "last.fm", //https://www.last.fm/user/username/etc/etc/
-        "lj.rossia.org", //http://lj.rossia.org/community/comm/ , http://lj.rossia.org/users/username/
-        "ravelry.com" //https://www.ravelry.com/designers/username
-        ];
-     
-    // username cannot be retrieved
+        // sites that don't allow JavaScript bookmarklets
+            //"github.com", //gist.github.com/username
+            //"pinterest.com", //https://www.pinterest.com/username (if folder is not 'pin')
+            //"twitter.com" //www.twitter.com/username/etc
         //"youtube.com" //no easy way to retrieve username, actually not sure what username is...
-     
-     // other recognized sites are omitted due to being defunct
+        // other recognized sites are omitted due to being defunct
     
     // match against sites known to Dreamwidth to insert the 'site' attribute of the user tag, if one can be identified
      
@@ -164,18 +144,6 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
                  return;
              }
              return authorURL.substr(authorURL.indexOf('@')+1);
-         }
-     } else if (siteName.includes("pinterest.co")) {
-         if (Bolean(folderURL) && folderURL == "pin") { // within individual pins
-             try {
-                 var authorURLChild = document.querySelector('a[rel]' + ' ' + 'div[data-test-id="creator-profile-name"]');
-             } catch(err) {
-                 return;
-             }
-             var authorURL = authorURLChild.parentNode.getAttribute('href');
-             return authorURL.substr(1,authorURL.length-2);
-         } else if (Boolean(folderURL)) { //user page
-             return folderURL;
          }
      } else if (siteName=="ravelry.com") {
          if (Boolean(folderURL) && folderURL == 'designers') { // user page
