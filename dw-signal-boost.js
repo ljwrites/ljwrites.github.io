@@ -140,9 +140,14 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
              return subSubFolderURL;
          } else {
              var authorURL = document.querySelector('a[href~="/u/"]').getAttribute('href');
-             var authorURLSplit = authorURL.substr(1).split('/');
-             if(authorURLSplit[0] == "u" && authorURLSplit[2].length > 0) {
-                 return authorURLSplit[2];
+             if (authorURL) {
+                 var authorURLSplit = authorURL.substr(1).split('/');
+                 if(authorURLSplit[0] == "u" && authorURLSplit[2].length > 0) {
+                     return authorURLSplit[2];
+                 }
+             }
+             else {
+                 return;
              }
          }
      } else if (siteName=="medium.com") {
