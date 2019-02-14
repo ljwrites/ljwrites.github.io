@@ -143,6 +143,8 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
                  var authorURL = document.querySelector('a[href~="/u/"]').getAttribute('href');
              }
              catch(err) {
+                 //debug
+                 alert("no username!");
                  return;
              }
              var authorURLSplit = authorURL.substr(1).split('/');
