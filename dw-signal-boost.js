@@ -257,9 +257,6 @@ function boost() {
         var subDomain = serverDomainParts[0];
         var siteName = serverDomainParts[1] + '.' + serverDomainParts[2];
     }
-    //debug
-    alert(subDomain);
-    alert(siteName);  
   
     // title of current post
     var curTitle = document.title;
@@ -272,9 +269,19 @@ function boost() {
     var linkText = ""; 
      
     var userName = getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL);
+    
+    //debug
+    try {
+        alert(userName);
+    } catch(err) {
+        alert("no user name!");
+    }
      
-     // clean up some sites' usernames
-     if (userName) {
+
+    if(!userName)
+        {linkText = linkText + 'From <strong><a href="http://' + subDomain + (subDomain=='')?'':'.' + siteName + '">' + subDomain + (subDomain=='')?'':'.' + siteName + '</a>:</strong> ';}
+    else {
+        // clean up some sites' usernames
          if (userName.charAt(0) == '@') { // for Medium usernames; redundant
              var userName = userName.substr(1);
          } else if (userName.substr(0,2) == 'u:') { // pinboard.in
@@ -297,8 +304,6 @@ function boost() {
     }
      
     // if can't get a recognizable username, go to "from" link text
-    else
-        {linkText = linkText + 'From <strong><a href="http://' + subDomain + (subDomain=='')?'':'.' + siteName + '">' + subDomain + (subDomain=='')?'':'.' + siteName + '</a>:</strong> ';}
     
     //builds rest of boost
     linkText = linkText + '<strong><a href="' + curURL + '">' + curTitle + '</a></strong>';
