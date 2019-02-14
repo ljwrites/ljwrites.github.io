@@ -63,15 +63,12 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
     var linkUserNames = [
         "archiveofourown.org", //<a rel="author" href="/users/username/pseuds/pseudonym">
         "fanfiction.net", //<a class='xcontrast_txt' href='/u/[numstring]/User-Name'>User Name</a>
-        "medium.com", //<a class="ds-link ds-link--styleSubtle ui-captionStrong u-inlineBlock link link--darken link--darker" href="https://medium.com/@username" data-action="show-user-card" data-action-value="4f7002092ec" data-action-type="hover" data-user-id="4f7002092ec" dir="auto">
+        "medium.com" //<a class="ds-link ds-link--styleSubtle ui-captionStrong u-inlineBlock link link--darken link--darker" href="https://medium.com/@username" data-action="show-user-card" data-action-value="4f7002092ec" data-action-type="hover" data-user-id="4f7002092ec" dir="auto">
         ];
 
     // sites where user names are in folders
     var folderUserNames = [
         "deviantart.com", //www.deviantart.com/username/
-        "facebook.com", //www.facebook.com/username/
-        "github.com", //gist.github.com/username
-        "instagram.com", //www.instagram.com/username
         "medium.com", //https://medium.com/@username/title
         "pinboard.in", //https://pinboard.in/u:username/b:boardid
         "plurk.com" //https://www.plurk.com/username
@@ -87,6 +84,9 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
         ];
      
      // sites recognized by dw but where script is unusable
+        //"facebook.com", //www.facebook.com/username/
+        //"github.com", //gist.github.com/username
+        //"instagram.com", //www.instagram.com/username
         //"pinterest.com", //pinterest.* SPECIAL CASE FOR COUNTRY-SPECIFIC TLDs <a href="/username/"><div data-test-id="creator-profile-name">
         //"pinterest.com", //https://www.pinterest.com/username (if folder is not 'pin')
         //"ravelry.com" //<a href="https://www.ravelry.com/designers/user-name"> 
