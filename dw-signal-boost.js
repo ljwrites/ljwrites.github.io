@@ -143,8 +143,6 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
                  var authorURL = document.querySelector('a[href~="/u/"]').getAttribute('href');
              }
              catch(err) {
-                 //debug
-                 alert("no username!");
                  return;
              }
              var authorURLSplit = authorURL.substr(1).split('/');
@@ -258,8 +256,10 @@ function boost() {
     else if (serverDomainParts.length >=3){
         var subDomain = serverDomainParts[0];
         var siteName = serverDomainParts[1] + '.' + serverDomainParts[2];
-    }       
-  
+    }
+    //debug
+    alert("subdomain");
+    alert("siteName");  
   
     // title of current post
     var curTitle = document.title;
@@ -298,7 +298,7 @@ function boost() {
      
     // if can't get a recognizable username, go to "from" link text
     else
-        {linkText = linkText + 'From <strong><a href="http://' + subDomain + (subDomain.length > 0)?'.':'' + siteName + '">' + subDomain + (subDomain.length > 0)?'.':'' + siteName + '</a>:</strong> ';}
+        {linkText = linkText + 'From <strong><a href="http://' + subDomain + (subDomain=='')?'':'.' + siteName + '">' + subDomain + (subDomain=='')?'':'.' + siteName + '</a>:</strong> ';}
     
     //builds rest of boost
     linkText = linkText + '<strong><a href="' + curURL + '">' + curTitle + '</a></strong>';
