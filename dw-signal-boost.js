@@ -156,7 +156,7 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
          }
      } else if (siteName.includes("pinterest.co")) { //within individual pins
          if (folderURL == "pin") {
-             var authorURLChild = document.querySelector('a[rel]' 'div[data-test-id=creator-profile-name]');
+             var authorURLChild = document.querySelector(a[rel] div[data-test-id=creator-profile-name]);
              var authorURL = authorURLChild.parentNode.getAttribute('href');
              if (authorURL.length > 0) {
                  return authorURL.substr(1,authorURL.length-2);
