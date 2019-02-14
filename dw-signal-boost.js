@@ -139,7 +139,7 @@ function getUserName(subDomain,siteName,folderURL,subFolderURL,subSubFolderURL) 
          if (folderURL == 'u' && subSubFolderURL.length > 0) { // user page
              return subSubFolderURL;
          } else {
-             var authorURL = document.querySelector('a[href~="/u/"]').getAttribute('href');
+             var authorURL = document.querySelector('a[href~=/u/]').getAttribute('href');
              if (authorURL) {
                  var authorURLSplit = authorURL.substr(1).split('/');
                  if(authorURLSplit[0] == "u" && authorURLSplit[2].length > 0) {
