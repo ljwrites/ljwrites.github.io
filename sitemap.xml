@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/about/</loc>
+    <loc>http://ljwrites.github.io/about/</loc>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>http://ljwrites.github.io/categories/</loc>
   </url><url>
-    <loc>http://example.org/tags/hanja/</loc>
+    <loc>http://ljwrites.github.io/tags/hanja/</loc>
   </url><url>
-    <loc>http://example.org/tags/korea/</loc>
+    <loc>http://ljwrites.github.io/tags/korea/</loc>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>http://ljwrites.github.io/</loc>
   </url><url>
-    <loc>http://example.org/posts/on-gardening-poem/</loc>
+    <loc>http://ljwrites.github.io/posts/on-gardening-poem/</loc>
   </url><url>
-    <loc>http://example.org/tags/poetry/</loc>
+    <loc>http://ljwrites.github.io/tags/poetry/</loc>
   </url><url>
-    <loc>http://example.org/posts/</loc>
+    <loc>http://ljwrites.github.io/posts/</loc>
   </url><url>
-    <loc>http://example.org/search/</loc>
+    <loc>http://ljwrites.github.io/search/</loc>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>http://ljwrites.github.io/tags/</loc>
   </url><url>
-    <loc>http://example.org/categories/translation/</loc>
+    <loc>http://ljwrites.github.io/categories/translation/</loc>
   </url>
 </urlset>
