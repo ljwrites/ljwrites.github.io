@@ -6,23 +6,23 @@
     <description>Recent content in Posts on O but flowers fade 花發又愁落</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 May 2021 15:27:29 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>No, Andrew Lee Is Not the &#34;Crown Prince of Korea&#34; (there is someone who comes close, though)</title>
-      <link>http://ljwrites.blog/posts/crown-prince-korea/</link>
-      <pubDate>Sat, 29 May 2021 15:27:29 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/posts/crown-prince-korea/</guid>
-      <description>The Korean-American businessman Andrew Lee is not the Crown Prince of Korea. The last Crown Prince of Korea has a living heir, though, which is in many ways a more interesting story. One that requires diagrams.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 01 Jun 2021 19:15:25 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Simple Directory Backup with a systemd Timer</title>
       <link>http://ljwrites.blog/posts/backup-systemd-timer/</link>
-      <pubDate>Thu, 27 May 2021 18:52:30 +0900</pubDate>
+      <pubDate>Tue, 01 Jun 2021 19:15:25 +0900</pubDate>
       
       <guid>http://ljwrites.blog/posts/backup-systemd-timer/</guid>
       <description>How I set up a systemd timer for regular automated backups of selected directories.</description>
+    </item>
+    
+    <item>
+      <title>No, Andrew Lee Is Not the &#34;Crown Prince of Korea&#34; (there is someone who comes close, though)</title>
+      <link>http://ljwrites.blog/posts/crown-prince-korea/</link>
+      <pubDate>Tue, 01 Jun 2021 17:16:43 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/crown-prince-korea/</guid>
+      <description>The Korean-American businessman Andrew Lee is not the Crown Prince of Korea. The last Crown Prince of Korea has a living heir, though, which is in many ways a more interesting story. One that requires diagrams.</description>
     </item>
     
     <item>
