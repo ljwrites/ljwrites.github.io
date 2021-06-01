@@ -6,11 +6,11 @@
     <description>Recent content in technology on O but flowers fade 花發又愁落</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Jun 2021 19:15:25 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 20:28:55 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Simple Directory Backup with a systemd Timer</title>
       <link>http://ljwrites.blog/posts/backup-systemd-timer/</link>
-      <pubDate>Tue, 01 Jun 2021 19:15:25 +0900</pubDate>
+      <pubDate>Tue, 01 Jun 2021 20:28:55 +0900</pubDate>
       
       <guid>http://ljwrites.blog/posts/backup-systemd-timer/</guid>
       <description>How I set up a systemd timer for regular automated backups of selected directories.</description>
