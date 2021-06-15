@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on O but flowers fade 花發又愁落</title>
+    <link>http://ljwrites.blog/tags/emacs/</link>
+    <description>Recent content in emacs on O but flowers fade 花發又愁落</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mu4e Error in Process Sentinel: Mu Server Process Ended with Exit 1</title>
+      <link>http://ljwrites.blog/posts/mu4e-mu-server-process-error/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/mu4e-mu-server-process-error/</guid>
+      <description>Shutting down mu server turned out to be effective when mu4e wouldn&amp;rsquo;t start.</description>
+    </item>
+    
+  </channel>
+</rss>

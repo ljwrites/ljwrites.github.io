@@ -3,37 +3,55 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://ljwrites.blog/categories/</loc>
-    <lastmod>2021-06-15T15:18:11+09:00</lastmod>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/how-i-got-into-emacs/</loc>
     <lastmod>2021-06-15T14:59:42+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/</loc>
-    <lastmod>2021-06-15T15:18:11+09:00</lastmod>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/</loc>
-    <lastmod>2021-06-15T15:18:11+09:00</lastmod>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/technology/</loc>
-    <lastmod>2021-06-15T14:59:42+09:00</lastmod>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/emacs/</loc>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/email/</loc>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/internet/</loc>
-    <lastmod>2021-06-15T13:43:59+09:00</lastmod>
+    <lastmod>2021-06-15T15:20:28+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/linux/</loc>
-    <lastmod>2021-06-15T13:43:59+09:00</lastmod>
+    <lastmod>2021-06-15T15:20:28+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/mu/</loc>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/mu4e/</loc>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/posts/mu4e-mu-server-process-error/</loc>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/networkmanager/</loc>
-    <lastmod>2021-06-15T13:43:59+09:00</lastmod>
+    <lastmod>2021-06-15T15:20:28+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/systemd/</loc>
-    <lastmod>2021-06-15T13:43:59+09:00</lastmod>
+    <lastmod>2021-06-15T15:20:28+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/</loc>
-    <lastmod>2021-06-15T15:18:11+09:00</lastmod>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/troubleshooting/</loc>
+    <lastmod>2021-06-15T15:24:20+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/troubleshoot-network/</loc>
-    <lastmod>2021-06-15T13:43:59+09:00</lastmod>
+    <lastmod>2021-06-15T15:20:28+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/china/</loc>
     <lastmod>2021-06-04T03:41:53+09:00</lastmod>

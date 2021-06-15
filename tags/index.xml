@@ -8,6 +8,24 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>emacs</title>
+      <link>http://ljwrites.blog/tags/emacs/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>email</title>
+      <link>http://ljwrites.blog/tags/email/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/email/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>internet</title>
       <link>http://ljwrites.blog/tags/internet/</link>
       <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
@@ -26,6 +44,24 @@
     </item>
     
     <item>
+      <title>mu</title>
+      <link>http://ljwrites.blog/tags/mu/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/mu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mu4e</title>
+      <link>http://ljwrites.blog/tags/mu4e/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/mu4e/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>networkManager</title>
       <link>http://ljwrites.blog/tags/networkmanager/</link>
       <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
@@ -40,6 +76,15 @@
       <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/systemd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>troubleshooting</title>
+      <link>http://ljwrites.blog/tags/troubleshooting/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/troubleshooting/</guid>
       <description></description>
     </item>
     
@@ -139,24 +184,6 @@
       <pubDate>Sat, 29 May 2021 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/backup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rsync</title>
-      <link>http://ljwrites.blog/tags/rsync/</link>
-      <pubDate>Sat, 29 May 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/rsync/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>scripts</title>
-      <link>http://ljwrites.blog/tags/scripts/</link>
-      <pubDate>Sat, 29 May 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/scripts/</guid>
       <description></description>
     </item>
     
