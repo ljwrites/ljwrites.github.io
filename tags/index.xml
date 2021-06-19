@@ -6,13 +6,22 @@
     <description>Recent content in Tags on O but flowers fade 花發又愁落</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>emacs</title>
       <link>http://ljwrites.blog/tags/emacs/</link>
-      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>evilMode</title>
+      <link>http://ljwrites.blog/tags/evilmode/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/evilmode/</guid>
       <description></description>
     </item>
     
@@ -175,15 +184,6 @@
       <pubDate>Tue, 01 Jun 2021 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/history/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>backup</title>
-      <link>http://ljwrites.blog/tags/backup/</link>
-      <pubDate>Sat, 29 May 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/backup/</guid>
       <description></description>
     </item>
     

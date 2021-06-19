@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>evilMode on O but flowers fade 花發又愁落</title>
+    <link>http://ljwrites.blog/tags/evilmode/</link>
+    <description>Recent content in evilMode on O but flowers fade 花發又愁落</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/evilmode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Got into Emacs</title>
+      <link>http://ljwrites.blog/posts/how-i-got-into-emacs/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/how-i-got-into-emacs/</guid>
+      <description>The true gift of Emacs may be the ability to make it your own in every sense.</description>
+    </item>
+    
+  </channel>
+</rss>
