@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on O but flowers fade 花發又愁落</title>
+    <title>Tags on Wind in the Bamboo Sparse 風來疎竹</title>
     <link>http://ljwrites.blog/tags/</link>
-    <description>Recent content in Tags on O but flowers fade 花發又愁落</description>
+    <description>Recent content in Tags on Wind in the Bamboo Sparse 風來疎竹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aphorism</title>
+      <link>http://ljwrites.blog/tags/aphorism/</link>
+      <pubDate>Sun, 20 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/aphorism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>china</title>
+      <link>http://ljwrites.blog/tags/china/</link>
+      <pubDate>Sun, 20 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/china/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hanja</title>
+      <link>http://ljwrites.blog/tags/hanja/</link>
+      <pubDate>Sun, 20 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/hanja/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>poetry</title>
+      <link>http://ljwrites.blog/tags/poetry/</link>
+      <pubDate>Sun, 20 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/poetry/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>emacs</title>
       <link>http://ljwrites.blog/tags/emacs/</link>
@@ -98,38 +134,11 @@
     </item>
     
     <item>
-      <title>china</title>
-      <link>http://ljwrites.blog/tags/china/</link>
-      <pubDate>Fri, 04 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/china/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hanja</title>
-      <link>http://ljwrites.blog/tags/hanja/</link>
-      <pubDate>Fri, 04 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/hanja/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>lewd</title>
       <link>http://ljwrites.blog/tags/lewd/</link>
       <pubDate>Fri, 04 Jun 2021 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/lewd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>poetry</title>
-      <link>http://ljwrites.blog/tags/poetry/</link>
-      <pubDate>Fri, 04 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/poetry/</guid>
       <description></description>
     </item>
     
@@ -175,15 +184,6 @@
       <pubDate>Tue, 01 Jun 2021 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/genealogy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>history</title>
-      <link>http://ljwrites.blog/tags/history/</link>
-      <pubDate>Tue, 01 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/history/</guid>
       <description></description>
     </item>
     
