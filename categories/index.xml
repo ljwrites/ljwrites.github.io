@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on e-daemonia</title>
+    <title>Categories on E-daemonia</title>
     <link>http://ljwrites.blog/categories/</link>
-    <description>Recent content in Categories on e-daemonia</description>
+    <description>Recent content in Categories on E-daemonia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Jul 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>translation</title>
+      <link>http://ljwrites.blog/categories/translation/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/translation/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>life</title>
       <link>http://ljwrites.blog/categories/life/</link>
       <pubDate>Sat, 10 Jul 2021 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/categories/life/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>translation</title>
-      <link>http://ljwrites.blog/categories/translation/</link>
-      <pubDate>Sun, 27 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/categories/translation/</guid>
       <description></description>
     </item>
     
