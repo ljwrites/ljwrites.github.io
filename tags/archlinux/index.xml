@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>archLinux on Un-author-ized writer</title>
+    <link>http://ljwrites.blog/tags/archlinux/</link>
+    <description>Recent content in archLinux on Un-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Mon, 12 Jul 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolving Arch Linux 404 and Dependency Errors</title>
+      <link>http://ljwrites.blog/posts/arch-linux-404-dependency/</link>
+      <pubDate>Mon, 12 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/arch-linux-404-dependency/</guid>
+      <description>Update the package database and manually resolve dependencies.</description>
+      <content:encoded><![CDATA[<p>Hey Arch Linux user!</p>
+<p>Do you keep getting 404 errors when you try to install packages?
+Did you rewrite your <code>/etc/pacman.d/mirrorlist</code> file for what feels like dozens of times?
+Did you edit your <code>/etc/pacman.conf</code> file according to this Stack Exchange and forum post or that, hoping to get things to work?</p>
+<p>If so, these tips just might help.
+That&rsquo;s where I was, to the point of almost ragequitting Arch altogether, but trying these tips helped.</p>
+<h2 id="update-the-package-database">Update the package database</h2>
+<p>If you have your <code>mirrorlist</code> file arranged so the ones geographically closer to you are on top, it may be that you need to update your database.
+You might want to try updating your package database with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -Sy
+</span></span></code></pre></div><p>Or you could do a full system upgrade with <code>-Syu</code>, your choice.
+This landed me in dependency hell, though, see below, so I opted for just a database update this time around and it worked for me.</p>
+<p>The reason 404 errors are common in Arch, according to a forum post I saw, is that old packages are deleted on the servers.
+Therefore, if your package database is outdated <code>pacman</code> will ask for old deleted versions of packages, resulting in 404 errors.</p>
+<p>Live and learn, right?</p>
+<h2 id="the-next-level-dependency-hell">The next level: Dependency hell</h2>
+<p>After updating the database Arch finally seemed ready to start installing packages again, but this time I fell into the dread&hellip; dependency hell.
+It consisted of messages like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>:: poppler<span style="color:#f92672">(</span>21.07.0-1<span style="color:#f92672">)</span> 설치로 의존성 <span style="color:#e6db74">&#39;poppler=21.06.1&#39;</span><span style="color:#f92672">(</span>poppler-glib가 요구<span style="color:#f92672">)</span>가 깨집니다
+</span></span></code></pre></div><p>Which, translated into English, means that the package I was trying to install (kdenlive) required I upgrade <code>poppler</code> to version 21.07.0-1, which would break the dependency of <code>poppler-glib</code> on version 21.06.1.
+Evidenly this would ultimately lead to a dependency breakage of Gnu Image Manipulation Program via <code>gegl</code>&rsquo;s dependency on that specific version of <code>poppler-glib</code>.</p>
+<p>Running the install command with <code>--ignore poppler</code> didn&rsquo;t help, since pacman refused to install without the poppler upgrade.
+Nor did trying to install with <code>sudo pacman -Sdd kdenlive</code> help, since this resulted in kdenlive installing without any dependencies and the package simply did not work.</p>
+<p>So what I did was upgrade the offending dependency by itself, which was feasible in my case because there was just one, specifying a <code>-d</code> switch so the dependency version check was ignored:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -Sd poppler
+</span></span></code></pre></div><p>When I tried the kdenlive installation again it worked, and luckily the Image Manipulation Program wasn&rsquo;t broken by the poppler upgrade.
+It very well could have been, though, since upgrades to dependencies do cause breakages.
+That&rsquo;s why dependency version checks exist in the first place.</p>
+<p>By ignoring dependency version checks, therefore, you do assume the risk of dependency breakages causing malfunctions, which is a long-running issue in the open source world.
+Arch Linux, in particular, only allows one version of each package, raising the risk of dependency breakages&ndash;not a good combination with its fast-moving updates.</p>
+<p>It should also be noted that running the kdenlive install with one <code>-d</code> switch instead of two might have had a similar result as installing the dependency package with <code>-d</code>, maybe in conjunction with <code>--ignore poppler</code>.
+According to <code>man pacman</code> one <code>-d</code> switch just ignores dependency version checks while repeating it twice like I did ignores all dependencies, which in this case meant the app wouldn&rsquo;t work.</p>
+<h2 id="keep-arching-on-dot-dot-dot-or-not">Keep Arching on&hellip; or not</h2>
+<p>I don&rsquo;t claim these tips will solve every problem with the Arch package manager, but they could be helpful if your mirrorlist seems more or less in order yet all mirrors are failing with 404 errors.
+And if dependency conflicts are tying up your package installations and system updates after the 404 errors are resolved, the second part of the advice would come into play.
+If you don&rsquo;t want the risk of broken dependencies, or if ignoring dependencies result in apps breaking, you should file a bug report with the relevant projects.</p>
+<p>It&rsquo;s also a valid choice to decide that maybe Arch Linux isn&rsquo;t for you if you find these issues to be too much trouble.
+Arch is a purposefully fast-moving distribution and by design requires a level of expertise or at least bloody-mindedness.
+There are user-friendlier Arch-based distributions like Manjaro that stay a little behind the development curve and are said to be more stable as a result.
+The price is in staler packages than mainline Arch, but it&rsquo;s my understanding packages are still newer than in something like Debian.
+Besides, truly cutting-edge users don&rsquo;t find even Arch packages new enough and turn to the Arch User Repository for development versions or compile directly from project Git repos.</p>
+<p>In the end you have to decide how important newer packages and upgrades are to you, and how much hassle you&rsquo;re willing to put up with.
+If you want to keep going with Arch Linux, hopefully this post is helpful to you.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

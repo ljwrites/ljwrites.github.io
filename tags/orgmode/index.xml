@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>orgMode on Un-author-ized writer</title>
+    <link>http://ljwrites.blog/tags/orgmode/</link>
+    <description>Recent content in orgMode on Un-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Tue, 03 Jan 2023 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/orgmode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writing year in review: My 2022 writing habit on Emacs</title>
+      <link>http://ljwrites.blog/posts/2022-writing-review/</link>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/2022-writing-review/</guid>
+      <description>What is most meaningful to me about my writing habit is that the dream of writing this story is no longer a dream, but my waking reality.</description>
+      <content:encoded><![CDATA[<p>My New Year&rsquo;s resolution for 2022 was to write 300 words every day on the first draft of my big fiction project.
+Plot twist, I actually stuck to it!
+Just don&rsquo;t ask about the state of my physical activity habit, please.</p>
+<p>Here are the year&rsquo;s writing statistics from writing most days from January 2 to December 31, 2022, taken using functionalities and packages of Emacs Org Mode, and my takeaways from these numbers.</p>
+<h2 id="the-words-and-the-hours">The words and the hours</h2>
+<p>According to a word count and Org Mode&rsquo;s <a href="https://orgmode.org/manual/The-clock-table.html">clock table</a> report, I wrote somewhere around <strong>170,000 words</strong> this year in 11 days, 2 hours, and 9 minutes, or around <strong>266 hours of writing.</strong></p>
+<p>These numbers come with some caveats:
+The word count function does give me an exact count, 174,369, but this is an overcount that includes elements that won&rsquo;t be exported such as header (scene) labels, in-file notes, and time stamps.
+This works for me, since I only need a rough estimate of where I am and not a laser-precise word count.
+Besides, even considering the overcount I know this is Too Much!
+I&rsquo;m going to hate my first-draft self once I have my editing hat on, that&rsquo;s for sure.</p>
+<p>The hours spent writing are similarly imprecise.
+I started using Org Mode&rsquo;s <a href="https://orgmode.org/manual/Clocking-commands.html">clocking commands</a> fairly early in the year (January 5) to start keeping track of writing time, and there&rsquo;s some undercount from the first few days when the clock was not used.
+Discounting that fairly small gap, which can&rsquo;t be by more than 2 hours, I was also inconsistent at times about running the clock.
+Sometimes I ran the clock but was not writing, and at other times it was the other way around, though this was rarer.
+For these reasons both the word count and reported time are more estimates than exact measures.</p>
+<h2 id="words-per-hour-and-day">Words per hour and day</h2>
+<p>Keeping those limitations in mind, a very rough estimate of my writing speed this year was <strong>639 words/hour</strong>, and I wrote an average of <strong>465 words a day</strong> during the year, counting the skipped days.
+On the days I did write the average was <strong>544 words a day</strong>.</p>
+<p>The estimated hourly word rate largely matches up with what I&rsquo;ve sensed on a regular day of writing, that I tend to produce about 100 words per 10 minutes or maybe a little more.
+The per-day rate is a bit of a surprise, given that my goal was to write 300 words a day and I often did stop at almost exactly 300 words, especially on days the words weren&rsquo;t coming.
+I guess it makes sense though, since I did overachieve a lot of days, by a lot at times.</p>
+<p>The ironic/interesting part is, I think it was my keeping the goal at 300 words that allowed me to write an average of 500 words a day.
+A lot of days I could only bear to start writing because I told myself I just had to do 300 words, and actually stopped at 300 when I was struggling and tired.
+There were many days I could not have started at all at the thought of having to write 500 words a day, and that would have meant a lot fewer words.</p>
+<h2 id="habit-consistency-and-achievement">Habit consistency and achievement</h2>
+<p>In addition to writing and getting these stats in Org Mode, I had also been tracking my writing <a href="https://orgmode.org/manual/Tracking-your-habits.html">as a habit</a>.
+At the end of 2022 I used a neat package called <a href="https://github.com/ml729/org-habit-stats">org-habit-stats</a> to get a calendar view and some statistics on the writing habit.</p>
+<p>According to the statistics, I wrote <strong>312 days</strong> out of the year, or <strong>85%</strong> of days in 2022.
+Nearly a third of the missed days come from February when I was having a hard time keeping up with writing, as seen in this calendar view of writing statistics:</p>
+<figure>
+    <img loading="lazy" src="https://ljwrites.blog/img/emacs/org-habit-stat-1-3.png"
+         alt="Marked calendar view of habit from January to March with a handful of days missing from January and March, and more than half the days missing from February."/> 
+</figure>
+
+<figure>
+    <img loading="lazy" src="https://ljwrites.blog/img/emacs/org-habit-stat-4-6.png"
+         alt="Calendar view from April to June with two days missing from each month."/> 
+</figure>
+
+<figure>
+    <img loading="lazy" src="https://ljwrites.blog/img/emacs/org-habit-stat-7-9.png"
+         alt="Calendar view from July to September with two to four days missing from each month."/> 
+</figure>
+
+<figure>
+    <img loading="lazy" src="https://ljwrites.blog/img/emacs/org-habit-stat-10-12.png"
+         alt="Calendar view from October to December with three to four days missing from each month."/> 
+</figure>
+
+<p>As you can see I generally wrote on most days of the month, usually missing two to four days in a month.
+Those would have been the days when I was overwhelmed by work or family obligations, or just needed a break.</p>
+<p>The one outlier is February, when I was missing over half the days of the month.
+This was likely because I was wrapping up my last academic gig during that month before I turned to full-time translation in March, something that made a huge difference in my free time and energy levels.</p>
+<p>It wasn&rsquo;t as though I became a different person with more energy or &ldquo;willpower&rdquo; between the end of February and the start of March.
+I had simply structured my life in a way that made room for writing and that made all the difference, which may be the true takeaway from this year of writing.</p>
+<h2 id="numbers-for-what-they-re-worth">Numbers, for what they&rsquo;re worth</h2>
+<p>Word count and hours spent writing are just numbers at the end of the day&ndash;or year, as it were.
+They&rsquo;re mostly meaningful to me as an indication for how far I&rsquo;ve come, even as I realize how far I still have to go.
+The story has grown in length far beyond my original expectations and I&rsquo;m just slogging on to get to the end of my originally envisioned story, so I can turn around to figure out stuff like editing (I expect to cut extravagantly) and book divisions.</p>
+<p>I&rsquo;d frankly have been happier to have reached the end of my draft than to have written so many words, but I&rsquo;m letting the process take control for now as I try to feel out the world and narrative by writing through them.
+Stats are one part of that journey but far from the whole experience, any more than kilometers and hours driven can tell you about the scenery seen outside the window or the smell of the car seats.</p>
+<p>What is most meaningful to me about my writing habit is that the dream of writing this story is no longer a dream but my waking reality, and that it <em>will</em> be done at some point barring some huge, unforeseen change.
+I know I am moving toward the endpoint, steadily if slowly.
+Once I get there, I will know the key was the momentum of consistent habit.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

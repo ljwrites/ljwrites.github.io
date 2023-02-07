@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>fediverse on Un-author-ized writer</title>
+    <link>http://ljwrites.blog/tags/fediverse/</link>
+    <description>Recent content in fediverse on Un-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Sat, 10 Dec 2022 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/fediverse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Object storage on Mastodon with a Backblaze B2 bucket</title>
+      <link>http://ljwrites.blog/posts/mastodon-b2/</link>
+      <pubDate>Sat, 10 Dec 2022 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/mastodon-b2/</guid>
+      <description>Here&amp;rsquo;s how I set up a Backblaze B2 bucket with a local proxy for Mastodon object storage.</description>
+      <content:encoded><![CDATA[<h2 id="a-little-background-and-why-b2">A little background &amp; why B2?</h2>
+<p>It was kind of background knowledge for me that object storage was an option in Mastodon hosting, but I never felt much need for it on my tiny instance.
+Then it became an urgent issue when fedi activity exploded in November in the wake of the Twitter meltdown.
+My instance database started crashing from the 40 GB local drive overflowing with cached media, and constantly ran at above 30 GB even when I left only one day&rsquo;s worth of cache at media cleanup (<code>tootctl media remove --days 1</code>).</p>
+<p>I already had a Backblaze/B2 account that I had been using for my personal offsite backups, and I calculated that I could similarly hook it up to my Hometown/Mastodon instance at a fraction of the cost of adding more storage volume to the Hetzner server.
+I also wanted to keep using B2 for this rather than create a new account with AWS or some other storage service, feeling no need to complicate things with yet another account and service to keep track of.</p>
+<p>The problem I ran into was that this particular combination of Mastodon and B2 is <em>woefully</em> underdocumented, even with B2&rsquo;s S3-compatibility.
+This led me into a lot of trial and error because the documentation I did find was outdated<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> and/or did not mention issues unique to B2, like a huge authentication pitfall that I ended up pitching headfirst into.</p>
+<p>Let me discuss that pitfall first, in case you don&rsquo;t need the rest of this guide:
+<strong>You need to use a B2 application key, NOT a master application key, for this purpose.</strong>
+If, like me, you have everything set up correctly and media uploads fail for an unexplained reason, this might be why.
+More details in Step 1 below.</p>
+<p>So here it is, the walkthrough of the process and settings that I wished I had when I configured my setup, put together from other sources and my own trial and error.</p>
+<h2 id="step-1-set-up-a-b2-bucket-and-application-key-for-your-instance">Step 1: Set up a B2 bucket and application key for your instance</h2>
+<p>This part is going to be pretty obvious if you already use B2.
+Otherwise, the <a href="https://help.backblaze.com/hc/en-us/articles/1260803542610-Creating-a-B2-Bucket-using-the-Web-UI">official tutorial for creating a bucket</a> should be enough.
+Everything I have read says the privacy setting of the bucket should be public, though this comes at a risk because it means anyone can download from the bucket which could potentially eat into your traffic limit and cost you.
+If you haven&rsquo;t done so already, you might have to verify your email to set the bucket to public.</p>
+<p>Make note of the bucket&rsquo;s address, which will be the endpoint noted in your bucket information preceded by your bucket name.
+If you named your bucket <code>my-instance-media</code> your bucket address would be something like:</p>
+<p>my-instance-media.s3.us-west-900.backblazeb2.com</p>
+<p>You can verify this by uploading a file to the bucket and viewing the address of the file, which will be something like:</p>
+<p>my-instance-media.s3.us-west-900.backblazeb2.com/my-test-file.txt</p>
+<p>If you don&rsquo;t have a B2 application key, <a href="https://help.backblaze.com/hc/en-us/articles/360052129034-Creating-and-Managing-Application-Keys">their official tutorial</a> should get you started.
+Also, as discussed above, make sure you use a <strong>non-master</strong> application key pair for this setup in Step 4 below.
+Master application keys are <a href="https://kb.msp360.com/cloud-vendors/backblazeb2/backblazeb2-as-s3compatible">NOT S3-compatible</a> (see &ldquo;Warning&rdquo;), and if you set up your <code>.env.production</code> with it your setup will not work!</p>
+<p>Note down the application key id-application key pair in a secure location such as your password manager, especially the application key which will only be shown once and never again in your browser interface or otherwise.</p>
+<h2 id="step-2-set-up-a-proxy-on-nginx">Step 2: Set up a proxy on nginx</h2>
+<p>As noted in the official Mastodon documentation, it is very much recommended that you set up a proxy local to the server to cache  media requested from the bucket on your server.
+If every request were to go directly to your bucket your traffic meter could climb rapidly and cost you more money than it has to.
+I modeled my nginx configuration for this on <a href="https://thomas-leister.de/en/mastodon-s3-media-storage/">a configuration for a different S3-compatible service</a>, and followed the directions in the <a href="https://docs.joinmastodon.org/admin/optional/object-storage-proxy/">Mastodon documentation</a> on configuring the proxy.</p>
+<p>Here&rsquo;s what my configuration, anonymized to <code>/etc/nginx/sites-available/files.example.com</code>, looks like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    proxy_cache_path   /tmp/nginx-cache-instance-media levels<span style="color:#f92672">=</span>1:2 keys_zone<span style="color:#f92672">=</span>s3_cache:10m max_size<span style="color:#f92672">=</span>10g inactive<span style="color:#f92672">=</span>48h use_temp_path<span style="color:#f92672">=</span>off;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      listen <span style="color:#ae81ff">443</span> ssl http2;
+</span></span><span style="display:flex;"><span>      listen <span style="color:#f92672">[</span>::<span style="color:#f92672">]</span>:443 ssl http2;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># CUSTOMIZE THE VALUE BELOW TO YOUR OWN SUBDOMAIN</span>
+</span></span><span style="display:flex;"><span>      server_name files.example.com;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      root /home/mastodon/live/public/system;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      access_log off;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># CUSTOMIZE THE VALUE BELOW TO YOUR DESIRED ERROR LOG FILE NAME</span>
+</span></span><span style="display:flex;"><span>      error_log /var/log/nginx/files-error.log;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      keepalive_timeout 60;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      location <span style="color:#f92672">=</span> / <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	index index.html;
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      location / <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	try_files $uri @s3;
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># CUSTOMIZE THE VALUE BELOW TO YOUR BUCKET ADDRESS</span>
+</span></span><span style="display:flex;"><span>      set $s3_backend <span style="color:#e6db74">&#39;https://my-instance-media.s3.us-west-900.backblazeb2.com&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> location @s3 <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>   limit_except GET <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>     deny all;
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   resolver 9.9.9.9;
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># CUSTOMIZE THE VALUE BELOW TO YOUR BUCKET ADDRESS</span>
+</span></span><span style="display:flex;"><span>   proxy_set_header Host <span style="color:#e6db74">&#39;my-instance-media.s3.us-west-900.backblazeb2.com&#39;</span>;
+</span></span><span style="display:flex;"><span>   proxy_set_header Connection <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>   proxy_set_header Authorization <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>   proxy_hide_header Set-Cookie;
+</span></span><span style="display:flex;"><span>   proxy_hide_header <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>;
+</span></span><span style="display:flex;"><span>   proxy_hide_header <span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>;
+</span></span><span style="display:flex;"><span>   proxy_hide_header <span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>;
+</span></span><span style="display:flex;"><span>   proxy_hide_header x-amz-id-2;
+</span></span><span style="display:flex;"><span>   proxy_hide_header x-amz-request-id;
+</span></span><span style="display:flex;"><span>   proxy_hide_header x-amz-meta-server-side-encryption;
+</span></span><span style="display:flex;"><span>   proxy_hide_header x-amz-server-side-encryption;
+</span></span><span style="display:flex;"><span>   proxy_hide_header x-amz-bucket-region;
+</span></span><span style="display:flex;"><span>   proxy_hide_header x-amzn-requestid;
+</span></span><span style="display:flex;"><span>   proxy_ignore_headers Set-Cookie;
+</span></span><span style="display:flex;"><span>   proxy_pass $s3_backend$uri;
+</span></span><span style="display:flex;"><span>   proxy_intercept_errors off;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   proxy_cache s3_cache;
+</span></span><span style="display:flex;"><span>   proxy_cache_valid <span style="color:#ae81ff">200</span> <span style="color:#ae81ff">304</span> 48h;
+</span></span><span style="display:flex;"><span>   proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+</span></span><span style="display:flex;"><span>   proxy_cache_lock on;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   expires 1y;
+</span></span><span style="display:flex;"><span>   add_header Cache-Control public;
+</span></span><span style="display:flex;"><span>   add_header <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span> <span style="color:#e6db74">&#39;*&#39;</span>;
+</span></span><span style="display:flex;"><span>   add_header X-Cache-Status $upstream_cache_status;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The specific addresses and names should be customized to your desired settings, as marked in the configuration text.</p>
+<p>When the configuration file is written to your satisfaction, save it and symlink it from <code>/etc/nginx/sites-enabled</code>, and reload nginx by running (with <code>sudo</code> if you are not the <code>root</code> user here):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ln -s /etc/nginx/sites-available/files.example.com /etc/nginx/sites-enabled/
+</span></span><span style="display:flex;"><span>systemctl reload nginx
+</span></span></code></pre></div><p>Then get a SSL certificate for the domain, as seen in the Mastodon documentation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>certbot --nginx -d files.example.com
+</span></span><span style="display:flex;"><span>systemctl reload nginx
+</span></span></code></pre></div><p>This was the main place I diverged from the configuration posted on the thomas-leister.de website, by the way:
+I use port 443 for an encrypted connection per the Mastodon documentation rather than 80 for an unencrypted one like Thomas Leister did, mainly because the unencrypted connection broke all the images on my instance lol.</p>
+<h2 id="step-3-upload-existing-mastodon-media-to-your-bucket">Step 3: Upload existing Mastodon media to your bucket</h2>
+<p>If your instance is already in use, you should upload previously downloaded media to the instance bucket.
+There are several different tools to achieve this, and if you already use an S3-compatible tool like <code>aws</code> or <code>s3cmd</code> it should do the job.
+Just be aware that you&rsquo;ll need to use an S3-compatible <strong>non</strong>-master B2 application key to authenticate it, as discussed.</p>
+<p>I used the official <code>b2</code> command line tool, since it&rsquo;s a simple binary and fairly easy to use.
+I downloaded b2 for Linux through the link on <a href="https://www.backblaze.com/b2/docs/quick_command_line.html">this page</a>, uploaded it to the <code>/home/mastodon/live</code> directory (though in hindsight its <code>bin</code> subdirectory would have been more fitting), changed the owner to the mastodon user with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown mastodon:mastodon b2-linux
+</span></span></code></pre></div><p>Switched to the mastodon user:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo su - mastodon
+</span></span></code></pre></div><p>Changed the file name to <code>b2</code> for simplicity&rsquo;s sake:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mv b2-linux b2
+</span></span></code></pre></div><p>Also gave it execution permission.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x b2
+</span></span></code></pre></div><p>I didn&rsquo;t mess with <code>$PATH</code> or anything like that, since this wasn&rsquo;t going to be an everyday operation.</p>
+<p>You can then create an authentication profile using the application key ID and application key pair generated in Step 1 above.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 authorize-account --profile my-instance $B2_Application_Key_ID $B2_Application_Key
+</span></span></code></pre></div><p>The variables <code>$B2_Application_Key_ID</code> and <code>$B2_Application_Key</code> should be replaced by the actual values, of course.
+Or you can actually define the variables I guess, but I didn&rsquo;t feel the need since authentication was a one-time thing and, once successful, the switch <code>--profile my-instance</code> is enough to authenticate all operations.</p>
+<p>After setting up the profile with <code>authorize-account</code> you can use some short, harmless command like list-buckets to test whether authentication works:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 list-buckets --profile my-instance
+</span></span></code></pre></div><p>Or maybe try uploading a small file or something.
+The <code>--help</code> switch is helpful for figuring out the commands and syntax, or simply running b2 without any arguments will also bring up the help options.</p>
+<p>Once authentication is confirmed to work, sync the <code>public/system</code> directory to the remote b2 bucket using the <code>sync</code> command. Assuming the command is run from the <code>/home/mastodon/live</code> directory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 sync --profile my-instance ./public/system/ b2://my-instance-media/
+</span></span></code></pre></div><p>You can read more about  <a href="https://b2-command-line-tool.readthedocs.io/en/master/subcommands/sync.html">b2&rsquo;s sync command options</a>, but I found the default options satisfactory.
+It took me about an afternoon to upload 18.5 GB of preexisting data to the bucket.</p>
+<h2 id="step-4-mastodon-configuration">Step 4: Mastodon configuration</h2>
+<p>My Mastodon configuration in <code>live/.env.production</code> to enable the object storage looks something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>S3_ENABLED<span style="color:#f92672">=</span>true
+</span></span><span style="display:flex;"><span>S3_PROTOCOL<span style="color:#f92672">=</span>https
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># EVERYTHING BELOW THIS POINT SHOULD BE CUSTOMIZED</span>
+</span></span><span style="display:flex;"><span>S3_BUCKET<span style="color:#f92672">=</span>my-instance-media
+</span></span><span style="display:flex;"><span>AWS_ACCESS_KEY_ID<span style="color:#f92672">=</span>$B2_Application_Key_ID
+</span></span><span style="display:flex;"><span>AWS_SECRET_ACCESS_KEY<span style="color:#f92672">=</span>$B2_Application_Key
+</span></span><span style="display:flex;"><span>S3_ALIAS_HOST<span style="color:#f92672">=</span>files.example.com
+</span></span><span style="display:flex;"><span>S3_HOSTNAME<span style="color:#f92672">=</span>files.example.com
+</span></span><span style="display:flex;"><span>S3_REGION<span style="color:#f92672">=</span>us-west-900
+</span></span><span style="display:flex;"><span>S3_ENDPOINT<span style="color:#f92672">=</span>https://s3.us-west-900.backblazeb2.com
+</span></span></code></pre></div><p>In addition to the earlier point that the application key ID and application key pair should have been generated as a non-master application key, also note the <code>https://</code> in front of the <code>S3_ENDPOINT</code> value.
+For me that was the final hurdle to getting the setup to work.</p>
+<p>Switch to admin or some other user with <code>sudo</code> power.
+From the mastodon user, it just takes an <code>exit</code> command in my case. Restart the Mastodon processes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart mastodon-*.service
+</span></span></code></pre></div><p>Check if the instance works normally.
+If it&rsquo;s down, the API call to Backblaze storage may be failing and the key id and application key values should be double-checked.</p>
+<h2 id="step-5-check-if-object-storage-is-working">Step 5: Check if object storage is working</h2>
+<p>As discussed in the <a href="https://thomas-leister.de/en/mastodon-s3-media-storage/">Thomas Leister writeup</a> (&ldquo;Checking if it works&rdquo;), check the browser&rsquo;s console to see if the correct server proxy is loading up for media, and whether media are properly displayed.</p>
+<p>Also, try attaching a piece of media to a post.
+If the attachment fails with a 500 error, you need to check your settings.</p>
+<p>Even after I ironed out the authentication issues with the application key I found media uploads were, understandably, slower than before and they sometimes timed out.
+This was why I set the <code>keepalive_timeout</code> value to 60 rather than 30 in the nginx proxy settings and image uploads have not timed out since.</p>
+<p>Though Mastodon will be uploading new media to the remote bucket and requesting it remotely, for preexisting media files it will look to the local <code>public/system</code> directory first.
+This can make it harder to tell if the bucket setup is working or it&rsquo;s just the local storage doing the work, so if you&rsquo;re impatient you can get rid of that directory to force the instance to load everything from the bucket instead.
+From <code>/home/mastodon/live/public</code> you can run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mv system/ system_/
+</span></span></code></pre></div><p>to change the name of the <code>system</code> directory without immediately deleting everything in it.</p>
+<p>You can&rsquo;t simply leave <code>public/system</code> missing, though, if you want to keep the nginx proxy settings as they are.
+Guess who found out the hard way this will crash the instance&hellip; :&rsquo;)
+Instead, create a new empty <code>system</code> directory so the setting will have somewhere to look to and not throw an error.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir system
+</span></span></code></pre></div><p>If the media still loads properly after this, and new media is fetched and uploaded, it means the setup is working.
+Yay!</p>
+<h2 id="cleanup-afterwork-and-thoughts">Cleanup, afterwork and thoughts</h2>
+<p>You can let this setup run a few days to see whether it keeps working, doesn&rsquo;t overrun your traffic meters etc., before you empty out your local <code>public/system</code> directory, or delete <code>public/system_</code> if you did the directory switch I detailed above.
+I can tell you it was quite a weight off to reclaim half my disk space from all that media.</p>
+<p>I also ran some <a href="https://docs.joinmastodon.org/admin/tootctl/#accounts-refresh">accounts refresh</a> jobs because I had missing remote profile pics from emergency media deletions, back when my disk had overflowed and the database crashed.
+Yeah, things were that bad.</p>
+<p>Media loads correctly again on my instance, though there is an initial loading time, and I can get a proper media cache going without my disk at constant risk of running out.
+Instance management has become enjoyable again without the constant risk of unplanned server downtime, and I am now able to consider putting other services on the server.</p>
+<p>In the long term, media storage is something federated software and communities are going to have to figure out.
+Services like <a href="https://jortage.com/">Jortage</a> look interesting something like it may be the future of media storage in the fediverse.
+For now I have found a solution that works for my instance, and if this write-up helps others avoid some of my confusion and mistakes I will be happy&ndash;although, let&rsquo;s be real, these tech posts have mainly been helpful to myself for the purpose of record-keeping and documentation.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>For instance, there was a gist stating that Mastodon could not directly interface with B2 for object storage because B2 was not S3-compatible, and MinIO would be needed as a relay. This was seemingly confirmed by documentation from Backblaze itself stating its S3 incompatibility. Turns out this was back in 2019-2020 and, as of late 2022, B2 is S3 compatible and MinIO no longer provides the relay function. Guess who only realized this after installing MinIO.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

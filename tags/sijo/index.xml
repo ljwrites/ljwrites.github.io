@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>sijo on Un-author-ized writer</title>
+    <link>http://ljwrites.blog/tags/sijo/</link>
+    <description>Recent content in sijo on Un-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/sijo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crystal stream from verdant mount</title>
+      <link>http://ljwrites.blog/posts/crystal-stream-verdant-mount/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/crystal-stream-verdant-mount/</guid>
+      <description>Translation of a famous sijo from Chosun-era poet Hwang Jinyi</description>
+      <content:encoded><![CDATA[<p>Originally posted to the fedi on <a href="https://rage.love/web/statuses/107002808081339831">September 27, 2021</a>.
+David McCann&rsquo;s <a href="https://www.youtube.com/watch?v=0zea3P4s-lM&amp;t=550s">lecture</a> about this sijo inspired some of my choices for this translation.</p>
+<hr>
+<div class="verse">
+<p>靑山裏 碧溪水야 수이 감을 자랑마라<br />
+  Thou crystal stream from verdant mount,<br />
+  quit bragging on your easy flow.<br />
+<br />
+一到滄海하면 다시 오기 어려웨라<br />
+  Once embraced by azure expanse,<br />
+  you&rsquo;re not coming round no more.<br />
+<br />
+明月이 滿空山하니 쉬어 간들 어떠리<br />
+  Void replete with lunar brilliance,<br />
+  why not take a load off, love?<br /></p>
+</div>
+<p>&mdash; Hwang Jinyi (1506-1567), poet, calligrapher, musician, dancer, and courtesan.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

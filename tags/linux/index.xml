@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>linux on Un-author-ized writer</title>
+    <link>http://ljwrites.blog/tags/linux/</link>
+    <description>Recent content in linux on Un-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Mon, 12 Jul 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resolving Arch Linux 404 and Dependency Errors</title>
+      <link>http://ljwrites.blog/posts/arch-linux-404-dependency/</link>
+      <pubDate>Mon, 12 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/arch-linux-404-dependency/</guid>
+      <description>Update the package database and manually resolve dependencies.</description>
+      <content:encoded><![CDATA[<p>Hey Arch Linux user!</p>
+<p>Do you keep getting 404 errors when you try to install packages?
+Did you rewrite your <code>/etc/pacman.d/mirrorlist</code> file for what feels like dozens of times?
+Did you edit your <code>/etc/pacman.conf</code> file according to this Stack Exchange and forum post or that, hoping to get things to work?</p>
+<p>If so, these tips just might help.
+That&rsquo;s where I was, to the point of almost ragequitting Arch altogether, but trying these tips helped.</p>
+<h2 id="update-the-package-database">Update the package database</h2>
+<p>If you have your <code>mirrorlist</code> file arranged so the ones geographically closer to you are on top, it may be that you need to update your database.
+You might want to try updating your package database with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -Sy
+</span></span></code></pre></div><p>Or you could do a full system upgrade with <code>-Syu</code>, your choice.
+This landed me in dependency hell, though, see below, so I opted for just a database update this time around and it worked for me.</p>
+<p>The reason 404 errors are common in Arch, according to a forum post I saw, is that old packages are deleted on the servers.
+Therefore, if your package database is outdated <code>pacman</code> will ask for old deleted versions of packages, resulting in 404 errors.</p>
+<p>Live and learn, right?</p>
+<h2 id="the-next-level-dependency-hell">The next level: Dependency hell</h2>
+<p>After updating the database Arch finally seemed ready to start installing packages again, but this time I fell into the dread&hellip; dependency hell.
+It consisted of messages like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>:: poppler<span style="color:#f92672">(</span>21.07.0-1<span style="color:#f92672">)</span> 설치로 의존성 <span style="color:#e6db74">&#39;poppler=21.06.1&#39;</span><span style="color:#f92672">(</span>poppler-glib가 요구<span style="color:#f92672">)</span>가 깨집니다
+</span></span></code></pre></div><p>Which, translated into English, means that the package I was trying to install (kdenlive) required I upgrade <code>poppler</code> to version 21.07.0-1, which would break the dependency of <code>poppler-glib</code> on version 21.06.1.
+Evidenly this would ultimately lead to a dependency breakage of Gnu Image Manipulation Program via <code>gegl</code>&rsquo;s dependency on that specific version of <code>poppler-glib</code>.</p>
+<p>Running the install command with <code>--ignore poppler</code> didn&rsquo;t help, since pacman refused to install without the poppler upgrade.
+Nor did trying to install with <code>sudo pacman -Sdd kdenlive</code> help, since this resulted in kdenlive installing without any dependencies and the package simply did not work.</p>
+<p>So what I did was upgrade the offending dependency by itself, which was feasible in my case because there was just one, specifying a <code>-d</code> switch so the dependency version check was ignored:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -Sd poppler
+</span></span></code></pre></div><p>When I tried the kdenlive installation again it worked, and luckily the Image Manipulation Program wasn&rsquo;t broken by the poppler upgrade.
+It very well could have been, though, since upgrades to dependencies do cause breakages.
+That&rsquo;s why dependency version checks exist in the first place.</p>
+<p>By ignoring dependency version checks, therefore, you do assume the risk of dependency breakages causing malfunctions, which is a long-running issue in the open source world.
+Arch Linux, in particular, only allows one version of each package, raising the risk of dependency breakages&ndash;not a good combination with its fast-moving updates.</p>
+<p>It should also be noted that running the kdenlive install with one <code>-d</code> switch instead of two might have had a similar result as installing the dependency package with <code>-d</code>, maybe in conjunction with <code>--ignore poppler</code>.
+According to <code>man pacman</code> one <code>-d</code> switch just ignores dependency version checks while repeating it twice like I did ignores all dependencies, which in this case meant the app wouldn&rsquo;t work.</p>
+<h2 id="keep-arching-on-dot-dot-dot-or-not">Keep Arching on&hellip; or not</h2>
+<p>I don&rsquo;t claim these tips will solve every problem with the Arch package manager, but they could be helpful if your mirrorlist seems more or less in order yet all mirrors are failing with 404 errors.
+And if dependency conflicts are tying up your package installations and system updates after the 404 errors are resolved, the second part of the advice would come into play.
+If you don&rsquo;t want the risk of broken dependencies, or if ignoring dependencies result in apps breaking, you should file a bug report with the relevant projects.</p>
+<p>It&rsquo;s also a valid choice to decide that maybe Arch Linux isn&rsquo;t for you if you find these issues to be too much trouble.
+Arch is a purposefully fast-moving distribution and by design requires a level of expertise or at least bloody-mindedness.
+There are user-friendlier Arch-based distributions like Manjaro that stay a little behind the development curve and are said to be more stable as a result.
+The price is in staler packages than mainline Arch, but it&rsquo;s my understanding packages are still newer than in something like Debian.
+Besides, truly cutting-edge users don&rsquo;t find even Arch packages new enough and turn to the Arch User Repository for development versions or compile directly from project Git repos.</p>
+<p>In the end you have to decide how important newer packages and upgrades are to you, and how much hassle you&rsquo;re willing to put up with.
+If you want to keep going with Arch Linux, hopefully this post is helpful to you.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>  Troubleshooting &#34;Unmanaged Device&#34; Network Connection Error
+  </title>
+      <link>http://ljwrites.blog/posts/troubleshoot-network/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/troubleshoot-network/</guid>
+      <description>Here&amp;rsquo;s how I solved it when there was an unmanaged device error with NetworkManager and systemd.</description>
+      <content:encoded><![CDATA[<p>The computer wasn&rsquo;t connecting to the internet this morning with the nm-applet on the status bar saying network connections were unusable.
+Sigh. To be fair I had done a system upgrade of Arch Linux the day before, so I guess can this kind of thing Happens.
+When I ran:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nmcli c
+</span></span></code></pre></div><p>&hellip;to check wi-fi connections none of was was showing a device, and when I tried to connect to my usual network using</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nmcli con up <span style="color:#f92672">[</span>device-uuid<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>I got an error that the connection couldn&rsquo;t be activated because &ldquo;No suitable device found for this connection (device lo not available because device is strictly unmanaged).&rdquo;</p>
+<p>I searched for the error and, as per <a href="https://askubuntu.com/questions/1190504/why-is-nmcli-not-configuring-device">an answer</a> that was downvoted because it didn&rsquo;t work on Ubuntu but worked for me, I added:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">[ifupdown]
+managed=true
+</code></pre><p>to <code>/etc/NetworkManager/NetworkManager.conf</code>.</p>
+<p>Restarted NetworkManager with</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">$ sudo systemctl restart NetworkManager.service
+</code></pre><p>Worked instantly. When I checked connections with <code>$ nmcli c</code> again my usual connection had been assigned my main network device, and the nm-applet updated accordingly.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>My Simple Directory Backup with a systemd Timer</title>
+      <link>http://ljwrites.blog/posts/backup-systemd-timer/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/backup-systemd-timer/</guid>
+      <description>How I set up a systemd timer for regular automated backups of selected directories.</description>
+      <content:encoded><![CDATA[<p>I put together an automatic hourly backup of selected directories using rsync and a systemd timer.
+It was a little bit more of a hassle than I anticipated, given my complete unfamiliarity with systemd, so I thought I&rsquo;d document it for my own records and in case it&rsquo;s useful to someone else on a distribution with systemd who has a similar use-case to mine.</p>
+<h2 id="why-a-systemd-timer-and-not-cron">Why a systemd timer and not cron?</h2>
+<p>In my case, mostly because I already have systemd and the timer comes with it, while I&rsquo;d have to install cron.
+Evidently a systemd timer also has some advantages over cron such as easy debugging and flexibility.
+The Arch Wiki lists some <a href="https://wiki.archlinux.org/title/Systemd/Timers#As%5Fa%5Fcron%5Freplacement">benefits and caveats</a> of using the systemd timer as a cron replacement.</p>
+<h2 id="step-1-set-up-the-backup-script">Step 1: Set up the backup script</h2>
+<p>I used rsync for the backup script.
+While I&rsquo;m not ssh-ing into an external machine and just using an external hard drive, it&rsquo;s simple yet robust enough for this use-case, too.
+My backup script file is just a shell script that starts with lines like:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Backup documents</span>
+</span></span><span style="display:flex;"><span>rsync -a /home/ljwrites/Documents/ /external/hdd/Documents/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Backup pictures</span>
+</span></span><span style="display:flex;"><span>rsync -a /home/ljwrites/Pictures/ /external/hdd/Pictures/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Backup config folder</span>
+</span></span><span style="display:flex;"><span>rsync -a /home/ljwrites/.config /external/hdd/Programs/</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>As you may know if you have some familiarity with rsync, the trailing slash on the source is significant.
+Without the trailing slash, the files in the source directory are copied into a subdirectory of the destination.
+This means that, in the above example, files and diretories from the <code>Documents</code> and <code>Pictures</code> directories are backed up to the <code>Documents</code> and <code>Pictures</code> directories of the external drive.
+The files and directories in <code>.config</code>, on the other hand, are backed up to <code>Programs/.config</code> in the external drive.</p>
+<p>This file was made executable with <code>chmod +x</code> and lives in my <code>~/.local/bin</code> with the file name <code>backup</code>.
+Yeah, I guess it should be <code>backup.sh</code>, but without the extension it&rsquo;s shorter to run manually from the command line and it works.
+I am told the more proper way to do this is by creating a symlink named <code>backup</code> to my actual .sh file, but I don&rsquo;t have a separate coding or development directory and I&rsquo;m lazy lol.</p>
+<p>Oh, and of course, to call backup in <code>~/.local/bin</code> directly from the command line I had to add <code>~/.local/bin</code> to my <code>$PATH</code>, which I did with a line in <code>.bashrc</code> like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PATH<span style="color:#f92672">=</span>$HOME/.local/bin:$HOME/go/bin:$PATH</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>I put <code>~/.local/bin</code> and <code>~/go/bin</code> ahead of <code>$PATH</code> rather than appending them, btw, because this way my local executables take precedence over the system ones.
+If there happens to be a binary called <code>backup</code> in the system files, for instance, when I type <code>backup</code> in the terminal I&rsquo;ll be getting the <code>backup</code> script I wrote.
+This was another piece of advice from my dev friend, one that I actually took.</p>
+<p>Once the backup script is tested and confirmed to be working, it&rsquo;s time to set up the systemd service and timer.</p>
+<h2 id="step-2-set-up-the-systemd-service-and-timer">Step 2: Set up the systemd service and timer</h2>
+<p>I wrote a <code>filebackup.service</code> text file that consists of just the following lines:</p>
+<pre tabindex="0"><code class="language--n" data-lang="-n">[Unit]
+Description=File backup service
+
+[Service]
+ExecStart=/home/ljwrites/.local/bin/backup
+</code></pre><p>You can set the description to whatever text string you like, and  <code>ExecStart</code> is obviously a call to execute the <code>backup</code> file I put in <code>.local/bin</code>.</p>
+<p>And here&rsquo;s my <code>filebackup.timer</code> file:</p>
+<pre tabindex="0"><code class="language--n" data-lang="-n">[Unit]
+Description=Hourly backup of files
+
+[Timer]
+OnCalendar=Hourly
+AccuracySec=1s
+Persistent=false
+Unit=filebackup.service
+
+[Install]
+WantedBy=timers.target
+</code></pre><p><code>OnCalendar=Hourly</code> sets the hourly interval, and <code>Unit</code> calls the <code>filebackup.service</code> from  above.
+I have no idea if <code>timers.target</code> is the best timer for this but it works.
+There&rsquo;s a more detailed explanation of timer types on (where else?) <a href="https://unix.stackexchange.com/questions/427346/im-writing-a-systemd-timer-what-value-should-i-use-for-wantedby">Stack Exchange</a>, so check up on that if you&rsquo;re interested.
+According to that explanation it looks like basic.target would have worked, too.</p>
+<p>I moved both the service and timer files to the <code>/etc/systemd/system</code> directory.</p>
+<h2 id="step-3-activate-the-systemd-timer">Step 3: Activate the systemd timer</h2>
+<p>You can check the list of timers with:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">systemctl list-timers
+</code></pre><p>You can include inactive timers with the <code>--all</code> flag:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">systemctl list-timers --all
+</code></pre><p><code>filebackup.timer</code> shouldn&rsquo;t be on the list yet.
+You can add it with:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">sudo systemctl enable --now filebackup.timer
+</code></pre><p>Check timer list again and it should be there, with the NEXT and LEFT columns set to the start of the next hour.</p>
+<p><strong>Update 2021/6/15:</strong> If the NEXT and LEFT columns of the backup timer show up as n/a, it may help to restart it using the following command:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">sudo systemctl restart filebackup.timer
+</code></pre><h2 id="step-4-check-if-the-backup-ran-with-systemd-journal">Step 4: Check if the backup ran with systemd journal</h2>
+<p>You can check if the backup timer is running on schedule with:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">sudo journalctl -u filebackup.*
+</code></pre><p>I&rsquo;ve set this to an alias because I like the peace of mind in knowing I have regular backups of my stuff.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias backupcheck<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sudo journalctl -u filebackup.*&#39;</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="and-that-s-it">And that&rsquo;s it!</h2>
+<p>There you have it, my file backup setup.
+It&rsquo;s really simple and basic, but does what I need it to do.
+It also took me a while to get working properly because I couldn&rsquo;t find specific step-by-step instructions for my particular needs.
+Maybe it&rsquo;ll help others who have similar use-cases but are not devs.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>My Simple Directory Backup with a systemd Timer | Un-author-ized writer</title>
+<meta name="keywords" content="systemd, linux, backup, scripts, rsync">
+<meta name="description" content="How I set up a systemd timer for regular automated backups of selected directories.">
+<meta name="author" content="L.J.">
+<link rel="canonical" href="http://ljwrites.blog/posts/backup-systemd-timer/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://ljwrites.blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://ljwrites.blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://ljwrites.blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://ljwrites.blog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://ljwrites.blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="My Simple Directory Backup with a systemd Timer" />
+<meta property="og:description" content="How I set up a systemd timer for regular automated backups of selected directories." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ljwrites.blog/posts/backup-systemd-timer/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-13T14:00:04+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="My Simple Directory Backup with a systemd Timer"/>
+<meta name="twitter:description" content="How I set up a systemd timer for regular automated backups of selected directories."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://ljwrites.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "My Simple Directory Backup with a systemd Timer",
+      "item": "http://ljwrites.blog/posts/backup-systemd-timer/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "My Simple Directory Backup with a systemd Timer",
+  "name": "My Simple Directory Backup with a systemd Timer",
+  "description": "How I set up a systemd timer for regular automated backups of selected directories.",
+  "keywords": [
+    "systemd", "linux", "backup", "scripts", "rsync"
+  ],
+  "articleBody": "I put together an automatic hourly backup of selected directories using rsync and a systemd timer. It was a little bit more of a hassle than I anticipated, given my complete unfamiliarity with systemd, so I thought I’d document it for my own records and in case it’s useful to someone else on a distribution with systemd who has a similar use-case to mine.\nWhy a systemd timer and not cron? In my case, mostly because I already have systemd and the timer comes with it, while I’d have to install cron. Evidently a systemd timer also has some advantages over cron such as easy debugging and flexibility. The Arch Wiki lists some benefits and caveats of using the systemd timer as a cron replacement.\nStep 1: Set up the backup script I used rsync for the backup script. While I’m not ssh-ing into an external machine and just using an external hard drive, it’s simple yet robust enough for this use-case, too. My backup script file is just a shell script that starts with lines like:\n1 2 3 4 5 6 7 8 #!/bin/sh # Backup documents rsync -a /home/ljwrites/Documents/ /external/hdd/Documents/ # Backup pictures rsync -a /home/ljwrites/Pictures/ /external/hdd/Pictures/ # Backup config folder rsync -a /home/ljwrites/.config /external/hdd/Programs/ As you may know if you have some familiarity with rsync, the trailing slash on the source is significant. Without the trailing slash, the files in the source directory are copied into a subdirectory of the destination. This means that, in the above example, files and diretories from the Documents and Pictures directories are backed up to the Documents and Pictures directories of the external drive. The files and directories in .config, on the other hand, are backed up to Programs/.config in the external drive.\nThis file was made executable with chmod +x and lives in my ~/.local/bin with the file name backup. Yeah, I guess it should be backup.sh, but without the extension it’s shorter to run manually from the command line and it works. I am told the more proper way to do this is by creating a symlink named backup to my actual .sh file, but I don’t have a separate coding or development directory and I’m lazy lol.\nOh, and of course, to call backup in ~/.local/bin directly from the command line I had to add ~/.local/bin to my $PATH, which I did with a line in .bashrc like this:\n1 PATH=$HOME/.local/bin:$HOME/go/bin:$PATH I put ~/.local/bin and ~/go/bin ahead of $PATH rather than appending them, btw, because this way my local executables take precedence over the system ones. If there happens to be a binary called backup in the system files, for instance, when I type backup in the terminal I’ll be getting the backup script I wrote. This was another piece of advice from my dev friend, one that I actually took.\nOnce the backup script is tested and confirmed to be working, it’s time to set up the systemd service and timer.\nStep 2: Set up the systemd service and timer I wrote a filebackup.service text file that consists of just the following lines:\n[Unit] Description=File backup service [Service] ExecStart=/home/ljwrites/.local/bin/backup You can set the description to whatever text string you like, and ExecStart is obviously a call to execute the backup file I put in .local/bin.\nAnd here’s my filebackup.timer file:\n[Unit] Description=Hourly backup of files [Timer] OnCalendar=Hourly AccuracySec=1s Persistent=false Unit=filebackup.service [Install] WantedBy=timers.target OnCalendar=Hourly sets the hourly interval, and Unit calls the filebackup.service from above. I have no idea if timers.target is the best timer for this but it works. There’s a more detailed explanation of timer types on (where else?) Stack Exchange, so check up on that if you’re interested. According to that explanation it looks like basic.target would have worked, too.\nI moved both the service and timer files to the /etc/systemd/system directory.\nStep 3: Activate the systemd timer You can check the list of timers with:\nsystemctl list-timers You can include inactive timers with the --all flag:\nsystemctl list-timers --all filebackup.timer shouldn’t be on the list yet. You can add it with:\nsudo systemctl enable --now filebackup.timer Check timer list again and it should be there, with the NEXT and LEFT columns set to the start of the next hour.\nUpdate 2021/6/15: If the NEXT and LEFT columns of the backup timer show up as n/a, it may help to restart it using the following command:\nsudo systemctl restart filebackup.timer Step 4: Check if the backup ran with systemd journal You can check if the backup timer is running on schedule with:\nsudo journalctl -u filebackup.* I’ve set this to an alias because I like the peace of mind in knowing I have regular backups of my stuff.\n1 alias backupcheck='sudo journalctl -u filebackup.*' And that’s it! There you have it, my file backup setup. It’s really simple and basic, but does what I need it to do. It also took me a while to get working properly because I couldn’t find specific step-by-step instructions for my particular needs. Maybe it’ll help others who have similar use-cases but are not devs.\n",
+  "wordCount" : "847",
+  "inLanguage": "en",
+  "datePublished": "2021-05-29T00:00:00Z",
+  "dateModified": "2021-07-13T14:00:04+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "L.J."
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://ljwrites.blog/posts/backup-systemd-timer/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Un-author-ized writer",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://ljwrites.blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+           <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+            <a href="http://ljwrites.blog/" accesskey="h" title="Un-author-ized writer (Alt + H)">Un-author-ized writer</a>
+ 
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://ljwrites.blog/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ljwrites.blog/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ljwrites.blog/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ljwrites.blog/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ljwrites.blog/index.xml" title="rss">
+                    <span>rss</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      My Simple Directory Backup with a systemd Timer
+    </h1>
+    <div class="post-meta">May 29, 2021&nbsp;·&nbsp;
+  
+  <a href="http://ljwrites.blog/categories/technology/" class="post-meta" style="text-transform: capitalize; display: inline;">technology</a>
+  
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#why-a-systemd-timer-and-not-cron" aria-label="Why a systemd timer and not cron?">Why a systemd timer and not cron?</a></li>
+                <li>
+                    <a href="#step-1-set-up-the-backup-script" aria-label="Step 1: Set up the backup script">Step 1: Set up the backup script</a></li>
+                <li>
+                    <a href="#step-2-set-up-the-systemd-service-and-timer" aria-label="Step 2: Set up the systemd service and timer">Step 2: Set up the systemd service and timer</a></li>
+                <li>
+                    <a href="#step-3-activate-the-systemd-timer" aria-label="Step 3: Activate the systemd timer">Step 3: Activate the systemd timer</a></li>
+                <li>
+                    <a href="#step-4-check-if-the-backup-ran-with-systemd-journal" aria-label="Step 4: Check if the backup ran with systemd journal">Step 4: Check if the backup ran with systemd journal</a></li>
+                <li>
+                    <a href="#and-that-s-it" aria-label="And that&amp;rsquo;s it!">And that&rsquo;s it!</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>I put together an automatic hourly backup of selected directories using rsync and a systemd timer.
+It was a little bit more of a hassle than I anticipated, given my complete unfamiliarity with systemd, so I thought I&rsquo;d document it for my own records and in case it&rsquo;s useful to someone else on a distribution with systemd who has a similar use-case to mine.</p>
+<h2 id="why-a-systemd-timer-and-not-cron">Why a systemd timer and not cron?<a hidden class="anchor" aria-hidden="true" href="#why-a-systemd-timer-and-not-cron">#</a></h2>
+<p>In my case, mostly because I already have systemd and the timer comes with it, while I&rsquo;d have to install cron.
+Evidently a systemd timer also has some advantages over cron such as easy debugging and flexibility.
+The Arch Wiki lists some <a href="https://wiki.archlinux.org/title/Systemd/Timers#As%5Fa%5Fcron%5Freplacement">benefits and caveats</a> of using the systemd timer as a cron replacement.</p>
+<h2 id="step-1-set-up-the-backup-script">Step 1: Set up the backup script<a hidden class="anchor" aria-hidden="true" href="#step-1-set-up-the-backup-script">#</a></h2>
+<p>I used rsync for the backup script.
+While I&rsquo;m not ssh-ing into an external machine and just using an external hard drive, it&rsquo;s simple yet robust enough for this use-case, too.
+My backup script file is just a shell script that starts with lines like:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Backup documents</span>
+</span></span><span style="display:flex;"><span>rsync -a /home/ljwrites/Documents/ /external/hdd/Documents/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Backup pictures</span>
+</span></span><span style="display:flex;"><span>rsync -a /home/ljwrites/Pictures/ /external/hdd/Pictures/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Backup config folder</span>
+</span></span><span style="display:flex;"><span>rsync -a /home/ljwrites/.config /external/hdd/Programs/</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>As you may know if you have some familiarity with rsync, the trailing slash on the source is significant.
+Without the trailing slash, the files in the source directory are copied into a subdirectory of the destination.
+This means that, in the above example, files and diretories from the <code>Documents</code> and <code>Pictures</code> directories are backed up to the <code>Documents</code> and <code>Pictures</code> directories of the external drive.
+The files and directories in <code>.config</code>, on the other hand, are backed up to <code>Programs/.config</code> in the external drive.</p>
+<p>This file was made executable with <code>chmod +x</code> and lives in my <code>~/.local/bin</code> with the file name <code>backup</code>.
+Yeah, I guess it should be <code>backup.sh</code>, but without the extension it&rsquo;s shorter to run manually from the command line and it works.
+I am told the more proper way to do this is by creating a symlink named <code>backup</code> to my actual .sh file, but I don&rsquo;t have a separate coding or development directory and I&rsquo;m lazy lol.</p>
+<p>Oh, and of course, to call backup in <code>~/.local/bin</code> directly from the command line I had to add <code>~/.local/bin</code> to my <code>$PATH</code>, which I did with a line in <code>.bashrc</code> like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PATH<span style="color:#f92672">=</span>$HOME/.local/bin:$HOME/go/bin:$PATH</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>I put <code>~/.local/bin</code> and <code>~/go/bin</code> ahead of <code>$PATH</code> rather than appending them, btw, because this way my local executables take precedence over the system ones.
+If there happens to be a binary called <code>backup</code> in the system files, for instance, when I type <code>backup</code> in the terminal I&rsquo;ll be getting the <code>backup</code> script I wrote.
+This was another piece of advice from my dev friend, one that I actually took.</p>
+<p>Once the backup script is tested and confirmed to be working, it&rsquo;s time to set up the systemd service and timer.</p>
+<h2 id="step-2-set-up-the-systemd-service-and-timer">Step 2: Set up the systemd service and timer<a hidden class="anchor" aria-hidden="true" href="#step-2-set-up-the-systemd-service-and-timer">#</a></h2>
+<p>I wrote a <code>filebackup.service</code> text file that consists of just the following lines:</p>
+<pre tabindex="0"><code class="language--n" data-lang="-n">[Unit]
+Description=File backup service
+
+[Service]
+ExecStart=/home/ljwrites/.local/bin/backup
+</code></pre><p>You can set the description to whatever text string you like, and  <code>ExecStart</code> is obviously a call to execute the <code>backup</code> file I put in <code>.local/bin</code>.</p>
+<p>And here&rsquo;s my <code>filebackup.timer</code> file:</p>
+<pre tabindex="0"><code class="language--n" data-lang="-n">[Unit]
+Description=Hourly backup of files
+
+[Timer]
+OnCalendar=Hourly
+AccuracySec=1s
+Persistent=false
+Unit=filebackup.service
+
+[Install]
+WantedBy=timers.target
+</code></pre><p><code>OnCalendar=Hourly</code> sets the hourly interval, and <code>Unit</code> calls the <code>filebackup.service</code> from  above.
+I have no idea if <code>timers.target</code> is the best timer for this but it works.
+There&rsquo;s a more detailed explanation of timer types on (where else?) <a href="https://unix.stackexchange.com/questions/427346/im-writing-a-systemd-timer-what-value-should-i-use-for-wantedby">Stack Exchange</a>, so check up on that if you&rsquo;re interested.
+According to that explanation it looks like basic.target would have worked, too.</p>
+<p>I moved both the service and timer files to the <code>/etc/systemd/system</code> directory.</p>
+<h2 id="step-3-activate-the-systemd-timer">Step 3: Activate the systemd timer<a hidden class="anchor" aria-hidden="true" href="#step-3-activate-the-systemd-timer">#</a></h2>
+<p>You can check the list of timers with:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">systemctl list-timers
+</code></pre><p>You can include inactive timers with the <code>--all</code> flag:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">systemctl list-timers --all
+</code></pre><p><code>filebackup.timer</code> shouldn&rsquo;t be on the list yet.
+You can add it with:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">sudo systemctl enable --now filebackup.timer
+</code></pre><p>Check timer list again and it should be there, with the NEXT and LEFT columns set to the start of the next hour.</p>
+<p><strong>Update 2021/6/15:</strong> If the NEXT and LEFT columns of the backup timer show up as n/a, it may help to restart it using the following command:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">sudo systemctl restart filebackup.timer
+</code></pre><h2 id="step-4-check-if-the-backup-ran-with-systemd-journal">Step 4: Check if the backup ran with systemd journal<a hidden class="anchor" aria-hidden="true" href="#step-4-check-if-the-backup-ran-with-systemd-journal">#</a></h2>
+<p>You can check if the backup timer is running on schedule with:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">sudo journalctl -u filebackup.*
+</code></pre><p>I&rsquo;ve set this to an alias because I like the peace of mind in knowing I have regular backups of my stuff.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias backupcheck<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sudo journalctl -u filebackup.*&#39;</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="and-that-s-it">And that&rsquo;s it!<a hidden class="anchor" aria-hidden="true" href="#and-that-s-it">#</a></h2>
+<p>There you have it, my file backup setup.
+It&rsquo;s really simple and basic, but does what I need it to do.
+It also took me a while to get working properly because I couldn&rsquo;t find specific step-by-step instructions for my particular needs.
+Maybe it&rsquo;ll help others who have similar use-cases but are not devs.</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://ljwrites.blog/tags/systemd/">systemd</a></li>
+      <li><a href="http://ljwrites.blog/tags/linux/">linux</a></li>
+      <li><a href="http://ljwrites.blog/tags/backup/">backup</a></li>
+      <li><a href="http://ljwrites.blog/tags/scripts/">scripts</a></li>
+      <li><a href="http://ljwrites.blog/tags/rsync/">rsync</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>2023 <a href='https://creativecommons.org/licenses/by-nc/4.0/'>CC BY-NC</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

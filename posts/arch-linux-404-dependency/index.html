@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Resolving Arch Linux 404 and Dependency Errors | Un-author-ized writer</title>
+<meta name="keywords" content="linux, archLinux">
+<meta name="description" content="Update the package database and manually resolve dependencies.">
+<meta name="author" content="Jee Hyung Lee">
+<link rel="canonical" href="http://ljwrites.blog/posts/arch-linux-404-dependency/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://ljwrites.blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://ljwrites.blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://ljwrites.blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://ljwrites.blog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://ljwrites.blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Resolving Arch Linux 404 and Dependency Errors" />
+<meta property="og:description" content="Update the package database and manually resolve dependencies." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ljwrites.blog/posts/arch-linux-404-dependency/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-12T00:00:00+09:00" />
+<meta property="article:modified_time" content="2023-01-18T04:51:31+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Resolving Arch Linux 404 and Dependency Errors"/>
+<meta name="twitter:description" content="Update the package database and manually resolve dependencies."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://ljwrites.blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Resolving Arch Linux 404 and Dependency Errors",
+      "item": "http://ljwrites.blog/posts/arch-linux-404-dependency/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Resolving Arch Linux 404 and Dependency Errors",
+  "name": "Resolving Arch Linux 404 and Dependency Errors",
+  "description": "Update the package database and manually resolve dependencies.",
+  "keywords": [
+    "linux", "archLinux"
+  ],
+  "articleBody": "Hey Arch Linux user!\nDo you keep getting 404 errors when you try to install packages? Did you rewrite your /etc/pacman.d/mirrorlist file for what feels like dozens of times? Did you edit your /etc/pacman.conf file according to this Stack Exchange and forum post or that, hoping to get things to work?\nIf so, these tips just might help. That’s where I was, to the point of almost ragequitting Arch altogether, but trying these tips helped.\nUpdate the package database If you have your mirrorlist file arranged so the ones geographically closer to you are on top, it may be that you need to update your database. You might want to try updating your package database with:\n$ sudo pacman -Sy Or you could do a full system upgrade with -Syu, your choice. This landed me in dependency hell, though, see below, so I opted for just a database update this time around and it worked for me.\nThe reason 404 errors are common in Arch, according to a forum post I saw, is that old packages are deleted on the servers. Therefore, if your package database is outdated pacman will ask for old deleted versions of packages, resulting in 404 errors.\nLive and learn, right?\nThe next level: Dependency hell After updating the database Arch finally seemed ready to start installing packages again, but this time I fell into the dread… dependency hell. It consisted of messages like this:\n:: poppler(21.07.0-1) 설치로 의존성 'poppler=21.06.1'(poppler-glib가 요구)가 깨집니다 Which, translated into English, means that the package I was trying to install (kdenlive) required I upgrade poppler to version 21.07.0-1, which would break the dependency of poppler-glib on version 21.06.1. Evidenly this would ultimately lead to a dependency breakage of Gnu Image Manipulation Program via gegl’s dependency on that specific version of poppler-glib.\nRunning the install command with --ignore poppler didn’t help, since pacman refused to install without the poppler upgrade. Nor did trying to install with sudo pacman -Sdd kdenlive help, since this resulted in kdenlive installing without any dependencies and the package simply did not work.\nSo what I did was upgrade the offending dependency by itself, which was feasible in my case because there was just one, specifying a -d switch so the dependency version check was ignored:\n$ sudo pacman -Sd poppler When I tried the kdenlive installation again it worked, and luckily the Image Manipulation Program wasn’t broken by the poppler upgrade. It very well could have been, though, since upgrades to dependencies do cause breakages. That’s why dependency version checks exist in the first place.\nBy ignoring dependency version checks, therefore, you do assume the risk of dependency breakages causing malfunctions, which is a long-running issue in the open source world. Arch Linux, in particular, only allows one version of each package, raising the risk of dependency breakages–not a good combination with its fast-moving updates.\nIt should also be noted that running the kdenlive install with one -d switch instead of two might have had a similar result as installing the dependency package with -d, maybe in conjunction with --ignore poppler. According to man pacman one -d switch just ignores dependency version checks while repeating it twice like I did ignores all dependencies, which in this case meant the app wouldn’t work.\nKeep Arching on… or not I don’t claim these tips will solve every problem with the Arch package manager, but they could be helpful if your mirrorlist seems more or less in order yet all mirrors are failing with 404 errors. And if dependency conflicts are tying up your package installations and system updates after the 404 errors are resolved, the second part of the advice would come into play. If you don’t want the risk of broken dependencies, or if ignoring dependencies result in apps breaking, you should file a bug report with the relevant projects.\nIt’s also a valid choice to decide that maybe Arch Linux isn’t for you if you find these issues to be too much trouble. Arch is a purposefully fast-moving distribution and by design requires a level of expertise or at least bloody-mindedness. There are user-friendlier Arch-based distributions like Manjaro that stay a little behind the development curve and are said to be more stable as a result. The price is in staler packages than mainline Arch, but it’s my understanding packages are still newer than in something like Debian. Besides, truly cutting-edge users don’t find even Arch packages new enough and turn to the Arch User Repository for development versions or compile directly from project Git repos.\nIn the end you have to decide how important newer packages and upgrades are to you, and how much hassle you’re willing to put up with. If you want to keep going with Arch Linux, hopefully this post is helpful to you.\n",
+  "wordCount" : "801",
+  "inLanguage": "en",
+  "datePublished": "2021-07-12T00:00:00+09:00",
+  "dateModified": "2023-01-18T04:51:31+09:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Jee Hyung Lee"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://ljwrites.blog/posts/arch-linux-404-dependency/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Un-author-ized writer",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://ljwrites.blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+           <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+            <a href="http://ljwrites.blog/" accesskey="h" title="Un-author-ized writer (Alt + H)">Un-author-ized writer</a>
+ 
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://ljwrites.blog/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ljwrites.blog/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ljwrites.blog/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ljwrites.blog/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ljwrites.blog/index.xml" title="rss">
+                    <span>rss</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Resolving Arch Linux 404 and Dependency Errors
+    </h1>
+    <div class="post-meta">July 12, 2021&nbsp;·&nbsp;
+  
+  <a href="http://ljwrites.blog/categories/technology/" class="post-meta" style="text-transform: capitalize; display: inline;">technology</a>
+  
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#update-the-package-database" aria-label="Update the package database">Update the package database</a></li>
+                <li>
+                    <a href="#the-next-level-dependency-hell" aria-label="The next level: Dependency hell">The next level: Dependency hell</a></li>
+                <li>
+                    <a href="#keep-arching-on-dot-dot-dot-or-not" aria-label="Keep Arching on&amp;hellip; or not">Keep Arching on&hellip; or not</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Hey Arch Linux user!</p>
+<p>Do you keep getting 404 errors when you try to install packages?
+Did you rewrite your <code>/etc/pacman.d/mirrorlist</code> file for what feels like dozens of times?
+Did you edit your <code>/etc/pacman.conf</code> file according to this Stack Exchange and forum post or that, hoping to get things to work?</p>
+<p>If so, these tips just might help.
+That&rsquo;s where I was, to the point of almost ragequitting Arch altogether, but trying these tips helped.</p>
+<h2 id="update-the-package-database">Update the package database<a hidden class="anchor" aria-hidden="true" href="#update-the-package-database">#</a></h2>
+<p>If you have your <code>mirrorlist</code> file arranged so the ones geographically closer to you are on top, it may be that you need to update your database.
+You might want to try updating your package database with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -Sy
+</span></span></code></pre></div><p>Or you could do a full system upgrade with <code>-Syu</code>, your choice.
+This landed me in dependency hell, though, see below, so I opted for just a database update this time around and it worked for me.</p>
+<p>The reason 404 errors are common in Arch, according to a forum post I saw, is that old packages are deleted on the servers.
+Therefore, if your package database is outdated <code>pacman</code> will ask for old deleted versions of packages, resulting in 404 errors.</p>
+<p>Live and learn, right?</p>
+<h2 id="the-next-level-dependency-hell">The next level: Dependency hell<a hidden class="anchor" aria-hidden="true" href="#the-next-level-dependency-hell">#</a></h2>
+<p>After updating the database Arch finally seemed ready to start installing packages again, but this time I fell into the dread&hellip; dependency hell.
+It consisted of messages like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>:: poppler<span style="color:#f92672">(</span>21.07.0-1<span style="color:#f92672">)</span> 설치로 의존성 <span style="color:#e6db74">&#39;poppler=21.06.1&#39;</span><span style="color:#f92672">(</span>poppler-glib가 요구<span style="color:#f92672">)</span>가 깨집니다
+</span></span></code></pre></div><p>Which, translated into English, means that the package I was trying to install (kdenlive) required I upgrade <code>poppler</code> to version 21.07.0-1, which would break the dependency of <code>poppler-glib</code> on version 21.06.1.
+Evidenly this would ultimately lead to a dependency breakage of Gnu Image Manipulation Program via <code>gegl</code>&rsquo;s dependency on that specific version of <code>poppler-glib</code>.</p>
+<p>Running the install command with <code>--ignore poppler</code> didn&rsquo;t help, since pacman refused to install without the poppler upgrade.
+Nor did trying to install with <code>sudo pacman -Sdd kdenlive</code> help, since this resulted in kdenlive installing without any dependencies and the package simply did not work.</p>
+<p>So what I did was upgrade the offending dependency by itself, which was feasible in my case because there was just one, specifying a <code>-d</code> switch so the dependency version check was ignored:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -Sd poppler
+</span></span></code></pre></div><p>When I tried the kdenlive installation again it worked, and luckily the Image Manipulation Program wasn&rsquo;t broken by the poppler upgrade.
+It very well could have been, though, since upgrades to dependencies do cause breakages.
+That&rsquo;s why dependency version checks exist in the first place.</p>
+<p>By ignoring dependency version checks, therefore, you do assume the risk of dependency breakages causing malfunctions, which is a long-running issue in the open source world.
+Arch Linux, in particular, only allows one version of each package, raising the risk of dependency breakages&ndash;not a good combination with its fast-moving updates.</p>
+<p>It should also be noted that running the kdenlive install with one <code>-d</code> switch instead of two might have had a similar result as installing the dependency package with <code>-d</code>, maybe in conjunction with <code>--ignore poppler</code>.
+According to <code>man pacman</code> one <code>-d</code> switch just ignores dependency version checks while repeating it twice like I did ignores all dependencies, which in this case meant the app wouldn&rsquo;t work.</p>
+<h2 id="keep-arching-on-dot-dot-dot-or-not">Keep Arching on&hellip; or not<a hidden class="anchor" aria-hidden="true" href="#keep-arching-on-dot-dot-dot-or-not">#</a></h2>
+<p>I don&rsquo;t claim these tips will solve every problem with the Arch package manager, but they could be helpful if your mirrorlist seems more or less in order yet all mirrors are failing with 404 errors.
+And if dependency conflicts are tying up your package installations and system updates after the 404 errors are resolved, the second part of the advice would come into play.
+If you don&rsquo;t want the risk of broken dependencies, or if ignoring dependencies result in apps breaking, you should file a bug report with the relevant projects.</p>
+<p>It&rsquo;s also a valid choice to decide that maybe Arch Linux isn&rsquo;t for you if you find these issues to be too much trouble.
+Arch is a purposefully fast-moving distribution and by design requires a level of expertise or at least bloody-mindedness.
+There are user-friendlier Arch-based distributions like Manjaro that stay a little behind the development curve and are said to be more stable as a result.
+The price is in staler packages than mainline Arch, but it&rsquo;s my understanding packages are still newer than in something like Debian.
+Besides, truly cutting-edge users don&rsquo;t find even Arch packages new enough and turn to the Arch User Repository for development versions or compile directly from project Git repos.</p>
+<p>In the end you have to decide how important newer packages and upgrades are to you, and how much hassle you&rsquo;re willing to put up with.
+If you want to keep going with Arch Linux, hopefully this post is helpful to you.</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://ljwrites.blog/tags/linux/">linux</a></li>
+      <li><a href="http://ljwrites.blog/tags/archlinux/">archLinux</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>2023 <a href='https://creativecommons.org/licenses/by-nc/4.0/'>CC BY-NC</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

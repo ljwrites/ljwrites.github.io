@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>networkManager on Un-author-ized writer</title>
+    <link>http://ljwrites.blog/tags/networkmanager/</link>
+    <description>Recent content in networkManager on Un-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://ljwrites.blog/tags/networkmanager/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>  Troubleshooting &#34;Unmanaged Device&#34; Network Connection Error
+  </title>
+      <link>http://ljwrites.blog/posts/troubleshoot-network/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/troubleshoot-network/</guid>
+      <description>Here&amp;rsquo;s how I solved it when there was an unmanaged device error with NetworkManager and systemd.</description>
+      <content:encoded><![CDATA[<p>The computer wasn&rsquo;t connecting to the internet this morning with the nm-applet on the status bar saying network connections were unusable.
+Sigh. To be fair I had done a system upgrade of Arch Linux the day before, so I guess can this kind of thing Happens.
+When I ran:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nmcli c
+</span></span></code></pre></div><p>&hellip;to check wi-fi connections none of was was showing a device, and when I tried to connect to my usual network using</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nmcli con up <span style="color:#f92672">[</span>device-uuid<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>I got an error that the connection couldn&rsquo;t be activated because &ldquo;No suitable device found for this connection (device lo not available because device is strictly unmanaged).&rdquo;</p>
+<p>I searched for the error and, as per <a href="https://askubuntu.com/questions/1190504/why-is-nmcli-not-configuring-device">an answer</a> that was downvoted because it didn&rsquo;t work on Ubuntu but worked for me, I added:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">[ifupdown]
+managed=true
+</code></pre><p>to <code>/etc/NetworkManager/NetworkManager.conf</code>.</p>
+<p>Restarted NetworkManager with</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">$ sudo systemctl restart NetworkManager.service
+</code></pre><p>Worked instantly. When I checked connections with <code>$ nmcli c</code> again my usual connection had been assigned my main network device, and the nm-applet updated accordingly.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>troubleshooting on Un-author-ized writer</title>
+    <link>http://ljwrites.blog/tags/troubleshooting/</link>
+    <description>Recent content in troubleshooting on Un-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mu4e Error in Process Sentinel: Mu Server Process Ended with Exit 1</title>
+      <link>http://ljwrites.blog/posts/mu4e-mu-server-process-error/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/mu4e-mu-server-process-error/</guid>
+      <description>Shutting down mu server turned out to be effective when mu4e wouldn&amp;rsquo;t start.</description>
+      <content:encoded><![CDATA[<p>Because no upgrade goes unpunished, Mu4e was refusing to start up in Emacs, throwing an &ldquo;error in process sentinel: Mu server process ended with exit 1&rdquo; error.
+I couldn&rsquo;t find this exact error message online, but a look through posts about similar error messages revealed that complaints about the Mu server were often caused by the server still running.
+I took the advice in <a href="https://github.com/djcb/mu/issues/8">this Mu4e issue thread</a> and ran:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pkill -2 -u $UID mu
+</span></span></code></pre></div><p>&hellip;exactly like that, without replacing the <code>$UID</code> with anything.
+Mu4e sprang right back up afterward, having grabbed control of the database back from the server process that had been running.</p>
+<p>Still waiting wearily for more troubles to happen, but in the meantime at least I can read emails again.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

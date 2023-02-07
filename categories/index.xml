@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Un-author-ized writer</title>
+    <link>http://ljwrites.blog/categories/</link>
+    <description>Recent content in Categories on Un-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Wed, 25 Jan 2023 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>translation</title>
+      <link>http://ljwrites.blog/categories/translation/</link>
+      <pubDate>Wed, 25 Jan 2023 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/translation/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>writing</title>
+      <link>http://ljwrites.blog/categories/writing/</link>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/writing/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>technology</title>
+      <link>http://ljwrites.blog/categories/technology/</link>
+      <pubDate>Sat, 10 Dec 2022 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/technology/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>fannish</title>
+      <link>http://ljwrites.blog/categories/fannish/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/fannish/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>life</title>
+      <link>http://ljwrites.blog/categories/life/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/life/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>history</title>
+      <link>http://ljwrites.blog/categories/history/</link>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/history/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
