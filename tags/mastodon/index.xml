@@ -198,6 +198,7 @@ Instance management has become enjoyable again without the constant risk of unpl
 <p>In the long term, media storage is something federated software and communities are going to have to figure out.
 Services like <a href="https://jortage.com/">Jortage</a> look interesting, and something like it may be the future of media storage in the fediverse.
 For now I have found a solution that works for my instance, and if this write-up helps others avoid some of my confusion and mistakes I will be happy&ndash;although, let&rsquo;s be real, these tech posts have mainly been helpful to myself for the purpose of record-keeping and documentation.</p>
+<p>(Updated on 12/18/2023: Fixed a line break in the first line of the nginx configuration, added an advisory to clean up media before syncing.)</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
