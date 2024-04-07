@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>emacs on Un-author-ized writer</title>
+    <title>Emacs on Semi-author-ized writer</title>
     <link>http://ljwrites.blog/tags/emacs/</link>
-    <description>Recent content in emacs on Un-author-ized writer</description>
+    <description>Recent content in Emacs on Semi-author-ized writer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
@@ -95,7 +95,7 @@ I thought I&rsquo;d write about my experience with Emacs and the advice I would 
 <h2 id="destination-emacs">Destination: Emacs</h2>
 <p>It probably helped lead me to Emacs that I&rsquo;ve been a hobby coder for decades and like to fiddle with computers.
 I&rsquo;m known as the tech person in my family, and have written small apps in Python 2 including an IRC dicebot in the 00&rsquo;s.
-Yes, I&rsquo;m That old.
+(Yes, I&rsquo;m That old.)
 I&rsquo;ve used PHP and MySQL to run hosted blogs; I&rsquo;ve tried Ubuntu and now use an Arch Linux installation daily.
 Coding and computers don&rsquo;t scare me, and what I lack in expertise and training I make up for in sheer determination and willingness to pour countless hours into solving a problem (thanks, ADHD hyperfocus!!).
 So in a way a developer&rsquo;s tool like Emacs was a natural fit for me.</p>

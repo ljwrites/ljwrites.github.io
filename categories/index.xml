@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on Un-author-ized writer</title>
+    <title>Categories on Semi-author-ized writer</title>
     <link>http://ljwrites.blog/categories/</link>
-    <description>Recent content in Categories on Un-author-ized writer</description>
+    <description>Recent content in Categories on Semi-author-ized writer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Sat, 18 Nov 2023 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>history</title>
+      <title>Fannish</title>
+      <link>http://ljwrites.blog/categories/fannish/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/fannish/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>History</title>
       <link>http://ljwrites.blog/categories/history/</link>
       <pubDate>Sat, 18 Nov 2023 00:00:00 +0900</pubDate>
       
@@ -19,7 +29,7 @@
     </item>
     
     <item>
-      <title>translation</title>
+      <title>Translation</title>
       <link>http://ljwrites.blog/categories/translation/</link>
       <pubDate>Wed, 25 Jan 2023 00:00:00 +0900</pubDate>
       
@@ -29,7 +39,7 @@
     </item>
     
     <item>
-      <title>writing</title>
+      <title>Writing</title>
       <link>http://ljwrites.blog/categories/writing/</link>
       <pubDate>Tue, 03 Jan 2023 00:00:00 +0900</pubDate>
       
@@ -39,7 +49,7 @@
     </item>
     
     <item>
-      <title>technology</title>
+      <title>Technology</title>
       <link>http://ljwrites.blog/categories/technology/</link>
       <pubDate>Sat, 10 Dec 2022 00:00:00 +0900</pubDate>
       
@@ -49,17 +59,7 @@
     </item>
     
     <item>
-      <title>fannish</title>
-      <link>http://ljwrites.blog/categories/fannish/</link>
-      <pubDate>Sat, 21 May 2022 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/categories/fannish/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>life</title>
+      <title>Life</title>
       <link>http://ljwrites.blog/categories/life/</link>
       <pubDate>Sat, 10 Jul 2021 00:00:00 +0900</pubDate>
       

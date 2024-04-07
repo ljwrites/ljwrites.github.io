@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on E-daemonia</title>
+    <link>http://ljwrites.blog/tags/vim/</link>
+    <description>Recent content in vim on E-daemonia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#39;https://creativecommons.org/licenses/by-nc/4.0/&#39;&gt;CC BY-NC&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 15 Jun 2021 18:30:30 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stuff I Do with Emacs: Text Editing</title>
+      <link>http://ljwrites.blog/posts/emacs-text-editing/</link>
+      <pubDate>Tue, 15 Jun 2021 18:30:30 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/emacs-text-editing/</guid>
+      <description>My Emacs text editing setup with Evil Mode and Evil Org.</description>
+    </item>
+    
+  </channel>
+</rss>

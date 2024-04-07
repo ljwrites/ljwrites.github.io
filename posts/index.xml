@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Un-author-ized writer</title>
+    <title>Posts on Semi-author-ized writer</title>
     <link>http://ljwrites.blog/posts/</link>
-    <description>Recent content in Posts on Un-author-ized writer</description>
+    <description>Recent content in Posts on Semi-author-ized writer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Sat, 18 Nov 2023 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Mar 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overthinking the Schwarzschild Defense</title>
+      <link>http://ljwrites.blog/posts/overthinking-black-hole/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/overthinking-black-hole/</guid>
+      <description>Fact-checking the 2003 short story The Schwarzschild Defense because I am a killjoy.</description>
+      <content:encoded><![CDATA[<p>This post was adapted from a <a href="https://writeout.ink/@ljwrites/109724660651747328">Mastodon post</a> written on January 21, 2023.</p>
+<h2 id="read-the-story-first">Read the story first!</h2>
+<p>The <a href="https://www.nature.com/articles/d41586-022-04550-2">Schwarzschild Defence</a> by M. V. Melcer is a very fun short science fiction story and highly recommended reading.
+I particularly love its punchy style that delivers so much in so few words.
+Its choices are effective for the story told, from the format of giving only one side of the interview to the downright chilling twists, delivered so nonchalantly.
+It feels fresh while having a really classic sci-fi feel, down to the commentary on gender roles and violence against women (consider that a content warning).</p>
+<p>Still, I can&rsquo;t be the only one who thinks it doesn&rsquo;t work legally or even physics-wise, right?
+If you like overthinking things, and more importantly if you&rsquo;ve read the story, maybe you&rsquo;d like  to join me in overthinking a delightful story!</p>
+<p>Seriously. Read it. It&rsquo;s less than a thousand words and brilliantly written. I&rsquo;ll wait.</p>
+<h2 id="checking-the-laws">Checking the Laws</h2>
+<p>So, can you see why it doesn&rsquo;t make sense?
+Legally speaking, even if we take the narrator of the story, let&rsquo;s call her &ldquo;Mileva,&rdquo; at her word that Xavier will not die (a claim I highly doubt, see below), she has by her admission committed some pretty serious crimes.</p>
+<p>One is the crime of false imprisonment, meaning detaining someone against their will without legal justification.
+Mileva sabotaged Xavier into an inescapable prison and there&rsquo;s no way this doesn&rsquo;t count as false imprisonment, <em>especially</em> when she was reckless enough to admit at least twice to the police that this wasn&rsquo;t what Xavier intended or wanted with the flight.</p>
+<p>In the jurisdiction I live in, false imprisonment carries a penalty of up to 10 years&rsquo; incarceration if committed against a spouse or other close family member.
+Committing cruel acts against a close family member while keeping them falsely imprisoned carries a penalty of at <em>least</em> 2 years&rsquo; imprisonment.
+The penalty is increased by up to 50% if the false imprisonment is done with the possession of a dangerous object, and both the black hole and the tampered-with spaceship arguably qualify.</p>
+<p>Overall, Mileva is looking at some pretty heavy charges and had better get her lawyers scrambling.
+Given the severity of the effects, the incontrovertible evidence, and her intent, freely admitted to a police detective&ndash;without a lawyer to advise her, what was she thinking?!&ndash;to trap Xavier in the black hole, it is <em>very</em> likely she will have the book thrown at her.</p>
+<p>Mileva has also, by her admission, tampered with sensitive equipment, damaging Xavier&rsquo;s property knowing he is undertaking a dangerous and sensitive flight.
+Through this she caused Xavier to make unwanted contact with the event horizon of the black hole, which is battery.</p>
+<p>Even <em>if</em> Xavier suffers no other physical harm (which I doubt, more on that soon), slowing down his physical process well beyond human levels is unwanted interference with his body, a form of inflicted physical injury that exacerbates the crimes of false imprisonment and battery.
+I&rsquo;m sure there have been more crimes committed, but these are some of the big ones.</p>
+<h2 id="checking-the-laws-of-physics">Checking the Laws of Physics</h2>
+<p>The charges outlined above rest on Mileva&rsquo;s insistence that Xavier is physically unharmed and will live a long, long time in the black hole.
+But will he?
+I&rsquo;m not formally trained in physics so I&rsquo;m on less certain ground here, but it doesn&rsquo;t seem that way to me, and discussions like <a href="https://math.ucr.edu/home/baez/physics/Relativity/BlackHoles/fall_in.html">this one</a> seem to confirm my suspicion.</p>
+<p>If time slows down as you go down a black hole and the gravitational pull becomes inescapable, wouldn&rsquo;t the parts of the spaceship and of Xavier be pulled down at different rates, meaning he and the spaceship will be literally atomized?
+If anything he&rsquo;s going to have the longest, most protracted death ever.
+Not that I care, the guy&rsquo;s an ass and deserves it, but the whole twist of the story depends on Mileva&rsquo;s actions not being murder.</p>
+<p>I mean maybe Mileva is right, and the story was worded very cleverly here, that this Xavier-molasses and his eventual atom-level explosion will happen so slowly in a Schwarzschild black hole, at a time scale well beyond everyone&rsquo;s lifespans, that it can&rsquo;t be murder in the conventional sense.
+Murder revolves around the idea of cutting someone&rsquo;s life short, so what do you do when someone stretches it <em>out,</em> longer and longer beyond the shape lives were ever meant to take, before a horrible end?</p>
+<p>This is why I believe the better legal tacks to take are false imprisonment, battery, and attendant serious injury with property damage and sabotage sprinkled in for spice.
+But under no circumstance can Mileva get away scot-free as she claims.</p>
+<h2 id="notes-and-conclusions">Notes &amp; Conclusions</h2>
+<p>I&rsquo;d like to note this isn&rsquo;t me endorsing the incarceral state, far less the misogyny and threats Mileva was subjected to by her account.
+All I&rsquo;m doing is analyzing the internal logic of the story, which is remarkable for raising these questions at all.
+If Isaac Asimove can stretch, or shall we say fail to stretch, the science in almost exactly the same way in his classic <a href="https://en.wikipedia.org/wiki/The_Billiard_Ball">The Billiard Ball</a> (1967), a fudging he freely admitted to, I don&rsquo;t see why M. V. Melcer can&rsquo;t be afforded the same leniency.
+Science fiction is <em>fiction</em> in the end, and between perfect fidelity to the facts and a good story there&rsquo;s no harm in choosing the latter.</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>The Dragon&#39;s Son Defeats the God of Plague</title>
       <link>http://ljwrites.blog/posts/cheoyong-story/</link>
@@ -317,7 +366,8 @@ Master application keys are <a href="https://kb.msp360.com/cloud-vendors/backbla
 If every request were to go directly to your bucket your traffic meter could climb rapidly and cost you more money than it has to.
 I modeled my nginx configuration for this on <a href="https://thomas-leister.de/en/mastodon-s3-media-storage/">a configuration for a different S3-compatible service</a>, and followed the directions in the <a href="https://docs.joinmastodon.org/admin/optional/object-storage-proxy/">Mastodon documentation</a> on configuring the proxy.</p>
 <p>Here&rsquo;s what my configuration, anonymized to <code>/etc/nginx/sites-available/files.example.com</code>, looks like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    proxy_cache_path   /tmp/nginx-cache-instance-media levels<span style="color:#f92672">=</span>1:2 keys_zone<span style="color:#f92672">=</span>s3_cache:10m max_size<span style="color:#f92672">=</span>10g inactive<span style="color:#f92672">=</span>48h use_temp_path<span style="color:#f92672">=</span>off;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    proxy_cache_path   /tmp/nginx-cache-instance-media levels<span style="color:#f92672">=</span>1:2 keys_zone<span style="color:#f92672">=</span>s3_cache:10m max_size<span style="color:#f92672">=</span>10g
+</span></span><span style="display:flex;"><span>    inactive<span style="color:#f92672">=</span>48h use_temp_path<span style="color:#f92672">=</span>off;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>
@@ -412,10 +462,15 @@ Or you can actually define the variables I guess, but I didn&rsquo;t feel the ne
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 list-buckets --profile my-instance
 </span></span></code></pre></div><p>Or maybe try uploading a small file or something.
 The <code>--help</code> switch is helpful for figuring out the commands and syntax, or simply running b2 without any arguments will also bring up the help options.</p>
-<p>Once authentication is confirmed to work, sync the <code>public/system</code> directory to the remote b2 bucket using the <code>sync</code> command. Assuming the command is run from the <code>/home/mastodon/live</code> directory:</p>
+<p>Once authentication is confirmed to work, sync the <code>public/system</code> directory to the remote b2 bucket using the <code>sync</code> command.
+If you haven&rsquo;t already, it&rsquo;s a good idea to run some <a href="https://docs.joinmastodon.org/admin/tootctl/#media-remove">media cleanup commands</a> to minimize the amount of files to upload to the bucket.
+Here are the ones I used, from <code>/home/mastodon/bin</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  ./tootctl media remove --days <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>./tootctl media remove --prune-profiles
+</span></span><span style="display:flex;"><span>./tootctl media remove --remove-headers
+</span></span></code></pre></div><p>When you are ready to start moving the files, assuming the command is run from the <code>/home/mastodon/live</code> directory:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 sync --profile my-instance ./public/system/ b2://my-instance-media/
-</span></span></code></pre></div><p>You can read more about  <a href="https://b2-command-line-tool.readthedocs.io/en/master/subcommands/sync.html">b2&rsquo;s sync command options</a>, but I found the default options satisfactory.
-It took me about an afternoon to upload 18.5 GB of preexisting data to the bucket.</p>
+</span></span></code></pre></div><p>You can read more about  <a href="https://b2-command-line-tool.readthedocs.io/en/master/subcommands/sync.html">b2&rsquo;s sync command options</a>, but I found the default options satisfactory.</p>
 <h2 id="step-4-mastodon-configuration">Step 4: Mastodon configuration</h2>
 <p>My Mastodon configuration in <code>live/.env.production</code> to enable the object storage looks something like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>S3_ENABLED<span style="color:#f92672">=</span>true
@@ -460,7 +515,7 @@ Yeah, things were that bad.</p>
 <p>Media loads correctly again on my instance, though there is an initial loading time, and I can get a proper media cache going without my disk at constant risk of running out.
 Instance management has become enjoyable again without the constant risk of unplanned server downtime, and I am now able to consider putting other services on the server.</p>
 <p>In the long term, media storage is something federated software and communities are going to have to figure out.
-Services like <a href="https://jortage.com/">Jortage</a> look interesting something like it may be the future of media storage in the fediverse.
+Services like <a href="https://jortage.com/">Jortage</a> look interesting, and something like it may be the future of media storage in the fediverse.
 For now I have found a solution that works for my instance, and if this write-up helps others avoid some of my confusion and mistakes I will be happy&ndash;although, let&rsquo;s be real, these tech posts have mainly been helpful to myself for the purpose of record-keeping and documentation.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
@@ -947,7 +1002,7 @@ I thought I&rsquo;d write about my experience with Emacs and the advice I would 
 <h2 id="destination-emacs">Destination: Emacs</h2>
 <p>It probably helped lead me to Emacs that I&rsquo;ve been a hobby coder for decades and like to fiddle with computers.
 I&rsquo;m known as the tech person in my family, and have written small apps in Python 2 including an IRC dicebot in the 00&rsquo;s.
-Yes, I&rsquo;m That old.
+(Yes, I&rsquo;m That old.)
 I&rsquo;ve used PHP and MySQL to run hosted blogs; I&rsquo;ve tried Ubuntu and now use an Arch Linux installation daily.
 Coding and computers don&rsquo;t scare me, and what I lack in expertise and training I make up for in sheer determination and willingness to pour countless hours into solving a problem (thanks, ADHD hyperfocus!!).
 So in a way a developer&rsquo;s tool like Emacs was a natural fit for me.</p>
@@ -1232,89 +1287,6 @@ It&rsquo;s a heritage worthy of rediscovery and interpretation as we look to exp
 <hr>
 <p>This is an edited and expanded version of a thread originally <a href="https://rage.love/@ljwrites/105965761722179223">posted
 to Mastodon</a>.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>  No, Andrew Lee Is Not the &#34;Crown Prince of Korea&#34; (there is someone who comes close, though)
-  </title>
-      <link>http://ljwrites.blog/posts/crown-prince-korea/</link>
-      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://ljwrites.blog/posts/crown-prince-korea/</guid>
-      <description>The Korean-American businessman Andrew Lee is not the Crown Prince of Korea. The last Crown Prince of Korea has a living heir, though.</description>
-      <content:encoded><![CDATA[<p>Recently I was amused to read that Andrew Lee, the claimed &ldquo;Crown Prince of Korea,&rdquo; <a href="https://arstechnica.com/gadgets/2021/05/freenode-irc-has-been-taken-over-by-the-crown-prince-of-korea/">took over the Freenode IRC network</a>.
-I mean, not the part where he took over Freenode, of course, which is a shame and I hope users will find a better home if he can&rsquo;t be removed.</p>
-<p>The part that amused me was that he claimed to be the Crown Prince of Korea, because a) that title doesn&rsquo;t exist anymore because neither Korea is a monarchy anymore&ndash;or at least not the same monarchy, in the case of the North&ndash;and b) to the extent it exists, it belongs to someone else entirely and Andrew Lee has no claim to it.</p>
-<p>Why is that, and who is the &ldquo;real&rdquo; Crown Prince of Korea?
-Dive down that rabbit hole with me if you like royal family trivia and/or history.</p>
-<h2 id="andrew-lee-the-case-for-and-against">Andrew Lee: The case for and against</h2>
-<p>First of all, let&rsquo;s look at Andrew Lee&rsquo;s claim to this title.
-The claim is that Yi Seok, a grandson of Gojong who was the last king of Joseon and the first Emperor of the Daehan Empire, <a href="https://www.prnewswire.com/news-releases/andrew-lee-named-new-korean-crown-prince-300731986.html">passed on</a> the title to Lee in October of 2018.
-(&ldquo;Lee&rdquo; and &ldquo;Yi&rdquo; are romanizations of the same Korean surname 이(李). I will use &ldquo;Yi&rdquo; for Korean names because it is the more modern and phonetically correct one.
-I will also put the surname first for Korean names.)</p>
-<p>It&rsquo;s true that Yi Seok is one of the grandsons of Emperor Gojong and a member of the royal family.
-He is not, however, in the direct line of the last Crown Prince of Korea, and therefore cannot pass the title on.
-It&rsquo;s also been pointed out that Andrew Lee has never made clear what his family ties to Yi Seok or the Korean royal family are, and if he is not a member of the royal family he is not eligible for any royal title in the first place.</p>
-<h2 id="the-real-crown-prince--sort-of">The real Crown Prince (sort of)</h2>
-<p>So is there an actual Crown Prince of Korea?
-Well, technically, no.
-The last guy to hold the title died in 1970 and he lost the title itself in 1910 when Japan took over Korea, and it was never restored because the monarchy was abolished.
-The title of Crown Prince, in other words, has not existed in 110 years and the last person to hold it has been dead for over 50.</p>
-<p>But also, sort-of kind-of, yes?
-While the former royal family, the Yi family from Jeonju, no longer holds political power in Korea (individuals might, of course, but due to being elected in their personal capacity and not by family affiliation), the eldest man in the direct line of the former Crown Prince is acknowledged as the head of the family and holds rites for the royal ancestors.
-His title is not Crown Prince, however, far less King, but the Rite-Giver (봉사자, 奉祀子) for the Daehan Royal Family.
-As the former royal family they&rsquo;ve decided to recognize the royal line and pay respects to the old kings, a millennia-old tradition in cases where a royal family that lost power survives.</p>
-<p>It&rsquo;s a strictly private title, of course, and has nothing to do with official government designation or power.
-The Jeonju Yi family as a private association could call a dancing monkey their Rite-Giver and would be perfectly within their legal rights to do so.
-They could also call the monkey (or anyone they chose) the Crown Prince and it would be as legal as it is officially meaningless, much like Andrew Lee&rsquo;s title.</p>
-<p>The head of the former royal family and their Rite-Giver is not a monkey.</p>
-<p>Nor is it Yi Seok or Andrew Lee.</p>
-<p>It&rsquo;s this guy:</p>
-<figure>
-    <img loading="lazy" src="https://www.ljwrites.blog/img/koreanroyals/Yiwon_08JongmyoDaeje.jpg"
-         alt="A male-presenting person in late middle age wearing a dark square hat with a row of colorful ornaments hanging from the front and back brim and an dark blue-grey robe with embroidery and a red panel in front, with a white robe underneath and red boots. He holds a long white piece of wood at waist level, pointing it upward."/> <figcaption>
-            <p><span class="figure-number">Figure 1: </span>Yi Won</p>
-        </figcaption>
-</figure>
-
-<p>This is Yi Won, great-grandson of Gojong and grandson of Yi Eun, the aforementioned last Crown Prince of Korea.
-Or, if you go by legally recognized terms, the grandson of Yi Gang, Yi Eun&rsquo;s brother.
-I told you this was a rabbit hole.</p>
-<h2 id="dot-dot-dot-why">&hellip;Why?</h2>
-<p>But wait, didn&rsquo;t I say Yi Seok is a son of Yi Gang, making him Yi Won&rsquo;s uncle?
-So why is Yi Won ahead of him in the family&rsquo;s pecking order?
-Also what&rsquo;s this about Yi Won having two different grandfathers?</p>
-<p>This all goes back to the three sons of Gojong, who was the 26th king of Joseon and first Emperor of the Daehan Empire.
-Gojong&rsquo;s eldest surviving son Cheok became Sunjong, the second and soon last Emperor when Japan took over the country in 1910.
-Sunjong had no son, so his Crown Prince was his younger half-brother Yi Eun, the last person to hold this title.</p>
-<p>These two princes&rsquo; half-brother, Yi Gang, had a whopping 21 children.
-The 10th son is Yi Seok while the 9th son, Yi Gab, had two sons and a daughter, the eldest son being Yi Won.</p>
-<p>Here comes the family tree, a vastly simplified one of course that omits everyone who is not directly mentioned in this particular story (siblings arranged left to right in birth order):</p>
-<figure>
-    <img loading="lazy" src="https://www.ljwrites.blog/img/koreanroyals/korean-royals-diagram.jpg"
-         alt="A family tree diagram showing Gojong (Emperor) with three children below, Sunjong (Emperor), Yi Gang, and Yi Eun (Crown Prince) from left to right. Below Yi Gang are Yi Gab and Yi Seok. Below Yi Gab is Yi Won. Below Yi Eun (Crown Prince) is Yi Gu."/> <figcaption>
-            <p><span class="figure-number">Figure 2: </span>A pared-down Korean royal family tree</p>
-        </figcaption>
-</figure>
-
-<p>So the first reason Yi Won has more seniority than Yi Seok and gets to be the head of the royal family is that while Yi Seok is older, Yi Won is the son of the older brother and that makes him more senior by direct line.</p>
-<p>The more important reason, though, is that he was &ldquo;adopted&rdquo; under traditional family law that is no longer valid in Korea to Yi Eun&rsquo;s, that is the former Crown Prince&rsquo;s, line.
-Yi Eun&rsquo;s son Yi Gu did not have sons, which broke the direct line of the Crown Prince.
-In order to carry on that line, Yi Won became Yi Gu&rsquo;s adopted son.</p>
-<figure>
-    <img loading="lazy" src="https://www.ljwrites.blog/img/koreanroyals/korean-royals-diagram-adoption.jpg"
-         alt="The same diagram as above, except Yi Won is moved from below Yi Gab to below Yi Gu into Yi Eun (Crown Prince)&#39;s line with a yellow horizontal arrow reading &#39;adoption.&#39;"/> <figcaption>
-            <p><span class="figure-number">Figure 3: </span>Yoink!</p>
-        </figcaption>
-</figure>
-
-<p>The problem under modern Korean family law is that the &ldquo;adoption&rdquo; happened after Yi Gu&rsquo;s death, which makes it legally invalid.
-Posthumous adoption of a male relative to carry on a broken family line, however, was fairly common in Korea prior to the 20th century.
-Even if it&rsquo;s no longer legally valid, the Jeonju Yi family as a private association can decide its own rules of succession, and if they decree that Yi Won is Yi Eun&rsquo;s grandson by posthumous adoption, they&rsquo;re free to do that.
-This would not be valid for the purpose of inheritance and other matters under Korean law, but for deciding who the family decides is its own head? Why not.</p>
-<p>Just be glad it wasn&rsquo;t a monkey.
-Or Andrew Lee.</p>
 ]]></content:encoded>
     </item>
     

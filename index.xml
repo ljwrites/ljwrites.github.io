@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Un-author-ized writer</title>
+    <title>Semi-author-ized writer</title>
     <link>http://ljwrites.blog/</link>
-    <description>Recent content on Un-author-ized writer</description>
+    <description>Recent content on Semi-author-ized writer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Sat, 18 Nov 2023 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Mar 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overthinking the Schwarzschild Defense</title>
+      <link>http://ljwrites.blog/posts/overthinking-black-hole/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/overthinking-black-hole/</guid>
+      <description>Fact-checking the 2003 short story The Schwarzschild Defense because I am a killjoy.</description>
+      <content:encoded><![CDATA[<p>This post was adapted from a <a href="https://writeout.ink/@ljwrites/109724660651747328">Mastodon post</a> written on January 21, 2023.</p>
+<h2 id="read-the-story-first">Read the story first!</h2>
+<p>The <a href="https://www.nature.com/articles/d41586-022-04550-2">Schwarzschild Defence</a> by M. V. Melcer is a very fun short science fiction story and highly recommended reading.
+I particularly love its punchy style that delivers so much in so few words.
+Its choices are effective for the story told, from the format of giving only one side of the interview to the downright chilling twists, delivered so nonchalantly.
+It feels fresh while having a really classic sci-fi feel, down to the commentary on gender roles and violence against women (consider that a content warning).</p>
+<p>Still, I can&rsquo;t be the only one who thinks it doesn&rsquo;t work legally or even physics-wise, right?
+If you like overthinking things, and more importantly if you&rsquo;ve read the story, maybe you&rsquo;d like  to join me in overthinking a delightful story!</p>
+<p>Seriously. Read it. It&rsquo;s less than a thousand words and brilliantly written. I&rsquo;ll wait.</p>
+<h2 id="checking-the-laws">Checking the Laws</h2>
+<p>So, can you see why it doesn&rsquo;t make sense?
+Legally speaking, even if we take the narrator of the story, let&rsquo;s call her &ldquo;Mileva,&rdquo; at her word that Xavier will not die (a claim I highly doubt, see below), she has by her admission committed some pretty serious crimes.</p>
+<p>One is the crime of false imprisonment, meaning detaining someone against their will without legal justification.
+Mileva sabotaged Xavier into an inescapable prison and there&rsquo;s no way this doesn&rsquo;t count as false imprisonment, <em>especially</em> when she was reckless enough to admit at least twice to the police that this wasn&rsquo;t what Xavier intended or wanted with the flight.</p>
+<p>In the jurisdiction I live in, false imprisonment carries a penalty of up to 10 years&rsquo; incarceration if committed against a spouse or other close family member.
+Committing cruel acts against a close family member while keeping them falsely imprisoned carries a penalty of at <em>least</em> 2 years&rsquo; imprisonment.
+The penalty is increased by up to 50% if the false imprisonment is done with the possession of a dangerous object, and both the black hole and the tampered-with spaceship arguably qualify.</p>
+<p>Overall, Mileva is looking at some pretty heavy charges and had better get her lawyers scrambling.
+Given the severity of the effects, the incontrovertible evidence, and her intent, freely admitted to a police detective&ndash;without a lawyer to advise her, what was she thinking?!&ndash;to trap Xavier in the black hole, it is <em>very</em> likely she will have the book thrown at her.</p>
+<p>Mileva has also, by her admission, tampered with sensitive equipment, damaging Xavier&rsquo;s property knowing he is undertaking a dangerous and sensitive flight.
+Through this she caused Xavier to make unwanted contact with the event horizon of the black hole, which is battery.</p>
+<p>Even <em>if</em> Xavier suffers no other physical harm (which I doubt, more on that soon), slowing down his physical process well beyond human levels is unwanted interference with his body, a form of inflicted physical injury that exacerbates the crimes of false imprisonment and battery.
+I&rsquo;m sure there have been more crimes committed, but these are some of the big ones.</p>
+<h2 id="checking-the-laws-of-physics">Checking the Laws of Physics</h2>
+<p>The charges outlined above rest on Mileva&rsquo;s insistence that Xavier is physically unharmed and will live a long, long time in the black hole.
+But will he?
+I&rsquo;m not formally trained in physics so I&rsquo;m on less certain ground here, but it doesn&rsquo;t seem that way to me, and discussions like <a href="https://math.ucr.edu/home/baez/physics/Relativity/BlackHoles/fall_in.html">this one</a> seem to confirm my suspicion.</p>
+<p>If time slows down as you go down a black hole and the gravitational pull becomes inescapable, wouldn&rsquo;t the parts of the spaceship and of Xavier be pulled down at different rates, meaning he and the spaceship will be literally atomized?
+If anything he&rsquo;s going to have the longest, most protracted death ever.
+Not that I care, the guy&rsquo;s an ass and deserves it, but the whole twist of the story depends on Mileva&rsquo;s actions not being murder.</p>
+<p>I mean maybe Mileva is right, and the story was worded very cleverly here, that this Xavier-molasses and his eventual atom-level explosion will happen so slowly in a Schwarzschild black hole, at a time scale well beyond everyone&rsquo;s lifespans, that it can&rsquo;t be murder in the conventional sense.
+Murder revolves around the idea of cutting someone&rsquo;s life short, so what do you do when someone stretches it <em>out,</em> longer and longer beyond the shape lives were ever meant to take, before a horrible end?</p>
+<p>This is why I believe the better legal tacks to take are false imprisonment, battery, and attendant serious injury with property damage and sabotage sprinkled in for spice.
+But under no circumstance can Mileva get away scot-free as she claims.</p>
+<h2 id="notes-and-conclusions">Notes &amp; Conclusions</h2>
+<p>I&rsquo;d like to note this isn&rsquo;t me endorsing the incarceral state, far less the misogyny and threats Mileva was subjected to by her account.
+All I&rsquo;m doing is analyzing the internal logic of the story, which is remarkable for raising these questions at all.
+If Isaac Asimove can stretch, or shall we say fail to stretch, the science in almost exactly the same way in his classic <a href="https://en.wikipedia.org/wiki/The_Billiard_Ball">The Billiard Ball</a> (1967), a fudging he freely admitted to, I don&rsquo;t see why M. V. Melcer can&rsquo;t be afforded the same leniency.
+Science fiction is <em>fiction</em> in the end, and between perfect fidelity to the facts and a good story there&rsquo;s no harm in choosing the latter.</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>The Dragon&#39;s Son Defeats the God of Plague</title>
       <link>http://ljwrites.blog/posts/cheoyong-story/</link>
@@ -317,7 +366,8 @@ Master application keys are <a href="https://kb.msp360.com/cloud-vendors/backbla
 If every request were to go directly to your bucket your traffic meter could climb rapidly and cost you more money than it has to.
 I modeled my nginx configuration for this on <a href="https://thomas-leister.de/en/mastodon-s3-media-storage/">a configuration for a different S3-compatible service</a>, and followed the directions in the <a href="https://docs.joinmastodon.org/admin/optional/object-storage-proxy/">Mastodon documentation</a> on configuring the proxy.</p>
 <p>Here&rsquo;s what my configuration, anonymized to <code>/etc/nginx/sites-available/files.example.com</code>, looks like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    proxy_cache_path   /tmp/nginx-cache-instance-media levels<span style="color:#f92672">=</span>1:2 keys_zone<span style="color:#f92672">=</span>s3_cache:10m max_size<span style="color:#f92672">=</span>10g inactive<span style="color:#f92672">=</span>48h use_temp_path<span style="color:#f92672">=</span>off;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    proxy_cache_path   /tmp/nginx-cache-instance-media levels<span style="color:#f92672">=</span>1:2 keys_zone<span style="color:#f92672">=</span>s3_cache:10m max_size<span style="color:#f92672">=</span>10g
+</span></span><span style="display:flex;"><span>    inactive<span style="color:#f92672">=</span>48h use_temp_path<span style="color:#f92672">=</span>off;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>
@@ -412,10 +462,15 @@ Or you can actually define the variables I guess, but I didn&rsquo;t feel the ne
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 list-buckets --profile my-instance
 </span></span></code></pre></div><p>Or maybe try uploading a small file or something.
 The <code>--help</code> switch is helpful for figuring out the commands and syntax, or simply running b2 without any arguments will also bring up the help options.</p>
-<p>Once authentication is confirmed to work, sync the <code>public/system</code> directory to the remote b2 bucket using the <code>sync</code> command. Assuming the command is run from the <code>/home/mastodon/live</code> directory:</p>
+<p>Once authentication is confirmed to work, sync the <code>public/system</code> directory to the remote b2 bucket using the <code>sync</code> command.
+If you haven&rsquo;t already, it&rsquo;s a good idea to run some <a href="https://docs.joinmastodon.org/admin/tootctl/#media-remove">media cleanup commands</a> to minimize the amount of files to upload to the bucket.
+Here are the ones I used, from <code>/home/mastodon/bin</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  ./tootctl media remove --days <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>./tootctl media remove --prune-profiles
+</span></span><span style="display:flex;"><span>./tootctl media remove --remove-headers
+</span></span></code></pre></div><p>When you are ready to start moving the files, assuming the command is run from the <code>/home/mastodon/live</code> directory:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 sync --profile my-instance ./public/system/ b2://my-instance-media/
-</span></span></code></pre></div><p>You can read more about  <a href="https://b2-command-line-tool.readthedocs.io/en/master/subcommands/sync.html">b2&rsquo;s sync command options</a>, but I found the default options satisfactory.
-It took me about an afternoon to upload 18.5 GB of preexisting data to the bucket.</p>
+</span></span></code></pre></div><p>You can read more about  <a href="https://b2-command-line-tool.readthedocs.io/en/master/subcommands/sync.html">b2&rsquo;s sync command options</a>, but I found the default options satisfactory.</p>
 <h2 id="step-4-mastodon-configuration">Step 4: Mastodon configuration</h2>
 <p>My Mastodon configuration in <code>live/.env.production</code> to enable the object storage looks something like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>S3_ENABLED<span style="color:#f92672">=</span>true
@@ -460,7 +515,7 @@ Yeah, things were that bad.</p>
 <p>Media loads correctly again on my instance, though there is an initial loading time, and I can get a proper media cache going without my disk at constant risk of running out.
 Instance management has become enjoyable again without the constant risk of unplanned server downtime, and I am now able to consider putting other services on the server.</p>
 <p>In the long term, media storage is something federated software and communities are going to have to figure out.
-Services like <a href="https://jortage.com/">Jortage</a> look interesting something like it may be the future of media storage in the fediverse.
+Services like <a href="https://jortage.com/">Jortage</a> look interesting, and something like it may be the future of media storage in the fediverse.
 For now I have found a solution that works for my instance, and if this write-up helps others avoid some of my confusion and mistakes I will be happy&ndash;although, let&rsquo;s be real, these tech posts have mainly been helpful to myself for the purpose of record-keeping and documentation.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
@@ -975,7 +1030,7 @@ I thought I&rsquo;d write about my experience with Emacs and the advice I would 
 <h2 id="destination-emacs">Destination: Emacs</h2>
 <p>It probably helped lead me to Emacs that I&rsquo;ve been a hobby coder for decades and like to fiddle with computers.
 I&rsquo;m known as the tech person in my family, and have written small apps in Python 2 including an IRC dicebot in the 00&rsquo;s.
-Yes, I&rsquo;m That old.
+(Yes, I&rsquo;m That old.)
 I&rsquo;ve used PHP and MySQL to run hosted blogs; I&rsquo;ve tried Ubuntu and now use an Arch Linux installation daily.
 Coding and computers don&rsquo;t scare me, and what I lack in expertise and training I make up for in sheer determination and willingness to pour countless hours into solving a problem (thanks, ADHD hyperfocus!!).
 So in a way a developer&rsquo;s tool like Emacs was a natural fit for me.</p>
@@ -1136,131 +1191,6 @@ Of water lilies slick and wet;<br />
 The lady of good bearing joins<br />
 In joyous union's rhythmic beat.<br />
 </p>]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>The Feminist Pansori</title>
-      <link>http://ljwrites.blog/posts/feminist-pansori/</link>
-      <pubDate>Wed, 02 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/posts/feminist-pansori/</guid>
-      <description>Pansori, a musical form born in openly misogynistic 17th-century Korea, recognizes and celebrates the humanity and worth of women in culturally and historically specific ways.</description>
-      <content:encoded><![CDATA[<h2 id="pansori">Pansori?</h2>
-<p>Pansori is a Korean musical form developed from around the 17th century, where one person sings and makes commentary following a set story to the accompaniment of a drummer.</p>
-<figure>
-    <img loading="lazy" src="https://ljwrites.blog/img/pansori/Korea-Busan_3404-06_Pansori.jpeg"
-         alt="A female-presenting person in traditional Korean hanbok holding a closed fan stands before a painted screen, with a male-presenting person in hanbok sitting off to the right playing a drum."/> 
-</figure>
-
-<p>There are five traditional repertoires that have survived to the present day: Chunhyangga (The Song of Chunhyang), Shimcheongga (The Song of Shim Cheong), Sugungga (The Song of the Sea Palace), Jeokbyeokga (The Song of the Red Cliffs), and Heungboga (The Song of Heungbo).
-In this post, I&rsquo;ll be discussing some of the story elements of Chunhyangga, Shimcheongga, and Sugungga.</p>
-<p><strong>Content warning:</strong> The sections below contain discussions of dark subject matter including violence, death, and poverty.
-More detailed warnings are given by section.</p>
-<h2 id="chunhyangga-a-love-story-of-self-determination-and-respect">Chunhyangga: A love story of self-determination and respect</h2>
-<p><strong>Content warning:</strong> Attempted sexual coercion, imprisonment, torture</p>
-<p>Chunhyangga is the love story of teenagers Seong Chunhyang, who is the daughter of a retired gisaeng (courtesan), and Yi Mongryong, the son of a noble family.
-Theirs are most certainly not two households both alike in dignity; in patriarchal and class-stratified Joseon Dynasty terms Chunhyang does not even <em>have</em> a house worth the name, for she has no father and the head of her family is a woman once indentured to the state to provide entertainment services.
-Although Chunhyang&rsquo;s mother Wolmae retired in success and relative wealth and is no longer bound to be a courtesan, nor is Chunhyang herself formally a courtesan, her low birth still makes her vulnerable to abuse of power as the story will demonstrate.</p>
-<p>Chunhyang and Mongryong meet and fall in love when Mongryong&rsquo;s father is appointed the governor of fair Namwon, where we lay our scene, a real town in Korea and a holy site to the art of pansori to this day.
-Smitten, the two 16-year-olds declare themselves man and wife but their union cannot possibly be officially recognized due to the gaping chasm between their stations.
-In Joseon, a kingdom whose founding order depended on a strict social hierarchy, at best Chunhyang could be Mongryong&rsquo;s concubine if he cared enough to keep her around.</p>
-<p>The first calamity strikes our young lovers when Mongryong&rsquo;s father is called away to Hanyang (present-day Seoul) where Chunhyang cannot follow because, again, she was not a legally sanctioned wife.
-Mongryong might have been able to take her with him if he were respectably married to a noblewoman and was the head of his own household, but as an officially unmarried boy he was part of his father&rsquo;s household and had to go where his father went.
-The two part tearfully, promising to be faithful to each other, and Chunhyang begins her long wait for him, mourning their parting and hoping for him to return to her a successful man so that they can be together.
-In the terms of the times this meant passing the state examination and winning high office.</p>
-<p>The second and even worse disaster strikes in the form of the man who succeeds Mongryong&rsquo;s father as governor of Namwon: Byeon Hakdo.
-A corrupt and lustful man, he hears of Chunhyang&rsquo;s famed beauty and just as famous virtue and commands her to attend to him as a courtesan.
-This, even though she is not on the courtesan register and is legally a free woman.
-She also considers herself married, to a nobleman at that, and will not pour drinks and smile for another man.</p>
-<p>None of that is any protection against Byeon Hakdo&rsquo;s abuse of power, however, and when Chunhyang continues to refuse him he has her imprisoned and beaten into unconsciousness.
-He imprisons her, declaring she would be put to death on his upcoming birthday for the crime of refusing him as a mere lowborn woman.</p>
-<p>It is at this point, the night before Chunhyang&rsquo;s scheduled execution, that the long-awaited Lee Mongryong returns to Namwon&ndash;but at night, as a ragged itinerant whose once-proud house has fallen.
-Wolmae, on seeing him, screams that her daughter Chunhyang is dead, for her one last hope of salvation is gone.</p>
-<p>Nevertheless, Mongryong convinces his mother-in-law to let him see Chunhyang in prison, and the lovers have a touching reunion scene where Chunhyang, injured, imprisoned, and waiting to die, declares he is her love no matter what the circumstance and defends him to her irate and grieving mother.
-All Chunhyang asks is that she be buried as Mongryong&rsquo;s faithful wife on his family&rsquo;s funerary grounds, his castoff clothes covering her in the coffin.</p>
-<p>Morning comes, and Chunhyang is dragged before the governor Byeon Hakdo to be executed.
-He tries one last time to get her to relent, offering to spare her life if she will do as he commands, and she refuses to the last.
-Just as she is about to be killed, the troops of the King&rsquo;s Secret Inspector strike, arresting Byeon and his cronies.
-Chunhyang, saved from the executioner&rsquo;s blade, comes face-to-face with the Inspector&ndash;her self-declared husband Lee Mongryong, who had returned in disguise hiding his high office to root out Byeon&rsquo;s abuses of power and to save her.
-She is given a special dispensation to marry him, not as his concubine but as his lawful noble wife, and her virtue is praised throughout the land.</p>
-<p>Within the limitations of the time and society it arose from, then,  Chunhyangga tells a deeply subversive, and of course fantastical and impossible, story of a lowborn woman daring to assert her own will, her own love and self-determination, in the face of power and have it legitimized by the broader society.
-These are revolutionary ideas, though the story they appear in fits them into terms friendly to the existing order.</p>
-<p>Though heavily mediated and limited by the patriarchal social system of the time, the themes of women&rsquo;s sexual and romantic autonomy free of the bounds of class are unmistakable.
-Yes, obviously, it is not feminism as we recognize it for a woman&rsquo;s sexual and romantic decisions to be validated only if she is a free woman recognized as a nobleman&rsquo;s wife and guards her sexual loyalty with her literal life.
-But if we call privilege by its true name, that is the granting of full humanity, we get a glimpse at the idea behind Chunhyang&rsquo;s story&ndash;a woman&rsquo;s yearning for respect as a person, which in the times she lived in and for her gender was only possible in partial form for a virtuous noblewoman.</p>
-<p>It&rsquo;s also worth noting that while the governor Byeon Hakdo&rsquo;s downfall for his corruption and cruelty is a political and subversive plotline, it is focused and mediated through his coercion and violence against the heroine.
-The governor&rsquo;s persecution of Chunhyang is the main dramatic reason we want him to fall, and we want Mongryong to succeed because he is the man Chunhyang loves and the key to saving her life.</p>
-<p>Misogynist violence, therefore, is not a side political issue in the story as it is often treated in real life.
-Violence against women is THE political issue the story gets the audience to care about.
-The governor is obviously corrupt and exploitative in numerous other ways, but it is his treatment of a lovestruck, brave, steadfast girl that brings his evil into full focus and gets us to root for this corrupt official&rsquo;s downfall.
-This ties into the broader political subversiveness of pansori, which is outside the scope of this post but deserves mention as far as it touches on the theme of women&rsquo;s humanity and worth.</p>
-<p>I will say that there is a parallel in the political subversiveness of pansori to the theme of women&rsquo;s autonomy in that the political subversiveness also dovetails into the existing order by use of fantasy.
-In this case it&rsquo;s the fantasy that the political order under the King is a force for good that ends injustice and corruption, saving victims like Chunhyang.
-This is not historical fact, of course, much as a courtesan&rsquo;s daughter becoming a noble wife was impossible in real life.
-But again, this was a story told within the limitations of its times, often using fantastical elements to fit the events of the story into the worldview of the time.</p>
-<h2 id="shimcheongga-a-father-as-his-daughter-s-all-loving-all-giving-caregiver">Shimcheongga: A father as his daughter&rsquo;s all-loving, all-giving caregiver</h2>
-<p><strong>Content warning:</strong> Bereavement, human sacrifice, poverty, societal misogyny, breasts and breastfeeding</p>
-<p>Shimcheongga tells the story of Shim Cheong and her daughterly love for her father Shim Hak-gyu.
-The most famous part of the story is that Cheong sells herself as a human sacrifice so her father can afford a sizable donation to a Buddhist temple, a good deed that is promised to give her blind father his sight.</p>
-<p>The love and devotion is hardly one way, however.
-The actual story of Cheong and her father begins with, well, her birth of course, but the joy is swiftly and devastatingly eclipsed by her mother&rsquo;s death only a week later.
-Cheong&rsquo;s mother Lady Gwak, a skilled seamstress, was the breadwinner of the family where Hak-gyu could not work due to his disability.
-The death of the wife meant economic disaster for the family, especially since the couple had plowed their fortune into tithes and offerings trying to conceive a child at past forty.
-With that fond dream realized, however, the tragedy of the new mother&rsquo;s death meant the father and infant daughter were staring down the barrel of imminent destitution and starvation.</p>
-<p>Fortunately the community come through for this vulnerable family, and interestingly it&rsquo;s all women who are mentioned as helping them.
-Centuries before the availability of baby formula and without the money to hire a wet nurse, baby Cheong would have starved to death without breastmilk.
-When Hak-gyu goes out to the village well begging milk for his infant daughter, those of the village women who are lactating feed her themselves, saying they&rsquo;d rather let their own children go hungry than this poor thing.
-Women with no milk give money, while women without money give rice.
-It is also the community who feed this father and daughter throughout her childhood and teenage years as they beg food which is freely given to them.</p>
-<p>Shimcheongga, then, begins with the story of a widowed single father, disabled and destitute, doing everything he can to raise his daughter&ndash;a daughter who was, in the terms of the time, a useless liability who would not be able to carry on his name or support him in his old age.</p>
-<p>This point is actually foregrounded very early in the story, at Cheong&rsquo;s birth when her mother is still healthy.
-Having had Cheong when the couple were both in their forties, Lady Gwak asks Hak-gyu if he isn&rsquo;t aggrieved that the only child they&rsquo;ll have is a girl.
-The overjoyed father answers, not at all!
-After all, Cheong can marry a good man and have sons who will support their maternal grandparents.
-While constrained by the imagination of a heavily sexist time, the story nevertheless foregrounds the contributions women make to the welfare of their aged parents.</p>
-<p>Besides, you can tell the conventional idea of girls being supposedly a burden is belied from the start of the story with Lady Gwak being the breadwinner of the household who supported her husband and, later, paid for the age&rsquo;s equivalent of fertility treatments.
-Shim Cheong herself, at the age of ten, takes over the food-begging duties from her father at her own insistence and does better than him at it.</p>
-<p>Shimcheongga, in other words, subverts gender roles with a father as his daughter&rsquo;s primary caregiver, and by also showing women as economic actors with agency.
-Even more than that, it argues that women have inherent worth and are deserving of care and devotion through this story of a motherless girl who would have died without her father&rsquo;s and her community&rsquo;s loving care and generosity.</p>
-<h2 id="sugungga-rabbit-revolutionary-dot">Sugungga: Rabbit, revolutionary.</h2>
-<p><strong>Content warning:</strong> Attempted sacrifice and mutilation, body gendering, genitals</p>
-<p>Sugungga, the most satirical of the five classic repertoires, has a female protagonist (or villain, depending) in the sense of a female animal.
-In the story the Sea King falls ill and his trusted retainer, Terrapin, sets out to land to capture a rabbit whose liver the Sea King must eat in order to heal.
-After a mishap with calling a Tiger instead of a Rabbit, the Terrapin finally meets and tricks Rabbit to the Sea Palace, luring it with promises of high office and honors.
-At the Sea Palace the true purpose of the visit is revealed, and Rabbit is told it will be killed so the Sea King can be cured.
-But not to worry, it&rsquo;ll be remembered and honored forever for its noble sacrifice!</p>
-<p>Rabbit, instead of quaking in fear, claims it can live without a liver.
-In fact, it takes out its liver every moon!
-This happens to be one of the times Rabbit had its liver out, and it needs to go back to land to fetch the organ.
-As proof of this unlikely tale Rabbit points out that it has three holes down there&ndash;one for pissing, one for crapping, and one to take its liver out and put it back.
-Rabbit claims it is happy to hand some of its liver over to the Sea King and enjoy the high honors he will bestow in exchange.
-The Sea King falls for this and Terrapin takes Rabbit back to land.
-Of course Rabbit, once safely back on hand, mocks Terrapin soundly for its gullibility and runs off.</p>
-<p>I mean the &ldquo;three holes&rdquo; part is a ruse that a crowd better versed in mammal anatomy would never have fallen for; it&rsquo;s pretty obvious to a landbound audience what the &ldquo;third hole&rdquo; is for and it wasn&rsquo;t for taking out any liver.
-In this sense, the Terrapin&rsquo;s misadventures with the Tiger early on comes across like foreshadowing, with most versions saying it escaped by biting the tiger&rsquo;s balls.
-This symbolism rings all the truer because in Korean folktale Tiger and Rabbit are often contrasted as symbols of the foolishness of the powerful and the wisdom of the powerless.
-It would not be a stretch to read gender into that symbolism, with Tiger as a strong, aggressive man and Rabbit as a physically weak but witty woman.</p>
-<p>The way Rabbit is tricked into almost being killed so the Sea King might live is also reminiscent of the way patriarchal systems, and in this case the Neo-Confucian hierarchy of this time, demand sacrifices of women.
-Given that &ldquo;give out the liver and gallbladder&rdquo; is a common Korean expression for being a doormat without boundaries or the courage to say no, the entire premise of the story reads as satire for what believing the promises of the powerful does to you:
-You&rsquo;re promised honor and prestige, and end up losing your selfhood and your very life.
-Rabbit itself was lured by the false promises of patriarchy before it had a rude awakening of the system&rsquo;s true nature, and had to use its wits to survive that situation.</p>
-<p>The story in this reading seems to ask, are you really going to give away your liver to a system that benefits only powerful men, and consent to live as a corpse with no will of your own, &ldquo;cherished&rdquo; in loving memory not as a vital, living being but for how you were deceived and exploited?
-The story also exposes the true nature of hierarchies like the patriarchy, that they ultimately depend on taking people&rsquo;s will and lives, deceiving them into bargains that serve none but the powerful.</p>
-<p>It&rsquo;s a message so subversive that it could only be told in metaphor:
-Where Chunhyangga and Shimcheongga paid at least lip service to Confucian values including the beneficience of the King and familial piety, Sugungga, in the realm of talking animals and supernatural beings, fully took off the gloves and pilloried the sacred social values of the times.</p>
-<p>There&rsquo;s also an interesting contrast to be drawn between Shim Cheong&rsquo;s willingly becoming a human sacrifice for her father and Rabbit&rsquo;s refusal to sacrifice for the Sea King.
-As discussed at length above, Cheong was giving her life for a father who had lovingly raised her in difficult circumstances, while Rabbit had no intention of dying for a king that it had no relationship with and who had no claim to its loyalty.
-Though both sacrifices might be laudable in the logic of the worlds they take place in, in the case of Sugungga it would have been a hollow virtue without any grounding in reciprocal and loving relationships.
-That difference gives us room to think about how virtues in a hierarchical social system can be connected to emotional values with resonance, ones that we might be able to expand on and adapt without keeping the whole oppressive structure.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>No one is suggesting that these stories about a woman willing to be executed to be loyal to an absent husband, another woman who dove to her death for her father, and talking animals in an underwater palace are the pinnacle of Western-style modern feminism.
-What they do show is that the recognition of female autonomy and worth existed in Korean society far before full contact with the U.S. and Europe, and these ideas were not new to Koreans nor given to us wholesale by the West.
-The specific expressions may differ, but the feminist yearnings, the desire of women to be recognized as fully human and live on our own terms, has always been there as seen in this small glimpse of Korean art.
-It&rsquo;s a heritage worthy of rediscovery and interpretation as we look to exploring a myriad of different feminisms, each in our cultural, historical, and social contexts.</p>
-<hr>
-<p>This is an edited and expanded version of a thread originally <a href="https://rage.love/@ljwrites/105965761722179223">posted
-to Mastodon</a>.</p>
-]]></content:encoded>
     </item>
     
   </channel>

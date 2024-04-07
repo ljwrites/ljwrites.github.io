@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>mastodon on Un-author-ized writer</title>
+    <title>Mastodon on Semi-author-ized writer</title>
     <link>http://ljwrites.blog/tags/mastodon/</link>
-    <description>Recent content in mastodon on Un-author-ized writer</description>
+    <description>Recent content in Mastodon on Semi-author-ized writer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
@@ -47,7 +47,8 @@ Master application keys are <a href="https://kb.msp360.com/cloud-vendors/backbla
 If every request were to go directly to your bucket your traffic meter could climb rapidly and cost you more money than it has to.
 I modeled my nginx configuration for this on <a href="https://thomas-leister.de/en/mastodon-s3-media-storage/">a configuration for a different S3-compatible service</a>, and followed the directions in the <a href="https://docs.joinmastodon.org/admin/optional/object-storage-proxy/">Mastodon documentation</a> on configuring the proxy.</p>
 <p>Here&rsquo;s what my configuration, anonymized to <code>/etc/nginx/sites-available/files.example.com</code>, looks like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    proxy_cache_path   /tmp/nginx-cache-instance-media levels<span style="color:#f92672">=</span>1:2 keys_zone<span style="color:#f92672">=</span>s3_cache:10m max_size<span style="color:#f92672">=</span>10g inactive<span style="color:#f92672">=</span>48h use_temp_path<span style="color:#f92672">=</span>off;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    proxy_cache_path   /tmp/nginx-cache-instance-media levels<span style="color:#f92672">=</span>1:2 keys_zone<span style="color:#f92672">=</span>s3_cache:10m max_size<span style="color:#f92672">=</span>10g
+</span></span><span style="display:flex;"><span>    inactive<span style="color:#f92672">=</span>48h use_temp_path<span style="color:#f92672">=</span>off;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>
@@ -142,10 +143,15 @@ Or you can actually define the variables I guess, but I didn&rsquo;t feel the ne
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 list-buckets --profile my-instance
 </span></span></code></pre></div><p>Or maybe try uploading a small file or something.
 The <code>--help</code> switch is helpful for figuring out the commands and syntax, or simply running b2 without any arguments will also bring up the help options.</p>
-<p>Once authentication is confirmed to work, sync the <code>public/system</code> directory to the remote b2 bucket using the <code>sync</code> command. Assuming the command is run from the <code>/home/mastodon/live</code> directory:</p>
+<p>Once authentication is confirmed to work, sync the <code>public/system</code> directory to the remote b2 bucket using the <code>sync</code> command.
+If you haven&rsquo;t already, it&rsquo;s a good idea to run some <a href="https://docs.joinmastodon.org/admin/tootctl/#media-remove">media cleanup commands</a> to minimize the amount of files to upload to the bucket.
+Here are the ones I used, from <code>/home/mastodon/bin</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  ./tootctl media remove --days <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>./tootctl media remove --prune-profiles
+</span></span><span style="display:flex;"><span>./tootctl media remove --remove-headers
+</span></span></code></pre></div><p>When you are ready to start moving the files, assuming the command is run from the <code>/home/mastodon/live</code> directory:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 sync --profile my-instance ./public/system/ b2://my-instance-media/
-</span></span></code></pre></div><p>You can read more about  <a href="https://b2-command-line-tool.readthedocs.io/en/master/subcommands/sync.html">b2&rsquo;s sync command options</a>, but I found the default options satisfactory.
-It took me about an afternoon to upload 18.5 GB of preexisting data to the bucket.</p>
+</span></span></code></pre></div><p>You can read more about  <a href="https://b2-command-line-tool.readthedocs.io/en/master/subcommands/sync.html">b2&rsquo;s sync command options</a>, but I found the default options satisfactory.</p>
 <h2 id="step-4-mastodon-configuration">Step 4: Mastodon configuration</h2>
 <p>My Mastodon configuration in <code>live/.env.production</code> to enable the object storage looks something like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>S3_ENABLED<span style="color:#f92672">=</span>true
@@ -190,7 +196,7 @@ Yeah, things were that bad.</p>
 <p>Media loads correctly again on my instance, though there is an initial loading time, and I can get a proper media cache going without my disk at constant risk of running out.
 Instance management has become enjoyable again without the constant risk of unplanned server downtime, and I am now able to consider putting other services on the server.</p>
 <p>In the long term, media storage is something federated software and communities are going to have to figure out.
-Services like <a href="https://jortage.com/">Jortage</a> look interesting something like it may be the future of media storage in the fediverse.
+Services like <a href="https://jortage.com/">Jortage</a> look interesting, and something like it may be the future of media storage in the fediverse.
 For now I have found a solution that works for my instance, and if this write-up helps others avoid some of my confusion and mistakes I will be happy&ndash;although, let&rsquo;s be real, these tech posts have mainly been helpful to myself for the purpose of record-keeping and documentation.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>

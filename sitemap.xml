@@ -2,31 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://ljwrites.blog/posts/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
     <loc>http://ljwrites.blog/categories/</loc>
-    <lastmod>2023-11-21T10:54:30+09:00</lastmod>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/categories/fannish/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/law/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/posts/overthinking-black-hole/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/review/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/science/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/sciencefiction/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/</loc>
+    <lastmod>2024-04-07T11:49:09+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/covid19/</loc>
     <lastmod>2023-11-21T10:54:30+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/history/</loc>
-    <lastmod>2023-11-21T10:54:30+09:00</lastmod>
+    <lastmod>2023-11-22T09:01:40+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/plague/</loc>
-    <lastmod>2023-11-21T10:54:30+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/posts/</loc>
     <lastmod>2023-11-21T10:54:30+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/religion/</loc>
     <lastmod>2023-11-21T10:54:30+09:00</lastmod>
   </url><url>
-    <loc>http://ljwrites.blog/tags/</loc>
-    <lastmod>2023-11-21T10:54:30+09:00</lastmod>
-  </url><url>
     <loc>http://ljwrites.blog/posts/cheoyong-story/</loc>
-    <lastmod>2023-11-21T10:54:30+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/</loc>
     <lastmod>2023-11-21T10:54:30+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/china/</loc>
@@ -51,13 +69,13 @@
     <lastmod>2023-11-16T15:05:36+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/korea/</loc>
-    <lastmod>2023-11-16T15:06:29+09:00</lastmod>
+    <lastmod>2023-11-22T09:01:40+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/sijo/</loc>
     <lastmod>2023-11-16T15:05:36+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/emacs/</loc>
-    <lastmod>2023-11-18T01:33:28+09:00</lastmod>
+    <lastmod>2023-11-30T09:16:41+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/orgmode/</loc>
     <lastmod>2023-02-07T21:46:06+09:00</lastmod>
@@ -72,19 +90,19 @@
     <lastmod>2023-02-07T21:46:06+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/admin/</loc>
-    <lastmod>2023-11-18T11:53:15+09:00</lastmod>
+    <lastmod>2023-12-18T06:50:00+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/fediverse/</loc>
-    <lastmod>2023-11-18T11:53:15+09:00</lastmod>
+    <lastmod>2023-12-18T06:50:00+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/mastodon/</loc>
-    <lastmod>2023-11-18T11:53:15+09:00</lastmod>
+    <lastmod>2023-12-18T06:50:00+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/mastodon-b2/</loc>
-    <lastmod>2023-11-18T11:53:15+09:00</lastmod>
+    <lastmod>2023-12-18T06:50:00+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/technology/</loc>
-    <lastmod>2023-11-18T11:53:15+09:00</lastmod>
+    <lastmod>2023-12-18T06:50:00+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/about/</loc>
     <lastmod>2022-10-29T18:52:10+09:00</lastmod>
@@ -107,16 +125,10 @@
     <loc>http://ljwrites.blog/tags/carto/</loc>
     <lastmod>2023-11-16T15:01:24+09:00</lastmod>
   </url><url>
-    <loc>http://ljwrites.blog/categories/fannish/</loc>
-    <lastmod>2023-11-16T15:06:29+09:00</lastmod>
-  </url><url>
     <loc>http://ljwrites.blog/tags/gaming/</loc>
     <lastmod>2023-11-16T15:01:24+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/neurodivergence/</loc>
-    <lastmod>2023-11-16T15:01:24+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/tags/review/</loc>
     <lastmod>2023-11-16T15:01:24+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/carto-game-nonspeaking/</loc>
@@ -162,10 +174,10 @@
     <lastmod>2023-11-16T15:11:13+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/evilmode/</loc>
-    <lastmod>2023-11-18T01:33:28+09:00</lastmod>
+    <lastmod>2023-11-30T09:16:41+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/how-i-got-into-emacs/</loc>
-    <lastmod>2023-11-18T01:33:28+09:00</lastmod>
+    <lastmod>2023-11-30T09:16:41+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/troubleshoot-network/</loc>
     <lastmod>2022-12-07T13:40:07+09:00</lastmod>
@@ -213,13 +225,13 @@
     <lastmod>2023-11-16T15:06:29+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/crown-prince-korea/</loc>
-    <lastmod>2023-02-07T22:53:29+09:00</lastmod>
+    <lastmod>2023-11-22T09:01:40+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/genealogy/</loc>
-    <lastmod>2023-02-07T22:53:29+09:00</lastmod>
+    <lastmod>2023-11-22T09:01:40+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/history/</loc>
-    <lastmod>2023-02-07T22:53:29+09:00</lastmod>
+    <lastmod>2023-11-22T09:01:40+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/backup/</loc>
     <lastmod>2021-07-13T14:00:04+09:00</lastmod>
