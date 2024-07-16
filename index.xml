@@ -7,7 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Mon, 01 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Crimes of the Cat (責猫)</title>
+      <link>http://ljwrites.blog/posts/cat-crimes/</link>
+      <pubDate>Tue, 16 Jul 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/cat-crimes/</guid>
+      <description>Whose dereliction is it, pray / that mice run mad and wild?</description>
+      <content:encoded><![CDATA[<p>This is an edited version of a translation I posted to the fedi on <a href="https://rage.love/@ljwrites/105146731777875030">November 3, 2020</a>.</p>
+<div class="verse">
+<p>責猫<br />
+<br />
+The Crimes of the Cat<br />
+<br />
+盜吾藏肉飽於腸 好入人衾自塞聲<br />
+<br />
+I hid my choicest meats of which<br />
+you plundered what you found,<br />
+And human bedding entered, there<br />
+to sleep without a sound.<br />
+<br />
+鼠輩猖狂誰任責 勿論晝夜漸公行<br />
+<br />
+Whose dereliction is it, pray<br />
+that mice run mad and wild?<br />
+They care not if it&rsquo;s night or day<br />
+and boldly go afield.<br /></p>
+</div>
+<ul>
+<li>Yi Gyubo (李奎報, 1168-1241), medieval Korean public official, essayist, and poet</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>[Review] Sad Sacked by Liz Alterman</title>
       <link>http://ljwrites.blog/posts/sad-sacked-review/</link>
@@ -1185,23 +1218,6 @@ managed=true
 <p>Restarted NetworkManager with</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">$ sudo systemctl restart NetworkManager.service
 </code></pre><p>Worked instantly. When I checked connections with <code>$ nmcli c</code> again my usual connection had been assigned my main network device, and the nm-applet updated accordingly.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Mu4e Error in Process Sentinel: Mu Server Process Ended with Exit 1</title>
-      <link>http://ljwrites.blog/posts/mu4e-mu-server-process-error/</link>
-      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/posts/mu4e-mu-server-process-error/</guid>
-      <description>Shutting down mu server turned out to be effective when mu4e wouldn&amp;rsquo;t start.</description>
-      <content:encoded><![CDATA[<p>Because no upgrade goes unpunished, Mu4e was refusing to start up in Emacs, throwing an &ldquo;error in process sentinel: Mu server process ended with exit 1&rdquo; error.
-I couldn&rsquo;t find this exact error message online, but a look through posts about similar error messages revealed that complaints about the Mu server were often caused by the server still running.
-I took the advice in <a href="https://github.com/djcb/mu/issues/8">this Mu4e issue thread</a> and ran:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pkill -2 -u $UID mu
-</span></span></code></pre></div><p>&hellip;exactly like that, without replacing the <code>$UID</code> with anything.
-Mu4e sprang right back up afterward, having grabbed control of the database back from the server process that had been running.</p>
-<p>Still waiting wearily for more troubles to happen, but in the meantime at least I can read emails again.</p>
 ]]></content:encoded>
     </item>
     

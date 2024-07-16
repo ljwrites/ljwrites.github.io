@@ -7,7 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Mon, 01 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Crimes of the Cat (責猫)</title>
+      <link>http://ljwrites.blog/posts/cat-crimes/</link>
+      <pubDate>Tue, 16 Jul 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/cat-crimes/</guid>
+      <description>Whose dereliction is it, pray / that mice run mad and wild?</description>
+      <content:encoded><![CDATA[<p>This is an edited version of a translation I posted to the fedi on <a href="https://rage.love/@ljwrites/105146731777875030">November 3, 2020</a>.</p>
+<div class="verse">
+<p>責猫<br />
+<br />
+The Crimes of the Cat<br />
+<br />
+盜吾藏肉飽於腸 好入人衾自塞聲<br />
+<br />
+I hid my choicest meats of which<br />
+you plundered what you found,<br />
+And human bedding entered, there<br />
+to sleep without a sound.<br />
+<br />
+鼠輩猖狂誰任責 勿論晝夜漸公行<br />
+<br />
+Whose dereliction is it, pray<br />
+that mice run mad and wild?<br />
+They care not if it&rsquo;s night or day<br />
+and boldly go afield.<br /></p>
+</div>
+<ul>
+<li>Yi Gyubo (李奎報, 1168-1241), medieval Korean public official, essayist, and poet</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>[Review] Sad Sacked by Liz Alterman</title>
       <link>http://ljwrites.blog/posts/sad-sacked-review/</link>
@@ -1175,52 +1208,6 @@ I took the advice in <a href="https://github.com/djcb/mu/issues/8">this Mu4e iss
 Mu4e sprang right back up afterward, having grabbed control of the database back from the server process that had been running.</p>
 <p>Still waiting wearily for more troubles to happen, but in the meantime at least I can read emails again.</p>
 ]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Honking Osprey (關雎)</title>
-      <link>http://ljwrites.blog/posts/honking-osprey/</link>
-      <pubDate>Fri, 04 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/posts/honking-osprey/</guid>
-      <description>The honking osprey rests upon / The islands of the River great / The lady of good bearing is / The man of virtue&amp;rsquo;s perfect mate.</description>
-      <content:encoded><![CDATA[<p>This ancient song is the first listed in the Shijing(詩經), the collection of 300 Chinese songs dating back from as far as 1,000 BC. This particular song was highly praised by Confucius as the pinnacle of musical achievement. <strong>Content warning:</strong> Some people think it&rsquo;s about, well, <em>sex!</em></p>
-<p class="verse">
-關關雎鳩 在河之洲 窈窕淑女 君子好逑<br />
-<br />
-The honking osprey rests upon<br />
-The islands of the River great;<br />
-The lady of good bearing is<br />
-The man of virtue's perfect mate.<br />
-<br />
-參差荇菜 左右流之 窈窕淑女 寤寐求之<br />
-<br />
-Wand'ring among the jagged fringe<br />
-Of water lilies wet and slick,<br />
-Through waking day and sleepless nights<br />
-The lady perfect do I seek.<br />
-<br />
-求之不得 寤寐思服 悠哉悠哉 輾轉反側<br />
-<br />
-I seek but do not gain her yet<br />
-And think upon her day and night;<br />
-How long the night, how deep I long!<br />
-I toss and turn until it's light.<br />
-<br />
-參差荇菜 左右采之 窈窕淑女 琴瑟友之<br />
-<br />
-Digging among the jagged fringe<br />
-Of water lilies slick and wet;<br />
-The lady of good bearing gives<br />
-In happy union music sweet.<br />
-<br />
-參差荇菜 左右芼之 窈窕淑女 鐘鼓樂之<br />
-<br />
-Plucking among the jagged fringe<br />
-Of water lilies slick and wet;<br />
-The lady of good bearing joins<br />
-In joyous union's rhythmic beat.<br />
-</p>]]></content:encoded>
     </item>
     
   </channel>
