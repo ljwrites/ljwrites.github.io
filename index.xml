@@ -7,7 +7,50 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Tue, 16 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Starting—and staying—small with housecleaning</title>
+      <link>http://ljwrites.blog/posts/small-cleaning/</link>
+      <pubDate>Thu, 18 Jul 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/small-cleaning/</guid>
+      <description>On doing better and stressing less about the house with small, unambitious habits</description>
+      <content:encoded><![CDATA[<p>I&rsquo;m not really good about keeping a tip-top house, and chances are I never will be.
+Still, lately I&rsquo;ve been doing a little better and am feeling less stressed by giving myself permission to do things in small increments without feeling the need to turn the house upside down or do everything at once.</p>
+<p>I&rsquo;ve been aware for a while that I should do things in small increments, but it really came into focus for me with housekeeping advice videos I&rsquo;ve been listening to.
+They all emphasized that cleaning is a matter of habit, not the occasional Herculean effort and helped me realize I&rsquo;d been psyching myself out of consistent cleaning by thinking I needed to take out a full day to get EVERYTHING done in one go.</p>
+<p>Unfortunately that was how I was brought up, with my mom telling me I should do the whole house when I cleaned because otherwise the dirt would spread from the uncleaned rooms to the clean one.
+So I ended up not cleaning on days I couldn&rsquo;t do the whole house, which was most days&hellip; all days&hellip; yeah.</p>
+<p>There&rsquo;s some truth in what she said and I know she meant to help and not sabotage me, but it turned out to be unhelpful once I started keeping a home.
+I&rsquo;m not a stay-at-home mom the way she was, I work for income in a home that&rsquo;s still in the process of decluttering.
+Daily full house-cleaning is just not in the cards at this point.
+The dirt-spreading effect is also greatly reduced if rooms are cleaned on rotation because there&rsquo;s less dirt overall to spread around.
+It&rsquo;s a heck of a lot better than not getting started in the first place, don&rsquo;t let the perfect be the enemy of the good enough, etc.</p>
+<p>Once I accepted my starting point and circumstances instead of holding myself to standards for a completely different situation, I could start cleaning and tidying in bits and pieces rather than try to do everything all at once or organize a Grand Day of Reckoning after which everything would be perfect.
+Not like I&rsquo;m opposed to big cleaning days, they can be satisfying and helpful, but a) they are intimidating to arrange and get started on, and b) I know myself well enough to realize that without a consistent habit things are going to fall apart around my ears again.
+Ask me how I know.
+<em>Cries in years of exhausted ADHD working parent</em></p>
+<p>In recent days I&rsquo;ve been setting myself limited tasks every day, ideally with just one focus, such as &ldquo;get the gross grease and food gunk off the kitchen floor with Magic Blocks and elbow oil. Yeah, just the floor, do not do the counters, do not clean the oven,&rdquo; or &ldquo;sweep the home office floor&mdash;yeah I know it&rsquo;s a huge cluttered mess, we can get to that, just clean the reachable parts, please.&rdquo;</p>
+<p>And you know what?
+Things are better.
+Not perfect, I can still identify problems everywhere I look, but floors are cleaner and don&rsquo;t feel disgusting to walk on.
+It gives me more energy and confidence to start working on bigger-ticket items, like space management in the home office, the big&hellip; basically&hellip; pile of garbage on the verandah, and the related entanglements of family-given items we don&rsquo;t have a use for, the organizational issues of tossing vs. rehoming, guilt about potentially creating so much waste and so on.</p>
+<p>And that&rsquo;s okay.
+We&rsquo;ll figure it out as we go.
+Not in one fell swoop, not on a Day of Salvation that will be the end of our problems, but bit by bit as time goes on and while we&rsquo;re kind to ourselves moving the business of Life along.</p>
+<p>This morning my husband and I cleaned the living room sitting mat and the floor underneath which was ick but doable, and we felt a lot better afterward.
+That&rsquo;s our cleaning for today.
+Tomorrow I&rsquo;ll probably wipe down and clean the big bedroom floor.
+That&rsquo;ll be it for tomorrow.
+Eventually we&rsquo;ll figure out things that take more organization and have more moving pieces, and we&rsquo;ll get there.
+We will gradually, inexorably, habitually unfuck our habitat and feel more in control and relaxed about the house.</p>
+<p>We&rsquo;ll never live in a magazine-ready home but it&rsquo;ll be cozy and ours, which is what counts.
+I know it works, because it&rsquo;s already working and we&rsquo;ll keep at it.
+It&rsquo;ll be okay.
+Never perfect, but okay.</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>The Crimes of the Cat (責猫)</title>
       <link>http://ljwrites.blog/posts/cat-crimes/</link>
@@ -1193,31 +1236,6 @@ It&rsquo;s an experience like no other I&rsquo;ve had with software and can be a
 There&rsquo;s also the good, solid satisfaction of crafting a tool you use daily with your own hands, piece by piece.
 You can make it uniquely yours if you&rsquo;re willing to put in the work.
 That may be the true gift of Emacs, the ability to make it your own in every sense.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>  Troubleshooting &#34;Unmanaged Device&#34; Network Connection Error
-  </title>
-      <link>http://ljwrites.blog/posts/troubleshoot-network/</link>
-      <pubDate>Tue, 15 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://ljwrites.blog/posts/troubleshoot-network/</guid>
-      <description>Here&amp;rsquo;s how I solved it when there was an unmanaged device error with NetworkManager and systemd.</description>
-      <content:encoded><![CDATA[<p>The computer wasn&rsquo;t connecting to the internet this morning with the nm-applet on the status bar saying network connections were unusable.
-Sigh. To be fair I had done a system upgrade of Arch Linux the day before, so I guess can this kind of thing Happens.
-When I ran:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nmcli c
-</span></span></code></pre></div><p>&hellip;to check wi-fi connections none of was was showing a device, and when I tried to connect to my usual network using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nmcli con up <span style="color:#f92672">[</span>device-uuid<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p>I got an error that the connection couldn&rsquo;t be activated because &ldquo;No suitable device found for this connection (device lo not available because device is strictly unmanaged).&rdquo;</p>
-<p>I searched for the error and, as per <a href="https://askubuntu.com/questions/1190504/why-is-nmcli-not-configuring-device">an answer</a> that was downvoted because it didn&rsquo;t work on Ubuntu but worked for me, I added:</p>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">[ifupdown]
-managed=true
-</code></pre><p>to <code>/etc/NetworkManager/NetworkManager.conf</code>.</p>
-<p>Restarted NetworkManager with</p>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">$ sudo systemctl restart NetworkManager.service
-</code></pre><p>Worked instantly. When I checked connections with <code>$ nmcli c</code> again my usual connection had been assigned my main network device, and the nm-applet updated accordingly.</p>
 ]]></content:encoded>
     </item>
     
