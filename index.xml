@@ -7,9 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Starting—and staying—small with housecleaning</title>
+      <title>[Review] The Lantern and the Night Moths</title>
+      <link>http://ljwrites.blog/posts/lantern-night-moths-review/</link>
+      <pubDate>Fri, 19 Jul 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/lantern-night-moths-review/</guid>
+      <description>A remarkable new collection of translated Chinese poetry and original essays by the translator.</description>
+      <content:encoded><![CDATA[<figure>
+    <img loading="lazy" src="https://ljwrites.blog/img/covers/lantern_night_moths.jpg"
+         alt="The cover of The Lantern and the Night Moths by Yilin Wang, with  an ethereal moth dancing around the warm gold glow of a lamp against a backdrop of midnight blue sky and what might be white snow or sand."/> 
+</figure>
+
+<p><em>The Lantern and the Night Moths</em> (2024 Invisible Publishing) is a collection of modern and contemporary Chinese poetry translated by Yilin Wang and accompanied by Wang&rsquo;s original essays.
+The diverse works and voices represented are made accessible by the lyrical, heartfelt translations no matter what the reader&rsquo;s relationship with the original language:
+Shaky and uncertain in my case, but with no barriers to non-speakers and likely enjoyable even to fluent Chinese speakers for the lesser-traveled route through modernist Chinese poetry and the author&rsquo;s deft guide through poetics, literary history, and the art of translation.</p>
+<p>It was quite the experience to be immersed in such different ages and styles in one volume, from feminist revolutionary Qiu Jin&rsquo;s fierce yearnings expressed in classical form, to early modernist Fei Ming&rsquo;s bridging between the old and new in experimental, enigmatic verse.
+Poet-translator Dai Wangshu&rsquo;s wistful reflections, together with contemporary poets Zhang Qiaohui and Xiao Xi&rsquo;s everyday imagery and vivid poetic language, completed the journey through modernity to the present.</p>
+<p>The effect is one of lively dialogue between these remarkable poets through their differences and convergences in style and imagery.
+&ldquo;I shall declare, I have swept the dust of the world away,&rdquo; proclaims the rebellious warrior Qiu Jin, while Fei Ming philosophically muses, &ldquo;the universe is a particle of indestructible dust floating in the air.&rdquo;
+Zhang Qiaohui patiently builds narrative in weighty blocks of language (&ldquo;a pseudo-classical reconstruction made of bricks and reinforced concrete/It comforts me with its mundanity&rdquo;) while Xiao Xi throws searing moments packaged in the rhythm of hyper-condensed language that beats with the consciousness of the now (&ldquo;some people . . . auction their kidneys off to pay for iPhones&rdquo;).
+Dai Wangshu, a seasoned flyer between worlds of thought and language, casually melds Asian and European philosophy together (&ldquo;I think, therefore I am a butterfly&hellip;&rdquo;) and sinks deep into existential meditations that waver like a flame between meanings, skillfully captured by the translator.</p>
+<p>A must-read for anyone with a stake in the art of poetry and its translation, <em>The Lantern and the Night Moths</em> is a unique and necessary collection that raises urgent questions about the future of translation and translators in an age of upheaval, where old forms of devaluation and exploitation&mdash;as brought home by the British Museum&rsquo;s uncredited and unpaid use of Wang&rsquo;s Qiu Jin translations for its 2023 exhibit&mdash;coexist with the new in the use of technological sleight-of-hand to erase and appropriate translators&rsquo; labor.
+<em>The Lantern and the Night Moths</em> is both a literary treat and a clarion call that contains multitudes in a slim volume, a celebration, mourning, and hopeful anticipation of what has been and might yet be.</p>
+<p>Note: I have received an advance copy of The Lantern and the Night Moths to write a review for Exchanges <a href="https://exchanges.uiowa.edu/reviews/the-lantern-and-the-night-moths/">available here</a>, but have also pre-ordered it on my own since.
+This post was adapted from my <a href="https://www.goodreads.com/review/show/6276127275">Goodreads review</a> posted on February 19, 2024.
+<em>The Lantern and the Night Moths</em> is now available whereever books are sold!</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Starting–and staying–small with housecleaning</title>
       <link>http://ljwrites.blog/posts/small-cleaning/</link>
       <pubDate>Thu, 18 Jul 2024 00:00:00 +0900</pubDate>
       
@@ -1149,93 +1178,6 @@ When it has passed the mind again must turn serene.<br /></p>
 </li>
 </ol>
 </div>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>How I Got into Emacs</title>
-      <link>http://ljwrites.blog/posts/how-i-got-into-emacs/</link>
-      <pubDate>Sat, 19 Jun 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/posts/how-i-got-into-emacs/</guid>
-      <description>The true gift of Emacs may be the ability to make it your own in every sense.</description>
-      <content:encoded><![CDATA[<p>From time to time I&rsquo;m asked, perhaps especially as a non-dev who uses Emacs every day, how I got into what is considered development software and one seen as esoteric and antiquated at that.
-I thought I&rsquo;d write about my experience with Emacs and the advice I would personally give to people who are thinking of getting into it.</p>
-<h2 id="destination-emacs">Destination: Emacs</h2>
-<p>It probably helped lead me to Emacs that I&rsquo;ve been a hobby coder for decades and like to fiddle with computers.
-I&rsquo;m known as the tech person in my family, and have written small apps in Python 2 including an IRC dicebot in the 00&rsquo;s.
-(Yes, I&rsquo;m That old.)
-I&rsquo;ve used PHP and MySQL to run hosted blogs; I&rsquo;ve tried Ubuntu and now use an Arch Linux installation daily.
-Coding and computers don&rsquo;t scare me, and what I lack in expertise and training I make up for in sheer determination and willingness to pour countless hours into solving a problem (thanks, ADHD hyperfocus!!).
-So in a way a developer&rsquo;s tool like Emacs was a natural fit for me.</p>
-<p>Even so, I don&rsquo;t think I would have bothered with something as complex as Emacs if it weren&rsquo;t for my growing discontentment with the software I used in my writing.
-LibreOffice was and is my favorite word processor but still, it&rsquo;s a word processor.
-They have their uses and are necessary for my work, but the mix of formatting and content was constraining for first drafts, and the completely linear treatment of the text did not lend itself to flexible thinking about the text and content.
-Ultimately, in my workflow, word processors are for presenting text, not creating it.</p>
-<p>Scrivener was great while it lasted.
-At the time it was a completely new paradigm of writing software for me, with the ability to make text modular and to rearrange it, and snapshots as a rudimentary form of version control.
-Still, it too had its problems.
-The lack of certain functions like mobile editing, good collaboration support, and portable files became increasingly glaring.
-The last straw came when I was locked out of software I had paid for&ndash;twice, on Windows and later Macbook!&ndash;due to the company&rsquo;s server problems.
-Shortly afterward I moved to Linux for the reasons discussed in <a href="https://linuxrig.com/2021/03/31/the-linux-setup-l-j-lee-translator-researcher-writer/">my Linux Setup submission</a>, and using Scrivener became a moot point anyway.
-Years of experience with Scrivener did give me a better idea of what I wanted in a piece of writing software, however:
-Separation of content and presentation, version control, and the ability to move pieces of text around and edit them individually.
-I also wanted them in a form that couldn&rsquo;t be arbitrarily locked down, corrupted, or otherwise made inaccessible.</p>
-<p>Obviously, I learned over time that the things I wanted were doable by editing in plain text formats.
-I looked around for plaintext editing options that would also allow for making text modular.
-LaTeX was in serious running for a while and I even read a book about it before deciding it wasn&rsquo;t right for me and my non-technical use-case.
-AsciiDoc was great and I worked on a fair number of projects with it writing on Vim, which was when I completely fell in love with Vim&rsquo;s editing capabilities.
-The modular treatment of text was incomplete at best under this format and software combination, however.</p>
-<p>I thought about writing an Atom plugin or even writing a text editor myself to get the functions I wanted&ndash;yeah, that would have gone well lol&ndash;before, as so many do, I found out about Emacs and Org Mode.
-(Update 2022-10-22: And, of course, GitHub has since <a href="https://github.blog/2022-06-08-sunsetting-atom/">pulled the plug on Atom</a> while Emacs is still going as it has for decades before Atom ever existed.)
-Through my research I learned Org had everything I was looking for, could be exported to a bunch of other formats, <em>and</em> that it emulated Vim commands through Evil Mode.
-Sold, sold, and sold.
-I decided to make the jump.
-I installed Emacs and very slowly started trying things on it and learning the ropes.</p>
-<h2 id="building-up-my-emacs-configuration">Building up my Emacs configuration</h2>
-<p>It took me a while to &ldquo;warm up&rdquo; to real configuration work on Emacs.
-I used it intermittently  for months with the default splash screen enabled (cringe!), learning basic commands.
-I did the built-in tutorial, read or watched some guides like this <a href="https://www.youtube.com/watch?v=oJTwQvgfgMM&amp;t=84s">amazing talk by Org Mode creator Carsten Dominik</a>, and tried to get used to the interface when I had spare time.</p>
-<p>At first I didn&rsquo;t even install Evil Mode despite not liking the default Emacs movement keys at all.
-For one thing I hadn&rsquo;t figured out the package system yet, and even though it was always the plan to install Evil Mode and its availability was one reason I made the jump from Vim to Emacs, I wanted to give the native Emacs commands a fair shake and at least learn the basics.</p>
-<p>I slowly got into things like Org Mode, using the most basic functions which were more than enough at first when I was still new to it.
-As Carsten Dominik put it, that&rsquo;s a great thing about Org, that you can start as simply as you like and work your way up to as much or as little complexity as you need.</p>
-<p>It was only after months of having at least a shaky grasp of basic Emacs functions that I started doing things like configuring visuals and adding packages, spurred on in part by the Emacs from Scratch videos on the <a href="https://www.youtube.com/channel/UCAiiOTio8Yu69c3XnR7nQBQ">System Crafters</a> channel that was just taking off at the time.
-I didn&rsquo; use even a fraction of the advice given on that channel, though.
-Instead I mostly used the videos as inspiration and a jumping-off point for more research on how to do specific things when I saw the host doing stuff I wanted for my own setup.</p>
-<h2 id="satisfied-mode">Satisfied Mode</h2>
-<p>Since then I&rsquo;ve read two books about Emacs, <a href="https://www.oreilly.com/library/view/learning-gnu-emacs/0596006489/">Learning Gnu Emacs</a> and <a href="https://www.masteringemacs.org/">Mastering Emacs</a>.
-I found them engaging reads that taught me a lot more about how Emacs works.
-I have also been intermittently reading the <a href="https://orgmode.org/manual/">Org Mode Manual</a>, from which I learned a lot of little tricks to make Org more versatile and convenient for me.</p>
-<p>Between this and a lot of things I found out through YouTube, Reddit, and online friends, my init.el has grown to a little over 300 lines.
-That&rsquo;s tiny in comparison to Emacs veterans, of course, but is in keeping with my motto, as they say, to move slow and fix things.
-I&rsquo;m not technically ambitious or highly skilled; I just want a tool that works more or less how I want it to and doesn&rsquo;t require my data to be sent to a company, one that would not stop being supported because it&rsquo;s no longer profitable.
-GNU Emacs, configured little by little entirely at my own pace and actively developed for decades by a worldwide team of maintainers and contributors, exactly fits that bill.</p>
-<p>The good news is, that means you can use Emacs too as someone who isn&rsquo;t necessarily technologically proficient and just wants a stable working environment, if you don&rsquo;t mind a slow pace and some work including a little coding.</p>
-<h2 id="general-advice">General advice</h2>
-<p>My best advice based on personal experience? Don&rsquo;t rush it!</p>
-<p>Emacs can seem big and intimidating if you want to learn the ins and outs and to customize it to your exact needs, and honestly it <em>is</em> intimidating and time-consuming to do all that.</p>
-<p>It becomes more manageable, though, when you start simple and go slowly.
-Add configurations and packages as you feel the need and as you become more comfortable with the platform and Emacs Lisp, the language of Emacs.</p>
-<p>Going step by step, breaking and then fixing things as you go, will help you understand your configuration and learn with it.
-It&rsquo;ll make the dreaded &ldquo;.emacs bankruptcy&rdquo; where your configuration breaks beyond repair less likely, both because your configuration will be easier to debug when it changes in increments and because you understand what went into it.</p>
-<p>I guess the above tips my hand on the &ldquo;vanilla or packaged distro&rdquo; issue, too.
-By packaged distros I mean distributions like Doom Emacs or Space Emacs that come with a lot of configurations out of the box, with Vim-style keybindings in the case of both Doom and Space Emacs.</p>
-<p>To be clear, I&rsquo;m not about to tell anyone not to get an Emacs distro.
-They do cool stuff at only a fraction of the time and effort of setting up vanilla Emacs, and I can see why they&rsquo;re popular.
-If spending a lot of painstaking effort on configurations isn&rsquo;t your thing and a distro looks right for you, by all means go for it.</p>
-<p>That said, I would not install a distro myself because I&rsquo;ve heard stories of the codebase breaking or no longer being supported in some environments.
-This is not the kind of risk I&rsquo;m willing to take, to lose an entire working environment I&rsquo;ve come to rely on with no practical way to get it back.
-For me vanilla GNU Emacs, configured by my hand, is much more versatile and easier to repair in case something breaks or changes.</p>
-<p>Distros are a valid choice depending on your personal balance of stability versus convenience.
-I just happen to fall more on the stability side of things, and it doesn&rsquo;t hurt that I actually like to spend time on configurations because I find them fun to do, in reasonable doses.</p>
-<p>Above all, I hope you&rsquo;ll have fun with it!
-Emacs is a practical and powerful platform, but it can also be a deeply personal project that is molded to you and changes according to your needs, preferences, and growing skill.
-Emacs is my main software for writing, my file manager, my task and schedule manager, my email program, my main git interface&hellip; so much of my life is tied into it.
-It&rsquo;s an experience like no other I&rsquo;ve had with software and can be a rollercoaster of excitement for the new, the comfort of the familiar, and, I&rsquo;ll be honest, bouts of hair-tearing frustration.
-There&rsquo;s also the good, solid satisfaction of crafting a tool you use daily with your own hands, piece by piece.
-You can make it uniquely yours if you&rsquo;re willing to put in the work.
-That may be the true gift of Emacs, the ability to make it your own in every sense.</p>
 ]]></content:encoded>
     </item>
     

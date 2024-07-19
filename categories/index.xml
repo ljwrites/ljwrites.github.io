@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fannish</title>
+      <link>http://ljwrites.blog/categories/fannish/</link>
+      <pubDate>Fri, 19 Jul 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/fannish/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Life</title>
       <link>http://ljwrites.blog/categories/life/</link>
@@ -24,16 +34,6 @@
       <pubDate>Tue, 16 Jul 2024 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/categories/translation/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Fannish</title>
-      <link>http://ljwrites.blog/categories/fannish/</link>
-      <pubDate>Mon, 01 Jul 2024 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/categories/fannish/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
