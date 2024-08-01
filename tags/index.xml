@@ -7,13 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Fri, 19 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jul 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Korea</title>
+      <link>http://ljwrites.blog/tags/korea/</link>
+      <pubDate>Mon, 22 Jul 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/korea/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Poetry</title>
       <link>http://ljwrites.blog/tags/poetry/</link>
-      <pubDate>Fri, 19 Jul 2024 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 22 Jul 2024 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/poetry/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>QueerHistory</title>
+      <link>http://ljwrites.blog/tags/queerhistory/</link>
+      <pubDate>Mon, 22 Jul 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/tags/queerhistory/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
@@ -44,16 +64,6 @@
       <pubDate>Tue, 16 Jul 2024 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/hanja/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Korea</title>
-      <link>http://ljwrites.blog/tags/korea/</link>
-      <pubDate>Tue, 16 Jul 2024 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/korea/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
@@ -194,16 +204,6 @@
       <pubDate>Sat, 10 Dec 2022 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/tags/mastodon/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Nanowrimo</title>
-      <link>http://ljwrites.blog/tags/nanowrimo/</link>
-      <pubDate>Sat, 29 Oct 2022 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/tags/nanowrimo/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
