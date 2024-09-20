@@ -2,23 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://ljwrites.blog/categories/</loc>
+    <lastmod>2024-09-20T23:31:06+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/fandom/</loc>
+    <lastmod>2024-09-20T23:31:06+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/fanfic/</loc>
+    <lastmod>2024-09-20T23:31:06+09:00</lastmod>
+  </url><url>
     <loc>http://ljwrites.blog/posts/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
+    <lastmod>2024-09-20T23:31:06+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
+    <lastmod>2024-09-20T23:31:06+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/</loc>
+    <lastmod>2024-09-20T23:31:06+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/posts/fanfic-writing-history/</loc>
+    <lastmod>2024-09-20T23:31:06+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/categories/writing/</loc>
+    <lastmod>2024-09-20T23:31:06+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/books/</loc>
     <lastmod>2024-08-13T01:02:33+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/categories/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/fannish/</loc>
     <lastmod>2024-08-13T01:02:33+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/poetry/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
+    <lastmod>2024-08-31T10:03:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/publication/</loc>
     <lastmod>2024-08-13T01:02:33+09:00</lastmod>
@@ -29,23 +44,20 @@
     <loc>http://ljwrites.blog/posts/lantern-review-exchanges/</loc>
     <lastmod>2024-08-13T01:02:33+09:00</lastmod>
   </url><url>
-    <loc>http://ljwrites.blog/tags/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
-  </url><url>
     <loc>http://ljwrites.blog/about/</loc>
     <lastmod>2024-08-02T14:18:14+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/history/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
+    <lastmod>2024-08-31T10:03:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/korea/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
+    <lastmod>2024-08-31T10:03:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/queer/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
+    <lastmod>2024-08-31T10:03:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/queer-premodern-korea/</loc>
-    <lastmod>2024-08-27T23:53:28+09:00</lastmod>
+    <lastmod>2024-08-31T10:03:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/lantern-night-moths-review/</loc>
     <lastmod>2024-08-05T16:48:16+09:00</lastmod>
@@ -117,9 +129,6 @@
     <lastmod>2023-02-07T21:46:06+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/writing/</loc>
-    <lastmod>2023-11-18T00:46:51+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/categories/writing/</loc>
     <lastmod>2023-11-18T00:46:51+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/2022-writing-review/</loc>
