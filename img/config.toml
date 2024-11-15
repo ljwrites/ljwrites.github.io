@@ -1,0 +1,48 @@
+baseURL = "http://ljwrites.blog/"
+languageCode = "en-us"
+title = "Semi-author-ized writer"
+theme = "hugo-PaperMod"
+rssLimit = 20
+ignoreFiles = [ "^#.*$" ]
+ShowToc = "true"
+TocOpen = "true"
+Copyright = "CC BY-NC"
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    identifier = "categories"
+    name = "categories"
+    url = "/categories/"
+    weight = 20
+  [[menu.main]]
+    identifier = "tags"
+    name = "tags"
+    url = "/tags/"
+    weight = 30
+  [[menu.main]]
+    identifier = "search"
+    name = "search"
+    url = "/search/"
+    weight = 40
+  [[menu.main]]
+    identifier = "rss"
+    name = "rss"
+    url = "/index.xml"
+    weight = 50
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  AuthorName = "L.J. Lee"
+  author = "L.J. Lee"
+  ShowFullTextinRSS = true 
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
