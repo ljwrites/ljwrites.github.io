@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Mon, 28 Oct 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/ebooks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/ebooks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I removed DRM from Kobo books on Arch Linux</title>
       <link>http://ljwrites.blog/posts/kobo-drm-removal/</link>
-      <pubDate>Mon, 28 Oct 2024 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/posts/kobo-drm-removal/</guid>
       <description>What works as of late October 2024.</description>
