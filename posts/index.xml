@@ -9,6 +9,154 @@
     <copyright>CC BY-NC</copyright>
     <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How I removed DRM from Kobo books on Arch Linux</title>
+      <link>http://ljwrites.blog/posts/kobo-drm-removal/</link>
+      <pubDate>Mon, 28 Oct 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/kobo-drm-removal/</guid>
+      <description>What works as of late October 2024.</description>
+      <content:encoded><![CDATA[<p>(This post is an expansion of a thread originally posted to my <a href="https://writeout.ink/@ljwrites/113367150385436478">Mastodon writing account</a>)</p>
+<h2 id="background-and-how-to-use-this-post">Background and how to use this post</h2>
+<p>Late last year I downloaded my Kobo e-books to my Arch Linux computer through the Kobo desktop app and removed DRM protections using Calibre and the Obok plugin.
+See <a href="https://www.remove-drm.com/topics/why-we-need-to-remove-drm.html">What&rsquo;s DRM and Why do we need to remove DRM</a> for general background information and the argument for de-DRM-ing digital files.
+For my part I don&rsquo;t like the reading software and environments that Kobo&rsquo;s DRM restricted me to, and I wanted to own and control my purchases by being able to read and store my books freely without the risk of losing access to them.</p>
+<p>I&rsquo;ll detail the DRM process here to document it, and so others can follow along if they want.
+Let me know at my email (lj [at] ljwrites [dot] blog) or my Mastodon account above if you have comments or questions,
+I&rsquo;ll try to help you and update the post accordingly.
+If you&rsquo;re on Windows or Mac and don&rsquo;t need to install the Kobo Desktop Edition through Wine, you can skip to the final section on <a href="https://ljwrites.blog/posts/kobo-drm-removal/#remove-drm-with-the-obok-plugin-on-calibre">Calibre and the Obok plugin</a>.</p>
+<h2 id="set-up-wine-for-a-32-bit-installation">Set up Wine for a 32-bit installation</h2>
+<p>For me, setting up Wine on my 64-bit architecture for a 32-bit installation was the most time-consuming part of the process.
+I&rsquo;m not even sure why I&rsquo;m supposed to trick Wine into thinking it&rsquo;s on a 32-bit architecture, but it didn&rsquo;t work until I did.</p>
+<p>You can check your kernel architecture with <code>uname -a</code>.
+Here&rsquo;s my output:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ uname -a
+</span></span><span style="display:flex;"><span>Linux arch 6.12.4-arch1-1 <span style="color:#f92672">[</span>hash<span style="color:#f92672">]</span> <span style="color:#ae81ff">1</span> SMP PREEMPT_DYNAMIC Mon, <span style="color:#ae81ff">09</span> Dec <span style="color:#ae81ff">2024</span> 14:31:57 +0000 x86_64 GNU/Linux
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>x86_64</code> part means it&rsquo;s a 64-bit architecture.
+Outputs such as <code>i386</code> and <code>i686</code> are 32-bit.</p>
+<p>Though I already had a Wine installation, I kept getting architecture-related errors so I uninstalled and reinstalled everything Wine-related:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -S wine
+</span></span><span style="display:flex;"><span>$ sudo pacman -S wine-gecko
+</span></span><span style="display:flex;"><span>$ sudo pacman -S wine-mono
+</span></span><span style="display:flex;"><span>$ sudo pacman -S lib32-gnutls
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I then set environmental variables to get Wine working in 32-bit mode:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ export WINEPREFIX<span style="color:#f92672">=</span>~/.wine32
+</span></span><span style="display:flex;"><span>$ export WINEPATH<span style="color:#f92672">=</span>~/.wine32
+</span></span><span style="display:flex;"><span>$ export WINEARCH<span style="color:#f92672">=</span>win32
+</span></span><span style="display:flex;"><span>$ wineboot -u
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>(<code>.wine32</code> is just a random blank directory I created under my home directory because the default .wine directory is 64-bit and was giving me errors.)</p>
+<p>Since environmental variables exported from the terminal will only last for that session, I also put the following lines in <code>~/.bashrc</code> to make the variables persistent:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export WINEPREFIX<span style="color:#f92672">=</span>~/.wine32
+</span></span><span style="display:flex;"><span>export WINEPATH<span style="color:#f92672">=</span>~/.wine32
+</span></span><span style="display:flex;"><span>export WINEARCH<span style="color:#f92672">=</span>win32
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Originally I had <code>$WINEPREFIX</code> set to a <code>prefix</code> subdirectory under <code>~/.wine32</code> as seen below, per advice I saw on a forum, but for me it worked either way.
+If the above <code>$WINEPREFIX</code> does not work, maybe having it point to a subdirectory will, like so:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export WINEPREFIX<span style="color:#f92672">=</span>~/.wine32/prefix
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As a convenience function, I also put a shorthand alias in my <code>~/.bashrc</code> to open Kobo Desktop Edition with a simple command, in my case <code>kobo</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias kobo<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;wine ~/.wine32/drive_c/Program\ Files/Kobo/Kobo.exe&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="install-kobo-desktop-edition-through-wine">Install Kobo Desktop Edition through Wine</h2>
+<p>After setting up Wine, I downloaded the <code>kobosetup.exe</code> file.
+Because nothing can ever be easy, the download button reached through <a href="https://kobosetup.com">https://kobosetup.com</a> didn&rsquo;t work for me and I had to search the button text (&ldquo;Download now&rdquo;) in the page source and then the id of that button for the href attribute.
+As of the date of this blog post (January 12, 2025) the direct link to the file is <a href="https://cdn.kobo.com/downloads/desktop/kobodesktop/kobosetup.exe">https://cdn.kobo.com/downloads/desktop/kobodesktop/kobosetup.exe</a> , but that may change in the future.</p>
+<p>I then executed the file through Wine:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wine ~/Download/kobosetup.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The output stalled so I assumed it didn&rsquo;t work, but when I navigated to the directory manually I found the installation and ran the executable:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wine ~/.wine32/drive_c/Program<span style="color:#ae81ff">\ </span>Files/Kobo/Kobo.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I logged into my account on the Kobo Desktop Edition app and downloaded all the books in my library.
+I&rsquo;m told you need to shut the app down before the next step, which is the actual de-DRM process using the Obok plugin.</p>
+<h2 id="remove-drm-with-the-obok-plugin-on-calibre">Remove DRM with the Obok plugin on Calibre</h2>
+<p>I already had Calibre installed through the Arch Linux repository:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -S calibre
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Obok is part of DeDRM Tools, available through the <a href="https://github.com/apprenticeharper/DeDRM_tools/releases/tag/v7.2.1">Github repo</a>.
+Unzip the file and <code>obok_plugin.zip</code> should be one of the files that appear in the folder.</p>
+<p>As detailed in the <a href="https://github.com/apprenticeharper/DeDRM_tools/blob/master/obok_plugin_ReadMe.txt">the repository&rsquo;s readme file</a>, open Calibre and navigate to Preferences &gt; Plugins and then the &ldquo;Load plugin from file&rdquo; button at the bottom of the Plugins window.
+Select the <code>obok_plugin.zip</code> file from the file navigation that pops up.
+Choose what menus to access Obok through, then click through the installation.</p>
+<p>I then configured Obok through Preferences &gt; Plugins &gt; Obok to manually set the Kobo Desktop Edition library folder that Obok should access.
+In my case the directory was <code>~/.wine32/drive_c/users/lj/AppData/Local/Kobo/Kobo Desktop Edition</code>.
+I think the folder is automatically detected on Windows and Mac.
+Maybe there&rsquo;s auto-detect on Linux systems, too, but it didn&rsquo;t happen for me, maybe because I installed Obok before Kobo Desktop Edition.</p>
+<p>Click on the Obok icon, which in my case is on the top menu bar of Calibre, which will show decrypted versions of books downloaded through Kobo Desktop Edition.
+All that remains is to import them into the Calibre library as DRM-free epubs that you can read on any device and software that supports the format.</p>
+<h2 id="conclusion-and-postscript">Conclusion and postscript</h2>
+<p>Since de-DRM-ing my Kobo library I read my epubs on everything from the Emacs nov-mode package on desktop to Foliate on Steam Deck&rsquo;s desktop mode (a.k.a. my second Arch machine).
+As a result I read more and have more fun doing it, and since my decrypted books are also in local and remote locations through my usual backups I know I won&rsquo;t lose access to them through some whim of the bookshop or publisher.
+I hope DRM removal will be a similarly positive experience for others, too, especially those like me with large Kobo libraries.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
       <title>Why I wrote fanfic and why I stopped</title>
       <link>http://ljwrites.blog/posts/fanfic-writing-history/</link>
       <pubDate>Fri, 20 Sep 2024 00:00:00 +0900</pubDate>
@@ -1586,58 +1734,6 @@ If you want to keep going with Arch Linux, hopefully this post is helpful to you
 <p>Alone I laugh, and none do understand!</p>
 <p>&mdash; 茶山 丁若鏞</p>
 <p>Dasan Jeong Yak-yong (1762-1836), Korean bureaucrat, scholar, author, poet, philosopher, scientist, and engineer.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>  Is &#34;Narcissistic Abuse&#34; a Useful Term?
-  </title>
-      <link>http://ljwrites.blog/posts/questioning-narcissistic-abuse/</link>
-      <pubDate>Sat, 10 Jul 2021 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/posts/questioning-narcissistic-abuse/</guid>
-      <description>&amp;lsquo;Narcissistic abuse&amp;rsquo; as a term is extremely stigmatizing to people with NPD while its utility to survivors seems limited.</description>
-      <content:encoded><![CDATA[<p>Narcissists have a bad reputation, to put it mildly.
-More and more &ldquo;narcissist&rdquo; seems to be used interchangeably with &ldquo;abuser,&rdquo; with terms like &ldquo;narcissistic abuse&rdquo; and &ldquo;narcissistic parenting&rdquo; in common use.
-Armchair diagnoses and labelling are common on threads about abusive behavior.</p>
-<p>This is, needless to say, tremendously stigmatizing to people with Narcissistic Personality Disorder (NPD), and doesn&rsquo;t make it any easier for people to seek help with a disorder that is already said to be resistant to treatment.
-As others have pointed out, no other mental disorder is  intrinsically linked in people&rsquo;s minds to being an abuser as NPD is, except perhaps borderline personality disorder (BPD) and the so-called antisocial personality disorders.
-Even these other massively armchair-diagnosed and stigmatized disorders, however, are not automatically associated with abuse the way NPD is:
-&ldquo;Borderline abuse&rdquo; and &ldquo;psychopathic/sociopathic abuse&rdquo; have not entered the popular vernacular the way &ldquo;narcissistic abuse&rdquo; has.</p>
-<p>What I don&rsquo;t want to do, obviously, is dismiss the specific concerns and issues arising from being abused by people with narcissistic traits.
-An abuser&rsquo;s narcissistic traits, like any other trait of abusers, can cause distinct issues in victims and survivors.
-These are absolutely issues that should be discussed and researched, and the last thing I want to do is silence survivors or take away the language they need to understand and heal.
-This is all the more because I was myself abused by someone with strong narcissistic tendencies, such as preoccupation with success and perfection and expectation of special treatment, and I&rsquo;m still unpacking the impact this left on me.</p>
-<p>My problem with &ldquo;narcissistic abuse&rdquo; as a term is that it is extremely stigmatizing against people with NPD while its utility to survivors seems limited.
-The term is flawed by inaccurate and overbroad thinking about narcissism and demonization of narcissistic traits.
-It also places the focus on the abuser&rsquo;s characteristics and speculative or real diagnosis, and not on the effects on the survivor.
-I know I have issues from the inordinate expectations placed on me by someone who saw me as an extension of the self to fulfill some fantasy of glory, and who treated any negative reactions on my part as a personal affront.
-Are these issues distinct to being abused by someone with narcissistic traits?
-Are they distinct enough to be separated from abuse in general?
-Or is the distinction meaningless because ALL abuse is actually narcissistic in nature?</p>
-<p>This lack of clarity about the definitional boundaries and implications of &ldquo;narcissistic abuse&rdquo; makes it not so much a diagnostic criterion or resource for survivors as a snarled insult, an expression of rage toward a poorly-defined group rather than a means to confront and heal.
-Don&rsquo;t get me wrong, the rage of victims is absolutely necessary and can be a powerful force.
-However, this is rage at a group of people that may or may not include the actual abusers but certainly does include people who are not toxic or abusive, and whose mental illness is moralized and conflated with toxicity EXACTLY as we know we shouldn&rsquo;t for just about any other mental illness.</p>
-<p>The way &ldquo;narcissistic&rdquo; has been turned into a synonym for &ldquo;abusive&rdquo; also means that it&rsquo;s difficult to conceive of non-abusive narcissistic people, far less narcissistic people as victims.
-Even though people with narcissistic traits, up to full-blown NPD, have clear vulnerabilities to abuse due to their sense of emptiness and hunger for validation, when narcissism and abuse come up it&rsquo;s exclusively about narcissists as the perpetrators.</p>
-<p>To the extent we accept that narcissistic traits may make a person likelier to be abusive, the lack of resources on preventing and managing such risks as a narcissistic person is striking.
-It&rsquo;s as though narcissistic people as a class, not just the ones who are toxic/abusive, have been written off as unworthy of protection and unable or unwilling to make choices to be better.
-This is what dehumanization looks like.</p>
-<p>Is this what the classification of &ldquo;narcissistic abuse,&rdquo; and the discourse surrounding narcissism in general, are meant to achieve?
-To provide no meaningful guidance to victims whose abusers have narcissistic tendencies beyond what could be achieved by simply calling it abuse, while demonizing a whole class of mentally ill people as inherently toxic and evil?
-Then what&rsquo;s the use of it?
-Where&rsquo;s the reason to continue using it?</p>
-<p>Again, and I want to make this clear, I believe there are potential uses in delving into the characteristics of abusers and the circumstances of abuse.
-Spiritual abuse gives rise to distinct issues, for instance, as do financial, physical, sexual, verbal, and emotional abuse.
-Parental abuse, sibling abuse, workplace abuse, and peer abuse can all be very different from each other.
-An abuser with narcissistic tendencies might similarly cause distinct issues that survivors must navigate.</p>
-<p>A lot more clarity is required, however, for the categorization to be useful to survivors without being stigmatizing to people with NPD.
-I suspect it&rsquo;ll have to be broken down much more than simply &ldquo;narcissistic,&rdquo; too, such as the reality-warping effect of being made to participate in overinflated fantasies, or living with the onus of perfection to fulfill the abuser&rsquo;s preoccupations.
-I equally suspect that many of the things people call narcissistic abuse are just plain entitlement that can arise with all kinds of pathologies and not just NPD, or the lack of any pathology at all.</p>
-<p>There is great emotional power in having an Other to rail against, and clarity in having one answer, like narcissism, for everything.
-When the chosen target is wrong, however, and the answer is inaccurate, we end up doing harm to others and ourselves.
-The way things stand now, &ldquo;narcissistic abuse&rdquo; is one of those inaccurate and harmful categories.
-It&rsquo;s time to retire it and do better.</p>
 ]]></content:encoded>
     </item>
     

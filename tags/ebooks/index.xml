@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ebooks on Semi-author-ized writer</title>
+    <link>http://ljwrites.blog/tags/ebooks/</link>
+    <description>Recent content in Ebooks on Semi-author-ized writer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>CC BY-NC</copyright>
+    <lastBuildDate>Mon, 28 Oct 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/tags/ebooks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I removed DRM from Kobo books on Arch Linux</title>
+      <link>http://ljwrites.blog/posts/kobo-drm-removal/</link>
+      <pubDate>Mon, 28 Oct 2024 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/posts/kobo-drm-removal/</guid>
+      <description>What works as of late October 2024.</description>
+      <content:encoded><![CDATA[<p>(This post is an expansion of a thread originally posted to my <a href="https://writeout.ink/@ljwrites/113367150385436478">Mastodon writing account</a>)</p>
+<h2 id="background-and-how-to-use-this-post">Background and how to use this post</h2>
+<p>Late last year I downloaded my Kobo e-books to my Arch Linux computer through the Kobo desktop app and removed DRM protections using Calibre and the Obok plugin.
+See <a href="https://www.remove-drm.com/topics/why-we-need-to-remove-drm.html">What&rsquo;s DRM and Why do we need to remove DRM</a> for general background information and the argument for de-DRM-ing digital files.
+For my part I don&rsquo;t like the reading software and environments that Kobo&rsquo;s DRM restricted me to, and I wanted to own and control my purchases by being able to read and store my books freely without the risk of losing access to them.</p>
+<p>I&rsquo;ll detail the DRM process here to document it, and so others can follow along if they want.
+Let me know at my email (lj [at] ljwrites [dot] blog) or my Mastodon account above if you have comments or questions,
+I&rsquo;ll try to help you and update the post accordingly.
+If you&rsquo;re on Windows or Mac and don&rsquo;t need to install the Kobo Desktop Edition through Wine, you can skip to the final section on <a href="https://ljwrites.blog/posts/kobo-drm-removal/#remove-drm-with-the-obok-plugin-on-calibre">Calibre and the Obok plugin</a>.</p>
+<h2 id="set-up-wine-for-a-32-bit-installation">Set up Wine for a 32-bit installation</h2>
+<p>For me, setting up Wine on my 64-bit architecture for a 32-bit installation was the most time-consuming part of the process.
+I&rsquo;m not even sure why I&rsquo;m supposed to trick Wine into thinking it&rsquo;s on a 32-bit architecture, but it didn&rsquo;t work until I did.</p>
+<p>You can check your kernel architecture with <code>uname -a</code>.
+Here&rsquo;s my output:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ uname -a
+</span></span><span style="display:flex;"><span>Linux arch 6.12.4-arch1-1 <span style="color:#f92672">[</span>hash<span style="color:#f92672">]</span> <span style="color:#ae81ff">1</span> SMP PREEMPT_DYNAMIC Mon, <span style="color:#ae81ff">09</span> Dec <span style="color:#ae81ff">2024</span> 14:31:57 +0000 x86_64 GNU/Linux
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>x86_64</code> part means it&rsquo;s a 64-bit architecture.
+Outputs such as <code>i386</code> and <code>i686</code> are 32-bit.</p>
+<p>Though I already had a Wine installation, I kept getting architecture-related errors so I uninstalled and reinstalled everything Wine-related:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -S wine
+</span></span><span style="display:flex;"><span>$ sudo pacman -S wine-gecko
+</span></span><span style="display:flex;"><span>$ sudo pacman -S wine-mono
+</span></span><span style="display:flex;"><span>$ sudo pacman -S lib32-gnutls
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I then set environmental variables to get Wine working in 32-bit mode:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ export WINEPREFIX<span style="color:#f92672">=</span>~/.wine32
+</span></span><span style="display:flex;"><span>$ export WINEPATH<span style="color:#f92672">=</span>~/.wine32
+</span></span><span style="display:flex;"><span>$ export WINEARCH<span style="color:#f92672">=</span>win32
+</span></span><span style="display:flex;"><span>$ wineboot -u
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>(<code>.wine32</code> is just a random blank directory I created under my home directory because the default .wine directory is 64-bit and was giving me errors.)</p>
+<p>Since environmental variables exported from the terminal will only last for that session, I also put the following lines in <code>~/.bashrc</code> to make the variables persistent:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export WINEPREFIX<span style="color:#f92672">=</span>~/.wine32
+</span></span><span style="display:flex;"><span>export WINEPATH<span style="color:#f92672">=</span>~/.wine32
+</span></span><span style="display:flex;"><span>export WINEARCH<span style="color:#f92672">=</span>win32
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Originally I had <code>$WINEPREFIX</code> set to a <code>prefix</code> subdirectory under <code>~/.wine32</code> as seen below, per advice I saw on a forum, but for me it worked either way.
+If the above <code>$WINEPREFIX</code> does not work, maybe having it point to a subdirectory will, like so:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export WINEPREFIX<span style="color:#f92672">=</span>~/.wine32/prefix
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As a convenience function, I also put a shorthand alias in my <code>~/.bashrc</code> to open Kobo Desktop Edition with a simple command, in my case <code>kobo</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias kobo<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;wine ~/.wine32/drive_c/Program\ Files/Kobo/Kobo.exe&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="install-kobo-desktop-edition-through-wine">Install Kobo Desktop Edition through Wine</h2>
+<p>After setting up Wine, I downloaded the <code>kobosetup.exe</code> file.
+Because nothing can ever be easy, the download button reached through <a href="https://kobosetup.com">https://kobosetup.com</a> didn&rsquo;t work for me and I had to search the button text (&ldquo;Download now&rdquo;) in the page source and then the id of that button for the href attribute.
+As of the date of this blog post (January 12, 2025) the direct link to the file is <a href="https://cdn.kobo.com/downloads/desktop/kobodesktop/kobosetup.exe">https://cdn.kobo.com/downloads/desktop/kobodesktop/kobosetup.exe</a> , but that may change in the future.</p>
+<p>I then executed the file through Wine:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wine ~/Download/kobosetup.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The output stalled so I assumed it didn&rsquo;t work, but when I navigated to the directory manually I found the installation and ran the executable:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wine ~/.wine32/drive_c/Program<span style="color:#ae81ff">\ </span>Files/Kobo/Kobo.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I logged into my account on the Kobo Desktop Edition app and downloaded all the books in my library.
+I&rsquo;m told you need to shut the app down before the next step, which is the actual de-DRM process using the Obok plugin.</p>
+<h2 id="remove-drm-with-the-obok-plugin-on-calibre">Remove DRM with the Obok plugin on Calibre</h2>
+<p>I already had Calibre installed through the Arch Linux repository:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo pacman -S calibre
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Obok is part of DeDRM Tools, available through the <a href="https://github.com/apprenticeharper/DeDRM_tools/releases/tag/v7.2.1">Github repo</a>.
+Unzip the file and <code>obok_plugin.zip</code> should be one of the files that appear in the folder.</p>
+<p>As detailed in the <a href="https://github.com/apprenticeharper/DeDRM_tools/blob/master/obok_plugin_ReadMe.txt">the repository&rsquo;s readme file</a>, open Calibre and navigate to Preferences &gt; Plugins and then the &ldquo;Load plugin from file&rdquo; button at the bottom of the Plugins window.
+Select the <code>obok_plugin.zip</code> file from the file navigation that pops up.
+Choose what menus to access Obok through, then click through the installation.</p>
+<p>I then configured Obok through Preferences &gt; Plugins &gt; Obok to manually set the Kobo Desktop Edition library folder that Obok should access.
+In my case the directory was <code>~/.wine32/drive_c/users/lj/AppData/Local/Kobo/Kobo Desktop Edition</code>.
+I think the folder is automatically detected on Windows and Mac.
+Maybe there&rsquo;s auto-detect on Linux systems, too, but it didn&rsquo;t happen for me, maybe because I installed Obok before Kobo Desktop Edition.</p>
+<p>Click on the Obok icon, which in my case is on the top menu bar of Calibre, which will show decrypted versions of books downloaded through Kobo Desktop Edition.
+All that remains is to import them into the Calibre library as DRM-free epubs that you can read on any device and software that supports the format.</p>
+<h2 id="conclusion-and-postscript">Conclusion and postscript</h2>
+<p>Since de-DRM-ing my Kobo library I read my epubs on everything from the Emacs nov-mode package on desktop to Foliate on Steam Deck&rsquo;s desktop mode (a.k.a. my second Arch machine).
+As a result I read more and have more fun doing it, and since my decrypted books are also in local and remote locations through my usual backups I know I won&rsquo;t lose access to them through some whim of the bookshop or publisher.
+I hope DRM removal will be a similarly positive experience for others, too, especially those like me with large Kobo libraries.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
