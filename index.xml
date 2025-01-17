@@ -16,14 +16,23 @@
       <guid>http://ljwrites.blog/posts/kobo-drm-removal/</guid>
       <description>What works as of late October 2024.</description>
       <content:encoded><![CDATA[<p>(This post is an expansion of a thread originally posted to my <a href="https://writeout.ink/@ljwrites/113367150385436478">Mastodon writing account</a>)</p>
-<h2 id="background-and-how-to-use-this-post">Background and how to use this post</h2>
+<h2 id="background-how-to-use-this-post-and-warning">Background, how to use this post, and warning</h2>
 <p>Late last year I downloaded my Kobo e-books to my Arch Linux computer through the Kobo desktop app and removed DRM protections using Calibre and the Obok plugin.
-See <a href="https://www.remove-drm.com/topics/why-we-need-to-remove-drm.html">What&rsquo;s DRM and Why do we need to remove DRM</a> for general background information and the argument for de-DRM-ing digital files.
-For my part I don&rsquo;t like the reading software and environments that Kobo&rsquo;s DRM restricted me to, and I wanted to own and control my purchases by being able to read and store my books freely without the risk of losing access to them.</p>
+See <a href="https://hbr.org/2015/11/the-weird-rules-governing-what-we-download">The Weird Rules Governing What We Download</a> for general background information on DRM protections and why they are anti-consumer (<strong>link changed 2025-01-17</strong>).
+For my part I don&rsquo;t like the reading software and environments that Kobo&rsquo;s DRM restricted me to, and I want to own and control my purchases by being able to read and store my books freely without the risk of losing access to them.</p>
 <p>I&rsquo;ll detail the DRM process here to document it, and so others can follow along if they want.
 Let me know at my email (lj [at] ljwrites [dot] blog) or my Mastodon account above if you have comments or questions,
 I&rsquo;ll try to help you and update the post accordingly.
 If you&rsquo;re on Windows or Mac and don&rsquo;t need to install the Kobo Desktop Edition through Wine, you can skip to the final section on <a href="https://ljwrites.blog/posts/kobo-drm-removal/#remove-drm-with-the-obok-plugin-on-calibre">Calibre and the Obok plugin</a>.</p>
+<p><strong>WARNING (added 2025-01-17): Stripping DRM from your content may be ILLEGAL depending on your jurisdiction.</strong>
+This post comes with no warranties whatsoever that the described activity is legal where you are:
+There is a possibility that you may be subject to measures such as having your account removed, or to civil, criminal, and other liabilities.
+You should undertake de-DRM solely at your own risk and with whatever advice you feel you need, and I can take no responsibility for the consequences.</p>
+<p>That said, as a practical matter you are unlikely to be detected or pursued as long as you keep your files for your own use on devices you own and don&rsquo;t pirate the books by indiscriminately distributing them.
+You should refrain from piracy anyway, both to reduce your exposure to legal risk and as a basic courtesy to authors who depend not only on income from sales but also on sales figures for career options and algorithmic promotion.</p>
+<p>The warning above, incidentally, is exactly why individual solutions are not a replacement for regulation.
+DRM needs to be regulated and reformed, not simply tiptoed around, and I recognize that options available to a few technically skilled individuals who are willing to brave some legal risk are a stopgap at best for much the same reasons that <a href="https://matduggan.com/self-hosting-isnt-a-solution-its-a-patch/">Self-Hosting Isn&rsquo;t a Solution; It&rsquo;s a Patch</a>.
+Tutorials like this one are workarounds for a few and obviously do not scale like solutions and improvements at a societal level.</p>
 <h2 id="set-up-wine-for-a-32-bit-installation">Set up Wine for a 32-bit installation</h2>
 <p>For me, setting up Wine on my 64-bit architecture for a 32-bit installation was the most time-consuming part of the process.
 I&rsquo;m not even sure why I&rsquo;m supposed to trick Wine into thinking it&rsquo;s on a 32-bit architecture, but it didn&rsquo;t work until I did.</p>
