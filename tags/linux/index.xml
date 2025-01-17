@@ -29,9 +29,9 @@ This post comes with no warranties whatsoever that the described activity is leg
 There is a possibility that you may be subject to measures such as having your account removed, or to civil, criminal, and other liabilities.
 You should undertake de-DRM solely at your own risk and with whatever advice you feel you need, and I can take no responsibility for the consequences.</p>
 <p>That said, as a practical matter you are unlikely to be detected or pursued as long as you keep your files for your own use on devices you own and don&rsquo;t pirate the books by indiscriminately distributing them.
-You should refrain from piracy anyway, both to reduce your exposure to legal risk and as a basic courtesy to authors who depend not only on income from sales but also on sales figures for career options and algorithmic promotion.</p>
-<p>The warning above, incidentally, is exactly why individual solutions are not a replacement for regulation.
-DRM needs to be regulated and reformed, not simply tiptoed around, and I recognize that options available to a few technically skilled individuals who are willing to brave some legal risk are a stopgap at best for much the same reasons that <a href="https://matduggan.com/self-hosting-isnt-a-solution-its-a-patch/">Self-Hosting Isn&rsquo;t a Solution; It&rsquo;s a Patch</a>.
+You should refrain from piracy in most circumstances anyway, both to reduce your exposure to legal risk and as a basic courtesy to authors who depend not only on income from sales but also on sales figures for career options and algorithmic promotion.</p>
+<p>The warning above, incidentally, is exactly why individually implemented technological fixes are not a replacement for regulatory changes.
+DRM needs to be destroyed or overhauled, not simply tiptoed around, and I recognize that options available to a few technically skilled individuals who are willing to brave some legal risk are a stopgap at best, for much the same reasons that <a href="https://matduggan.com/self-hosting-isnt-a-solution-its-a-patch/">Self-Hosting Isn&rsquo;t a Solution; It&rsquo;s a Patch</a>.
 Tutorials like this one are workarounds for a few and obviously do not scale like solutions and improvements at a societal level.</p>
 <h2 id="set-up-wine-for-a-32-bit-installation">Set up Wine for a 32-bit installation</h2>
 <p>For me, setting up Wine on my 64-bit architecture for a 32-bit installation was the most time-consuming part of the process.
