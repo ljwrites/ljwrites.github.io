@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jan 2025 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I removed DRM from Kobo books on Arch Linux</title>
       <link>http://ljwrites.blog/posts/kobo-drm-removal/</link>
@@ -95,15 +95,6 @@ If the above <code>$WINEPREFIX</code> does not work, maybe having it point to a 
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export WINEPREFIX<span style="color:#f92672">=</span>~/.wine32/prefix
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>As a convenience function, I also put a shorthand alias in my <code>~/.bashrc</code> to open Kobo Desktop Edition with a simple command, in my case <code>kobo</code>.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias kobo<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;wine ~/.wine32/drive_c/Program\ Files/Kobo/Kobo.exe&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
 </div><h2 id="install-kobo-desktop-edition-through-wine">Install Kobo Desktop Edition through Wine</h2>
 <p>After setting up Wine, I downloaded the <code>kobosetup.exe</code> file.
 Because nothing can ever be easy, the download button reached through <a href="https://kobosetup.com">https://kobosetup.com</a> didn&rsquo;t work for me and I had to search the button text (&ldquo;Download now&rdquo;) in the page source and then the id of that button for the href attribute.
@@ -126,8 +117,17 @@ As of the date of this blog post (January 12, 2025) the direct link to the file 
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ wine ~/.wine32/drive_c/Program<span style="color:#ae81ff">\ </span>Files/Kobo/Kobo.exe
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>As a convenience function I also put a shorthand alias in my <code>~/.bashrc</code> to open Kobo Desktop Edition with a simple command, in my case <code>kobo</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias kobo<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;wine ~/.wine32/drive_c/Program\ Files/Kobo/Kobo.exe&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div><p>I logged into my account on the Kobo Desktop Edition app and downloaded all the books in my library.
-I&rsquo;m told you need to shut the app down before the next step, which is the actual de-DRM process using the Obok plugin.</p>
+The app should be shut down before the next step, which is the actual de-DRM process using the Obok plugin.</p>
 <h2 id="remove-drm-with-the-obok-plugin-on-calibre">Remove DRM with the Obok plugin on Calibre</h2>
 <p>I already had Calibre installed through the Arch Linux repository:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -140,19 +140,20 @@ I&rsquo;m told you need to shut the app down before the next step, which is the 
 </div>
 </div><p>Obok is part of DeDRM Tools, available through the <a href="https://github.com/apprenticeharper/DeDRM_tools/releases/tag/v7.2.1">Github repo</a>.
 Unzip the file and <code>obok_plugin.zip</code> should be one of the files that appear in the folder.</p>
-<p>As detailed in the <a href="https://github.com/apprenticeharper/DeDRM_tools/blob/master/obok_plugin_ReadMe.txt">the repository&rsquo;s readme file</a>, open Calibre and navigate to Preferences &gt; Plugins and then the &ldquo;Load plugin from file&rdquo; button at the bottom of the Plugins window.
+<p>As detailed in <a href="https://github.com/apprenticeharper/DeDRM_tools/blob/master/obok_plugin_ReadMe.txt">the repository&rsquo;s readme file</a>, open Calibre and navigate to Preferences &gt; Plugins and then the &ldquo;Load plugin from file&rdquo; button at the bottom of the Plugins window.
 Select the <code>obok_plugin.zip</code> file from the file navigation that pops up.
 Choose what menus to access Obok through, then click through the installation.</p>
 <p>I then configured Obok through Preferences &gt; Plugins &gt; Obok to manually set the Kobo Desktop Edition library folder that Obok should access.
 In my case the directory was <code>~/.wine32/drive_c/users/lj/AppData/Local/Kobo/Kobo Desktop Edition</code>.
 I think the folder is automatically detected on Windows and Mac.
 Maybe there&rsquo;s auto-detect on Linux systems, too, but it didn&rsquo;t happen for me, maybe because I installed Obok before Kobo Desktop Edition.</p>
-<p>Click on the Obok icon, which in my case is on the top menu bar of Calibre, which will show decrypted versions of books downloaded through Kobo Desktop Edition.
+<p>Click on the Obok icon, which in my case is on the top menu bar of Calibre, and a popup window will show decrypted versions of books downloaded through Kobo Desktop Edition.
 All that remains is to import them into the Calibre library as DRM-free epubs that you can read on any device and software that supports the format.</p>
 <h2 id="conclusion-and-postscript">Conclusion and postscript</h2>
-<p>Since de-DRM-ing my Kobo library I read my epubs on everything from the Emacs nov-mode package on desktop to Foliate on Steam Deck&rsquo;s desktop mode (a.k.a. my second Arch machine).
-As a result I read more and have more fun doing it, and since my decrypted books are also in local and remote locations through my usual backups I know I won&rsquo;t lose access to them through some whim of the bookshop or publisher.
-I hope DRM removal will be a similarly positive experience for others, too, especially those like me with large Kobo libraries.</p>
+<p>Since de-DRM-ing my Kobo library I&rsquo;ve been reading my epubs on everything from the Emacs nov-mode package on desktop to Foliate on Steam Deck&rsquo;s desktop mode (a.k.a. my second Arch machine).
+It&rsquo;s made reading ebooks more fun and I&rsquo;ve been reading more as a result.
+My decrypted books are also in local and remote locations through my usual backups, so I know I won&rsquo;t lose access to them by some whim of the bookshop or publisher.</p>
+<p>I hope DRM removal will be a similarly positive experience for others, especially those like me with large Kobo libraries.</p>
 ]]></content:encoded>
     </item>
     
