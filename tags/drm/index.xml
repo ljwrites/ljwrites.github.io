@@ -20,12 +20,12 @@
 <p>Late last year I downloaded my Kobo e-books to my Arch Linux computer through the Kobo desktop app and removed DRM protections using Calibre and the Obok plugin.
 See <a href="https://hbr.org/2015/11/the-weird-rules-governing-what-we-download">The Weird Rules Governing What We Download</a> for general background information on DRM protections and why they are anti-consumer (<strong>link changed 2025-01-17</strong>).
 For my part I don&rsquo;t like the reading software and environments that Kobo&rsquo;s DRM restricted me to, and I want to own and control my purchases by being able to read and store my books freely without the risk of losing access to them.</p>
-<p>I&rsquo;ll detail the DRM process here to document it, and so others can follow along if they want.
+<p>I&rsquo;ll detail the de-DRM process here to document it, and so others can follow along if they want.
 Let me know at my email (lj [at] ljwrites [dot] blog) or my Mastodon account above if you have comments or questions,
 I&rsquo;ll try to help you and update the post accordingly.
 If you&rsquo;re on Windows or Mac and don&rsquo;t need to install the Kobo Desktop Edition through Wine, you can skip to the final section on <a href="https://ljwrites.blog/posts/kobo-drm-removal/#remove-drm-with-the-obok-plugin-on-calibre">Calibre and the Obok plugin</a>.</p>
 <p><strong>WARNING (added 2025-01-17): Stripping DRM from your content may be ILLEGAL depending on your jurisdiction.</strong>
-This post comes with no warranties whatsoever that the described activity is legal where you are:
+This post comes with no warranty whatsoever that the described activity is legal where you are:
 There is a possibility that you may be subject to measures such as having your account removed, or to civil, criminal, and other liabilities.
 You should undertake de-DRM solely at your own risk and with whatever advice you feel you need, and I can take no responsibility for the consequences.</p>
 <p>That said, as a practical matter you are unlikely to be detected or pursued as long as you keep your files for your own use on devices you own and don&rsquo;t pirate the books by indiscriminately distributing them.
@@ -155,11 +155,11 @@ Choose what menus to access Obok through, then click through the installation.</
 <p>I then configured Obok through Preferences &gt; Plugins &gt; Obok to manually set the Kobo Desktop Edition library folder that Obok should access.
 In my case the directory was <code>~/.wine32/drive_c/users/lj/AppData/Local/Kobo/Kobo Desktop Edition</code>.
 I think the folder is automatically detected on Windows and Mac.
-Maybe there&rsquo;s auto-detect on Linux systems, too, but it didn&rsquo;t happen for me, maybe because I installed Obok before Kobo Desktop Edition.</p>
+Maybe there&rsquo;s auto-detect on Linux systems, too, but it didn&rsquo;t happen for me.</p>
 <p>Click on the Obok icon, which in my case is on the top menu bar of Calibre, and a popup window will show decrypted versions of books downloaded through Kobo Desktop Edition.
 All that remains is to import them into the Calibre library as DRM-free epubs that you can read on any device and software that supports the format.</p>
 <h2 id="conclusion-and-postscript">Conclusion and postscript</h2>
-<p>Since de-DRM-ing my Kobo library I&rsquo;ve been reading my epubs on everything from the Emacs nov-mode package on desktop to Foliate on Steam Deck&rsquo;s desktop mode (a.k.a. my second Arch machine).
+<p>Since removing DRM restrictions on my Kobo library I&rsquo;ve been reading my epubs on everything from the Emacs nov-mode package on desktop to Foliate on Steam Deck&rsquo;s desktop mode (a.k.a. my second Arch machine).
 It&rsquo;s made reading ebooks more fun and I&rsquo;ve been reading more as a result.
 My decrypted books are also in local and remote locations through my usual backups, so I know I won&rsquo;t lose access to them by some whim of the bookshop or publisher.</p>
 <p>I hope DRM removal will be a similarly positive experience for others, especially those like me with large Kobo libraries.</p>
