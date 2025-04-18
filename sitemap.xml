@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://ljwrites.blog/posts/</loc>
-    <lastmod>2025-03-03T17:55:49+09:00</lastmod>
+    <loc>http://ljwrites.blog/about/</loc>
+    <lastmod>2025-04-18T20:03:55+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/</loc>
+    <lastmod>2025-04-18T20:03:55+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/posts/</loc>
     <lastmod>2025-03-03T17:55:49+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/</loc>
@@ -64,9 +67,6 @@
   </url><url>
     <loc>http://ljwrites.blog/posts/lantern-review-exchanges/</loc>
     <lastmod>2024-08-13T01:02:33+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/about/</loc>
-    <lastmod>2024-08-02T14:18:14+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/history/</loc>
     <lastmod>2025-02-21T13:40:07+09:00</lastmod>

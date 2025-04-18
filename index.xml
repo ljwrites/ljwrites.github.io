@@ -7,7 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Fri, 21 Feb 2025 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Apr 2025 20:03:55 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>http://ljwrites.blog/about/</link>
+      <pubDate>Fri, 18 Apr 2025 20:03:55 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/about/</guid>
+      <description>&lt;h2 id=&#34;who&#34;&gt;Who?&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m L.J., a translator (Korean and English), researcher, and academic/educational writer by trade.
+Happily partnered with a fellow nerd, ADHD mom of an adorable and spirited autistic child.
+I have varied interests including history, specifically the ancient history of Northeast Asia, writing historical fiction esp. about women and queer people in that area, translation, technology (specifically Linux and Emacs), the Korean musical form pansori, political economy, roleplaying games, and more.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="who">Who?</h2>
+<p>I&rsquo;m L.J., a translator (Korean and English), researcher, and academic/educational writer by trade.
+Happily partnered with a fellow nerd, ADHD mom of an adorable and spirited autistic child.
+I have varied interests including history, specifically the ancient history of Northeast Asia, writing historical fiction esp. about women and queer people in that area, translation, technology (specifically Linux and Emacs), the Korean musical form pansori, political economy, roleplaying games, and more.</p>
+<h2 id="contact-social">Contact/social</h2>
+<p>If you want to talk to me about something on this blog or send other inquiries, you can send an email to lj at the url of this site.</p>
+<p>I&rsquo;m also <a href="https://rage.love/@ljwrites">ljwrites</a> on the fediverse at writeout.ink, a <a href="https://joinmastodon.org/">Mastodon</a> instance I run.</p>
+<h2 id="publications">Publications</h2>
+<h3 id="book-review">book review</h3>
+<p><a href="https://exchanges.uiowa.edu/reviews/the-lantern-and-the-night-moths/">Review: The Lantern and the Night Moths</a>, Yilin Wang&rsquo;s collection of modern Chinese poetry translations and original essays (July 2024 on Exchanges: Journal of Literary Translation)</p>
+<h3 id="short-story">short story</h3>
+<p><a href="https://www.alpennia.com/blog/lesbian-historic-motif-podcast-episode-301-very-long-malaise-lj-lee">A Very Long Malaise</a> on the Lesbian Historic Motif Podcast, a short story about bad blood between exes, espionage, intrigue, and community at the royal palace in 18th century Korea.</p>
+<h3 id="poetry">poetry</h3>
+<p><em>A Maiden&rsquo;s War,</em> a verse retelling of Mulan as a transgender woman (accepted to <a href="https://corvidqueen.com/">Corvid Queen</a>)</p>
+<h2 id="archives-inactive">Archives/inactive</h2>
+<p>Here are some of my older web presences, on hiatus/archival for the most part:</p>
+<h3 id="blogs">blogs</h3>
+<p><a href="https://lj-writes.dreamwidth.org/">Dreamwidth</a> - Personal essays and observations, fannish stuff especially <em>Avatar: The Last Airbender</em> and a few Star Wars essays ported over from Tumblr.</p>
+<p><a href="https://lj-writes.tumblr.com/">Tumblr</a> - Mostly a fannish blog. I was big into the Star Wars sequel trilogy at this point.</p>
+<h3 id="fanfic">fanfic</h3>
+<p><a href="https://www.fanfiction.net/~Lunatique">Fanfiction.net</a> - Where most of my fanfic lives. <em>Avatar: The Last Airbender,</em> <em>Inuyasha,</em> even a Disney&rsquo;s <em>Brother Bear</em> fanfic. I also had a <em>Final Fantasy VIII</em> phase.</p>
+<p><a href="https://archiveofourown.org/users/lunafana">Archive of Our Own</a> - I guess this is the cool thing now? There are Star Wars fics on this account that aren&rsquo;t on ffn, plus some fandom exchange stuff. A couple of historical short stories, too.</p>
+<h3 id="videos">videos</h3>
+<p><a href="https://www.youtube.com/user/Lokisdottir/videos?view=0&amp;sort=dd&amp;shelf_id=0">YouTube</a> - I have a tiny channel where I upload the occasional fanvid or lyrics translation video.</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>How I removed DRM from Kobo books on Arch Linux</title>
       <link>http://ljwrites.blog/posts/kobo-drm-removal/</link>
@@ -346,43 +383,6 @@ In this time, the words that Wang imagines Dai Wangshu speaking across the expan
 <p>—</p>
 <p><em>L.J. Lee is a professional legal translator from Korea, writer of historical fiction and occasional translator of classical Chinese poetry. Her essays and translations can be found at <a href="https://ljwrites.blog/">https://ljwrites.blog/</a> and she is on the Fediverse as @ljwrites@writeout.ink.
 Her short story about palace espionage, romance, and queer community in 18th century Korea is coming out this year on the Lesbian Historic Motif Podcast.</em></p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>http://ljwrites.blog/about/</link>
-      <pubDate>Fri, 02 Aug 2024 14:18:14 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/about/</guid>
-      <description>&lt;h2 id=&#34;who&#34;&gt;Who?&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;m L.J., a translator (Korean and English), researcher, and academic/educational writer by trade.
-Happily partnered with a fellow nerd, ADHD mom of an adorable and spirited autistic child.
-I have varied interests including history, specifically the ancient history of Northeast Asia, writing historical fiction esp. about women and queer people in that area, translation, technology (specifically Linux and Emacs), the Korean musical form pansori, political economy, roleplaying games, and more.&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<h2 id="who">Who?</h2>
-<p>I&rsquo;m L.J., a translator (Korean and English), researcher, and academic/educational writer by trade.
-Happily partnered with a fellow nerd, ADHD mom of an adorable and spirited autistic child.
-I have varied interests including history, specifically the ancient history of Northeast Asia, writing historical fiction esp. about women and queer people in that area, translation, technology (specifically Linux and Emacs), the Korean musical form pansori, political economy, roleplaying games, and more.</p>
-<h2 id="contact-social">Contact/social</h2>
-<p>If you want to talk to me about something on this blog or send other inquiries, you can send an email to lj at the url of this site.</p>
-<p>I&rsquo;m also <a href="https://rage.love/@ljwrites">ljwrites</a> on the fediverse at writeout.ink, a <a href="https://joinmastodon.org/">Mastodon</a> instance I run.</p>
-<h2 id="publications">Publications</h2>
-<h3 id="book-review">book review</h3>
-<p><a href="https://exchanges.uiowa.edu/reviews/the-lantern-and-the-night-moths/">Review: The Lantern and the Night Moths</a>, Yilin Wang&rsquo;s collection of modern Chinese poetry translations and original essays (July 2024 on Exchanges: Journal of Literary Translation)</p>
-<h3 id="short-story">short story</h3>
-<p><em>A Very Long Malaise,</em> about espionage, romance, and queer community at the royal palace in 18th century Korea (forthcoming on the <a href="https://alpennia.com/lhmp">Lesbian Historic Motif Podcast</a>)</p>
-<h3 id="poetry">poetry</h3>
-<p><em>A Maiden&rsquo;s War,</em> a verse retelling of Mulan as a transgender woman (accepted to <a href="https://corvidqueen.com/">Corvid Queen</a>)</p>
-<h2 id="archives-inactive">Archives/inactive</h2>
-<p>Here are some of my older web presences, on hiatus/archival for the most part:</p>
-<h3 id="blogs">blogs</h3>
-<p><a href="https://lj-writes.dreamwidth.org/">Dreamwidth</a> - Personal essays and observations, fannish stuff especially <em>Avatar: The Last Airbender</em> and a few Star Wars essays ported over from Tumblr.</p>
-<p><a href="https://lj-writes.tumblr.com/">Tumblr</a> - Mostly a fannish blog. I was big into the Star Wars sequel trilogy at this point.</p>
-<h3 id="fanfic">fanfic</h3>
-<p><a href="https://www.fanfiction.net/~Lunatique">Fanfiction.net</a> - Where most of my fanfic lives. <em>Avatar: The Last Airbender,</em> <em>Inuyasha,</em> even a Disney&rsquo;s <em>Brother Bear</em> fanfic. I also had a <em>Final Fantasy VIII</em> phase.</p>
-<p><a href="https://archiveofourown.org/users/lunafana">Archive of Our Own</a> - I guess this is the cool thing now? There are Star Wars fics on this account that aren&rsquo;t on ffn, plus some fandom exchange stuff. A couple of historical short stories, too.</p>
-<h3 id="videos">videos</h3>
-<p><a href="https://www.youtube.com/user/Lokisdottir/videos?view=0&amp;sort=dd&amp;shelf_id=0">YouTube</a> - I have a tiny channel where I upload the occasional fanvid or lyrics translation video.</p>
 ]]></content:encoded>
     </item>
     
