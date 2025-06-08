@@ -2,17 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://ljwrites.blog/categories/</loc>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/categories/history/</loc>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/korea/</loc>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/lesbians/</loc>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
+  </url><url>
     <loc>http://ljwrites.blog/posts/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/queerhistory/</loc>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/posts/sossang-danji/</loc>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/tags/</loc>
+    <lastmod>2025-06-08T14:40:45+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/about/</loc>
     <lastmod>2025-05-15T01:10:11+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/categories/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/drm/</loc>
     <lastmod>2025-02-16T15:01:00+09:00</lastmod>
@@ -28,9 +46,6 @@
   </url><url>
     <loc>http://ljwrites.blog/tags/linux/</loc>
     <lastmod>2025-02-16T15:01:00+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/tags/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/technology/</loc>
     <lastmod>2025-02-16T15:01:00+09:00</lastmod>
@@ -68,12 +83,6 @@
     <loc>http://ljwrites.blog/posts/lantern-review-exchanges/</loc>
     <lastmod>2025-04-18T22:35:03+09:00</lastmod>
   </url><url>
-    <loc>http://ljwrites.blog/categories/history/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/tags/korea/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
-  </url><url>
     <loc>http://ljwrites.blog/tags/queer/</loc>
     <lastmod>2024-09-23T12:18:55+09:00</lastmod>
   </url><url>
@@ -103,15 +112,6 @@
   </url><url>
     <loc>http://ljwrites.blog/posts/sad-sacked-review/</loc>
     <lastmod>2024-07-19T12:47:19+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/tags/lesbians/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/tags/queerhistory/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/posts/sossang-danji/</loc>
-    <lastmod>2025-06-08T14:30:00+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/law/</loc>
     <lastmod>2024-07-19T13:04:59+09:00</lastmod>

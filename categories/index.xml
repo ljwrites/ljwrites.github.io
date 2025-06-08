@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Jun 2025 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>History</title>
+      <link>http://ljwrites.blog/categories/history/</link>
+      <pubDate>Sun, 08 Jun 2025 00:00:00 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/categories/history/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Technology</title>
       <link>http://ljwrites.blog/categories/technology/</link>
@@ -34,16 +44,6 @@
       <pubDate>Mon, 05 Aug 2024 00:00:00 +0900</pubDate>
       
       <guid>http://ljwrites.blog/categories/fannish/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>History</title>
-      <link>http://ljwrites.blog/categories/history/</link>
-      <pubDate>Thu, 01 Aug 2024 00:00:00 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/categories/history/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
