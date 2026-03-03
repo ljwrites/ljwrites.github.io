@@ -7,7 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>CC BY-NC</copyright>
-    <lastBuildDate>Wed, 06 Aug 2025 00:00:00 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Mar 2026 01:40:46 +0900</lastBuildDate><atom:link href="http://ljwrites.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>http://ljwrites.blog/about/</link>
+      <pubDate>Wed, 04 Mar 2026 01:40:46 +0900</pubDate>
+      
+      <guid>http://ljwrites.blog/about/</guid>
+      <description>&lt;h2 id=&#34;who&#34;&gt;Who?&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m L.J., a translator (Korean and English), researcher, and academic/educational writer by trade.
+Happily partnered with a fellow nerd, ADHD mom of an adorable and spirited autistic child.
+I have varied interests including history, specifically the ancient history of Northeast Asia, writing historical fiction esp. about women and queer people in that area, translation, technology (specifically Linux and Emacs), the Korean musical form pansori, political economy, roleplaying games, and more.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="who">Who?</h2>
+<p>I&rsquo;m L.J., a translator (Korean and English), researcher, and academic/educational writer by trade.
+Happily partnered with a fellow nerd, ADHD mom of an adorable and spirited autistic child.
+I have varied interests including history, specifically the ancient history of Northeast Asia, writing historical fiction esp. about women and queer people in that area, translation, technology (specifically Linux and Emacs), the Korean musical form pansori, political economy, roleplaying games, and more.</p>
+<h2 id="contact-social">Contact/social</h2>
+<p>If you want to talk to me about something on this blog or send other inquiries, you can send an email to lj at the url of this site.</p>
+<p>I&rsquo;m also <a href="https://writeout.ink/@ljwrites">ljwrites</a> on the fediverse at writeout.ink, a <a href="https://joinmastodon.org/">Mastodon</a> instance I run.</p>
+<h2 id="publications">Publications</h2>
+<h3 id="book-review">book review</h3>
+<p><a href="https://exchanges.uiowa.edu/reviews-1-1-1">Review: The Lantern and the Night Moths</a>, Yilin Wang&rsquo;s collection of modern Chinese poetry translations and original essays (July 2024 on Exchanges: Journal of Literary Translation)</p>
+<h3 id="short-fiction">short fiction</h3>
+<p><a href="https://www.alpennia.com/blog/lesbian-historic-motif-podcast-episode-301-very-long-malaise-lj-lee">A Very Long Malaise</a> on the Lesbian Historic Motif Podcast, a short story about bad blood between exes, espionage, intrigue, and community at the royal palace in 18th century Korea.</p>
+<p>Between One Word and the Next is upcoming as part of the Lesbian Historic Motif Podcast&rsquo;s 2026 fiction series. It is based on the <a href="https://ljwrites.blog/posts/sossang-danji/">love story between 15th-century enslaved women</a> preyed on by a Crown Princess Consort.</p>
+<h3 id="poetry">poetry</h3>
+<p><a href="https://corvidqueen.com/stories/a-maidens-war-lj-lee">A Maiden&rsquo;s War</a>, a verse retelling of Mulan as a transgender woman for The Corvid Queen.
+It takes its form and meter from my <a href="https://ljwrites.blog/posts/ballad-of-mulan/">2020 translation</a> of the original Ballad of Mulan.</p>
+<p>The Building Across the Way, a multi-directional shaped poem about strangers&rsquo; windows and lives, was published in the <a href="https://thecarrierbag.org/issues/a-new-leaf/">inaugural issue of The Carrier Bag</a>!</p>
+<h2 id="archives-inactive">Archives/inactive</h2>
+<p>Here are some of my older web presences, on hiatus/archival for the most part:</p>
+<h3 id="blogs">blogs</h3>
+<p><a href="https://lj-writes.dreamwidth.org/">Dreamwidth</a> - Personal essays and observations, fannish stuff especially <em>Avatar: The Last Airbender</em> and a few Star Wars essays ported over from Tumblr.</p>
+<p><a href="https://lj-writes.tumblr.com/">Tumblr</a> - Mostly a fannish blog. I was big into the Star Wars sequel trilogy at this point.</p>
+<h3 id="fanfic">fanfic</h3>
+<p><a href="https://www.fanfiction.net/~Lunatique">Fanfiction.net</a> - Where most of my fanfic lives. <em>Avatar: The Last Airbender,</em> <em>Inuyasha,</em> even a Disney&rsquo;s <em>Brother Bear</em> fanfic. I also had a <em>Final Fantasy VIII</em> phase.</p>
+<p><a href="https://archiveofourown.org/users/lunafana">Archive of Our Own</a> - I guess this is the cool thing now? There are Star Wars fics on this account that aren&rsquo;t on ffn, plus some fandom exchange stuff. A couple of historical short stories, too.</p>
+<h3 id="videos">videos</h3>
+<p><a href="https://www.youtube.com/user/Lokisdottir/videos?view=0&amp;sort=dd&amp;shelf_id=0">YouTube</a> - I have a tiny channel where I upload the occasional fanvid or lyrics translation video.</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Sossang and Danji: 15th century Korean maidservants in love</title>
       <link>http://ljwrites.blog/posts/sossang-danji/</link>
@@ -293,43 +333,6 @@ Perhaps these women were moved by a less lofty and more abiding power to be so c
     </item>
     
     <item>
-      <title>About Me</title>
-      <link>http://ljwrites.blog/about/</link>
-      <pubDate>Thu, 15 May 2025 01:10:11 +0900</pubDate>
-      
-      <guid>http://ljwrites.blog/about/</guid>
-      <description>&lt;h2 id=&#34;who&#34;&gt;Who?&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;m L.J., a translator (Korean and English), researcher, and academic/educational writer by trade.
-Happily partnered with a fellow nerd, ADHD mom of an adorable and spirited autistic child.
-I have varied interests including history, specifically the ancient history of Northeast Asia, writing historical fiction esp. about women and queer people in that area, translation, technology (specifically Linux and Emacs), the Korean musical form pansori, political economy, roleplaying games, and more.&lt;/p&gt;</description>
-      <content:encoded><![CDATA[<h2 id="who">Who?</h2>
-<p>I&rsquo;m L.J., a translator (Korean and English), researcher, and academic/educational writer by trade.
-Happily partnered with a fellow nerd, ADHD mom of an adorable and spirited autistic child.
-I have varied interests including history, specifically the ancient history of Northeast Asia, writing historical fiction esp. about women and queer people in that area, translation, technology (specifically Linux and Emacs), the Korean musical form pansori, political economy, roleplaying games, and more.</p>
-<h2 id="contact-social">Contact/social</h2>
-<p>If you want to talk to me about something on this blog or send other inquiries, you can send an email to lj at the url of this site.</p>
-<p>I&rsquo;m also <a href="https://writeout.ink/@ljwrites">ljwrites</a> on the fediverse at writeout.ink, a <a href="https://joinmastodon.org/">Mastodon</a> instance I run.</p>
-<h2 id="publications">Publications</h2>
-<h3 id="book-review">book review</h3>
-<p><a href="https://exchanges.uiowa.edu/reviews-1-1-1">Review: The Lantern and the Night Moths</a>, Yilin Wang&rsquo;s collection of modern Chinese poetry translations and original essays (July 2024 on Exchanges: Journal of Literary Translation)</p>
-<h3 id="short-fiction">short fiction</h3>
-<p><a href="https://www.alpennia.com/blog/lesbian-historic-motif-podcast-episode-301-very-long-malaise-lj-lee">A Very Long Malaise</a> on the Lesbian Historic Motif Podcast, a short story about bad blood between exes, espionage, intrigue, and community at the royal palace in 18th century Korea.</p>
-<h3 id="poetry">poetry</h3>
-<p><em>A Maiden&rsquo;s War,</em> a verse retelling of Mulan as a transgender woman (accepted to <a href="https://corvidqueen.com/">Corvid Queen</a>)</p>
-<h2 id="archives-inactive">Archives/inactive</h2>
-<p>Here are some of my older web presences, on hiatus/archival for the most part:</p>
-<h3 id="blogs">blogs</h3>
-<p><a href="https://lj-writes.dreamwidth.org/">Dreamwidth</a> - Personal essays and observations, fannish stuff especially <em>Avatar: The Last Airbender</em> and a few Star Wars essays ported over from Tumblr.</p>
-<p><a href="https://lj-writes.tumblr.com/">Tumblr</a> - Mostly a fannish blog. I was big into the Star Wars sequel trilogy at this point.</p>
-<h3 id="fanfic">fanfic</h3>
-<p><a href="https://www.fanfiction.net/~Lunatique">Fanfiction.net</a> - Where most of my fanfic lives. <em>Avatar: The Last Airbender,</em> <em>Inuyasha,</em> even a Disney&rsquo;s <em>Brother Bear</em> fanfic. I also had a <em>Final Fantasy VIII</em> phase.</p>
-<p><a href="https://archiveofourown.org/users/lunafana">Archive of Our Own</a> - I guess this is the cool thing now? There are Star Wars fics on this account that aren&rsquo;t on ffn, plus some fandom exchange stuff. A couple of historical short stories, too.</p>
-<h3 id="videos">videos</h3>
-<p><a href="https://www.youtube.com/user/Lokisdottir/videos?view=0&amp;sort=dd&amp;shelf_id=0">YouTube</a> - I have a tiny channel where I upload the occasional fanvid or lyrics translation video.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
       <title>How I removed DRM from Kobo books on Arch Linux</title>
       <link>http://ljwrites.blog/posts/kobo-drm-removal/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0900</pubDate>
@@ -427,8 +430,9 @@ If the above <code>$WINEPREFIX</code> does not work, maybe having it point to a 
 </div>
 </div><h2 id="install-kobo-desktop-edition-through-wine">Install Kobo Desktop Edition through Wine</h2>
 <p>After setting up Wine, I downloaded the <code>kobosetup.exe</code> file.
-Because nothing can ever be easy, the download button reached through <a href="https://kobosetup.com">https://kobosetup.com</a> didn&rsquo;t work for me and I had to search the button text (&ldquo;Download now&rdquo;) in the page source and then the id of that button for the href attribute.
-As of the date of this blog post (January 12, 2025) the direct link to the file is <a href="https://cdn.kobo.com/downloads/desktop/kobodesktop/kobosetup.exe">https://cdn.kobo.com/downloads/desktop/kobodesktop/kobosetup.exe</a> , but that may change in the future.</p>
+<strong>Updated on 2025-11-11:</strong> The easiest way is to grab the executable linked at the &ldquo;Install Kobo Desktop on Windows&rdquo; section of the <a href="https://help.kobo.com/hc/en-us/articles/360020121953-Install-Kobo-Desktop-on-your-PC-or-Mac">Install Kobo Desktop on your PC or Mac</a> page.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
+<del>Because nothing can ever be easy, the download button reached through <a href="https://kobosetup.com">https://kobosetup.com</a> didn&rsquo;t work for me and I had to search the button text (&ldquo;Download now&rdquo;) in the page source and then the id of that button for the href attribute.</del>
+<del>As of the date of this blog post (January 12, 2025) the direct link to the file is <a href="https://cdn.kobo.com/downloads/desktop/kobodesktop/kobosetup.exe">https://cdn.kobo.com/downloads/desktop/kobodesktop/kobosetup.exe</a> , but that may change in the future.</del></p>
 <p>I then executed the file through Wine:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -484,6 +488,14 @@ All that remains is to import them into the Calibre library as DRM-free epubs th
 It&rsquo;s made reading ebooks more fun and I&rsquo;ve been reading more as a result.
 My decrypted books are also in local and remote locations through my usual backups, so I know I won&rsquo;t lose access to them by some whim of the bookshop or publisher.</p>
 <p>I hope DRM removal will be a similarly positive experience for others, especially those like me with large Kobo libraries.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Many thanks to a kind reader (who did not want credit) for telling me about this link!&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
 ]]></content:encoded>
     </item>
     

@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://ljwrites.blog/posts/</loc>
-    <lastmod>2025-06-15T22:05:15+09:00</lastmod>
+    <loc>http://ljwrites.blog/about/</loc>
+    <lastmod>2026-03-04T01:40:46+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/</loc>
-    <lastmod>2025-06-15T22:05:15+09:00</lastmod>
+    <lastmod>2026-03-04T01:40:46+09:00</lastmod>
+  </url><url>
+    <loc>http://ljwrites.blog/posts/</loc>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/</loc>
-    <lastmod>2025-06-15T22:05:15+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/history/</loc>
-    <lastmod>2025-06-15T22:05:15+09:00</lastmod>
+    <lastmod>2025-06-29T10:39:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/korea/</loc>
-    <lastmod>2025-06-15T22:05:15+09:00</lastmod>
+    <lastmod>2025-06-29T10:39:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/lesbians/</loc>
     <lastmod>2025-06-15T22:05:15+09:00</lastmod>
@@ -27,31 +30,28 @@
     <lastmod>2025-06-15T22:05:15+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/</loc>
-    <lastmod>2025-06-15T22:05:15+09:00</lastmod>
-  </url><url>
-    <loc>http://ljwrites.blog/about/</loc>
-    <lastmod>2025-05-15T01:10:11+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/drm/</loc>
-    <lastmod>2025-02-16T15:01:00+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/ebooks/</loc>
-    <lastmod>2025-02-16T15:01:00+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/kobo-drm-removal/</loc>
-    <lastmod>2025-02-16T15:01:00+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/kobo/</loc>
-    <lastmod>2025-02-16T15:01:00+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/linux/</loc>
-    <lastmod>2025-02-16T15:01:00+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/categories/technology/</loc>
-    <lastmod>2025-02-16T15:01:00+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/tutorial/</loc>
-    <lastmod>2025-02-16T15:01:00+09:00</lastmod>
+    <lastmod>2025-11-12T00:46:25+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/fandom/</loc>
     <lastmod>2024-10-26T13:54:40+09:00</lastmod>
@@ -72,7 +72,7 @@
     <lastmod>2025-04-18T22:35:24+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/poetry/</loc>
-    <lastmod>2025-04-18T22:35:24+09:00</lastmod>
+    <lastmod>2025-06-29T10:39:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/publication/</loc>
     <lastmod>2025-04-18T22:35:03+09:00</lastmod>
@@ -84,10 +84,10 @@
     <lastmod>2025-04-18T22:35:03+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/tags/queer/</loc>
-    <lastmod>2024-09-23T12:18:55+09:00</lastmod>
+    <lastmod>2025-06-29T10:39:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/queer-premodern-korea/</loc>
-    <lastmod>2024-09-23T12:18:55+09:00</lastmod>
+    <lastmod>2025-06-29T10:39:16+09:00</lastmod>
   </url><url>
     <loc>http://ljwrites.blog/posts/lantern-night-moths-review/</loc>
     <lastmod>2025-04-18T22:35:24+09:00</lastmod>
